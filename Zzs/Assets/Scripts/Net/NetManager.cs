@@ -13,27 +13,22 @@ using System.Linq;
 using Newtonsoft.Json;
 
 
-public class NetManager:MonoBehaviour
+public static class NetManager
 {
-    private Socket ClientSocket;
+    private static Socket ClientSocket;
 
-    private static NetManager instance;
-    public static NetManager Instance { get => instance; set => instance = value; }
+    private static Dictionary<KeyValuePair<long,long>,HandlerBase> ProctoolDic;
 
-    private Dictionary<KeyValuePair<long,long>,HandlerBase> ProctoolDic;
-
-    public void Start()
+    public static void InitNet()
     {
         ClientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
         ClientSocket.Connect(ConnectInfo.ipAddress, ConnectInfo.Port);
 
-        instance = this;
-
         Debug.Log("NetManager初始化完成");
     }
 
-    public void Revceive()
+    public static void Revceive()
     {
         if (ClientSocket.Connected == false || ClientSocket.Poll(10, SelectMode.SelectRead))
         {
@@ -66,7 +61,7 @@ public class NetManager:MonoBehaviour
         }
     }
 
-    public void SendtoServer(long ProtocolNumber, AsyncCallback callback = null)
+    public static void SendtoServer(long ProtocolNumber, AsyncCallback callback = null)
     {
         byte[] ClientData = new byte[0];
 
@@ -85,7 +80,7 @@ public class NetManager:MonoBehaviour
         Revceive();
     }
 
-    public void SendtoServer<T>(long ProtocolNumber,T t, AsyncCallback callback = null)
+    public static void SendtoServer<T>(long ProtocolNumber,T t, AsyncCallback callback = null)
     {
         string json = JsonConvert.SerializeObject(t);
         var ClientData = Encoding.UTF8.GetBytes(json); //字节类型的内容
@@ -102,7 +97,7 @@ public class NetManager:MonoBehaviour
         Revceive();
     }
 
-    public void Handler(long ProtocolNumber, string jsonStr)
+    public static void Handler(long ProtocolNumber, string jsonStr)
     {
         HandlerBase handler = null;
         foreach(var it in ProctoolInfo.ProctoolDic)
@@ -123,7 +118,7 @@ public class NetManager:MonoBehaviour
         handler.Handler(ProtocolNumber, jsonStr);
     }
 
-    public void OnDestroy()
+    public static void CloseNet()
     {
         ClientSocket.Shutdown(SocketShutdown.Both);
         ClientSocket.Close();

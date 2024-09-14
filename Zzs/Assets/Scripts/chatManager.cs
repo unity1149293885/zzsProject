@@ -63,7 +63,7 @@ public class chatManager : MonoBehaviour
 
         dog.SkillIdList = skillList;
 
-        NetManager.Instance.SendtoServer<Animal>(200001, dog);
+        NetManager.SendtoServer<Animal>(200001, dog);
 
         content_input.text = "";
 
@@ -75,7 +75,7 @@ public class chatManager : MonoBehaviour
         People MrWang = new People();
         MrWang.name = "王线";
 
-        NetManager.Instance.SendtoServer<People>(200003, MrWang);
+        NetManager.SendtoServer<People>(200003, MrWang);
     }
 
     // Update is called once per frame

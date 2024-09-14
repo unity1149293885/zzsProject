@@ -25,6 +25,7 @@ public class StartPanel : MonoBehaviour
     public Button Regiester_Btn;
     public InputField Input_Regiestername;
     public InputField Input_Regiesterphone;
+    public InputField Input_Regiestertype;
 
     // 加载进度
     float loadPro = 0;
@@ -33,12 +34,10 @@ public class StartPanel : MonoBehaviour
     AsyncOperation AsyncOp = null;
 
     public UserType userType;
-
-    public static StartPanel Instance;
+    
 
     private void Awake()
     {
-        Instance= this;
         //Application.targetFrameRate = 60;
 
         //loadText.SetActive(false);
@@ -50,9 +49,7 @@ public class StartPanel : MonoBehaviour
         OpenRegiester_Btn.onClick.AddListener(open_Regiester);
         CloseRegiester_Btn.onClick.AddListener(close_Regiester);
         Regiester_Btn.onClick.AddListener(RegiesterUser);
-
-
-        //XMLTools.Instance.ReadUserXml();
+        
 
         EventCenter.AddListener<LoginCode>(EventType.UpdateLoginState, UpdateState);
     }
@@ -97,28 +94,37 @@ public class StartPanel : MonoBehaviour
 
         };
 
-        NetManager.Instance.SendtoServer<LoginReq>(100001, data, callback);
+        NetManager.SendtoServer<LoginReq>(100001, data, callback);
     }
+    
 
     //传入状态码
     public void UpdateState(LoginCode StateCode)
     {
         if (StateCode == LoginCode.Login_Success)
         {
+            MessageTip.showTip("登录成功");
             //进入新场景
-            LoadGroup.SetActive(true);
-            AsyncOp = SceneManager.LoadSceneAsync("mainScene", LoadSceneMode.Single);//异步加载场景名为"Demo Valley"的场景,LoadSceneMode.Single表示不保留现有场景
-            AsyncOp.allowSceneActivation = false;//allowSceneActivation =true表示场景加载完成后自动跳转,经测,此值默认为true
+            //LoadGroup.SetActive(true);
+            //AsyncOp = SceneManager.LoadSceneAsync("mainScene", LoadSceneMode.Single);//异步加载场景名为"Demo Valley"的场景,LoadSceneMode.Single表示不保留现有场景
+            //AsyncOp.allowSceneActivation = false;//allowSceneActivation =true表示场景加载完成后自动跳转,经测,此值默认为true
             return;
+        }
+        else if (StateCode == LoginCode.Register_Success)
+        {
+            MessageTip.showTip("注册成功");
         }
         else
         {
             switch (StateCode) {
                 case LoginCode.Login_Fail_PasswordError:
-                    EventCenter.Broadcast<string>(EventType.UpdateMessageBox, "名字对应手机号校验失败 请检查！");
+                    MessageTip.showOneSelect("登录失败：名字对应手机号校验失败 请检查！", "重试");
                     break;
                 case LoginCode.Login_Fail_UnLogin:
-                    EventCenter.Broadcast<string>(EventType.UpdateMessageBox, "未注册 请联系管理员！");
+                    MessageTip.showOneSelect("登录失败：未注册 请联系管理员！！", "重试");
+                    break;
+                case LoginCode.Register_Fail_isHave:
+                    MessageTip.showOneSelect("注册失败：该名字已注册", "重试");
                     break;
             }
         }
@@ -144,12 +150,14 @@ public class StartPanel : MonoBehaviour
     {
         string name = Input_Regiestername.text;
         string phone = Input_Regiesterphone.text;
-        if (Input_name.text == "" || Input_phone.text == "")
+        if (name == "" || phone == "")
         {
             EventCenter.Broadcast<string>(EventType.UpdateMessageBox, "名字或电话号不能为空");
             return;
         }
-
+        int type = int.Parse(Input_Regiestertype.text);
+        var req = new RegiesterUserReq(name, phone, (UserType)type);
+        NetManager.SendtoServer<RegiesterUserReq>(100003, req);
     }
     #endregion
 

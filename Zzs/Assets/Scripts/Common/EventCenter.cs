@@ -72,6 +72,22 @@ public class EventCenter
         }
         m_EventTable[type] = (Callback< T, X, Y>)m_EventTable[type] + callback;
     }
+    //添加监听(4参数）
+    public static void AddListener<T, X, Y, Z>(EventType type, Callback<T, X, Y, Z> callback)
+    {
+        if (!m_EventTable.ContainsKey(type))
+        {
+            m_EventTable.Add(type, null);
+        }
+
+        var d = m_EventTable[type];
+        if (d != null && callback.GetType() != d.GetType())
+        {
+            Debug.LogError("添加监听失败：添加的事件类型，和当前注册码的类型不一致！");
+            return;
+        }
+        m_EventTable[type] = (Callback<T, X, Y, Z>)m_EventTable[type] + callback;
+    }
 
     //移除监听
     public static void RemoveListener(EventType type, Callback callback)
@@ -171,6 +187,31 @@ public class EventCenter
         }
     }
 
+    //移除监听(4参数）
+    public static void RemoveListener<T, X, Y,Z>(EventType type, Callback<T, X, Y, Z> callback)
+    {
+        if (!m_EventTable.ContainsKey(type))
+        {
+            Debug.LogError("移除监听失败：注册表中没有该注册码");
+        }
+        else
+        {
+            var d = m_EventTable[type];
+            if (d == null)
+            {
+                Debug.LogError("移除监听失败：注册表中该注册码,对应的事件为空");
+            }
+            else
+            {
+                if (d.GetType() != callback.GetType())
+                {
+                    Debug.LogError("移除监听失败：移除的事件类型，和当前注册码的类型不一致！");
+                }
+            }
+            m_EventTable[type] = (Callback<T, X, Y, Z>)m_EventTable[type] - callback;
+        }
+    }
+
     //广播事件
     public static void Broadcast(EventType type)
     {
@@ -246,6 +287,27 @@ public class EventCenter
             {
                 callback(t,x,y);
                 Debug.Log("3参广播 时间码：" + type);
+            }
+            else
+            {
+                Debug.LogError(string.Format("广播事件错误：事件{0}对应委托具有不同的类型", type));
+            }
+        }
+    }
+
+    //广播事件（3参数）
+    public static void Broadcast<T, X, Y ,Z>(EventType type, T t, X x, Y y,Z z)
+    {
+        var de = m_EventTable[type];
+
+        Delegate d;
+        if (m_EventTable.TryGetValue(type, out d))
+        {
+            Callback<T, X, Y, Z> callback = d as Callback<T, X, Y, Z>;
+            if (callback != null)
+            {
+                callback(t, x, y, z);
+                Debug.Log("4参广播 时间码：" + type);
             }
             else
             {

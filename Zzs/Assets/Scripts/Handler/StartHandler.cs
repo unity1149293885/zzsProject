@@ -11,9 +11,14 @@ public class StartHandler : HandlerBase
         switch (ProtocolNumber)
         {
             case 100002:
-                LoginRst rst = JsonConvert.DeserializeObject<LoginRst>(jsonStr);
+                LoginRst login_rst = JsonConvert.DeserializeObject<LoginRst>(jsonStr);
 
-                EventCenter.Broadcast<LoginCode>(EventType.UpdateLoginState, rst.StateCode);
+                EventCenter.Broadcast<LoginCode>(EventType.UpdateLoginState, login_rst.StateCode);
+                break;
+            case 100004:
+                RegiesterUserRst reg_rst = JsonConvert.DeserializeObject<RegiesterUserRst>(jsonStr);
+
+                EventCenter.Broadcast<LoginCode>(EventType.UpdateLoginState, reg_rst.StateCode);
                 break;
         }
     }

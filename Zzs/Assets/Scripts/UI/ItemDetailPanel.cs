@@ -54,7 +54,7 @@ public class ItemDetailPanel : MonoBehaviour
     {
         //Debug.LogError(iteminfo.My_id);
         this.itemInfo = iteminfo;
-        userType = StartPanel.Instance.GetCurUserType();
+        //userType = StartPanel.Instance.GetCurUserType();
 
         Name_value.text = iteminfo.My_name;
         Brand_value.text = iteminfo.My_brand.ToString();

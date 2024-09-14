@@ -45,7 +45,7 @@ public class MainPanel : MonoBehaviour
 
         sift_Button.onClick.AddListener(UpdateMainPanel);
 
-        userType = StartPanel.Instance.GetCurUserType();
+        //userType = StartPanel.Instance.GetCurUserType();
 
         InitMainPanel();
     }

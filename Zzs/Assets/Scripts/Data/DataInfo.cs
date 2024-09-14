@@ -39,49 +39,4 @@ public enum UserType
     Broker,
 }
 
-#region 登录数据
-public enum Login_state
-{
-    logined = 1,
-    unlogin = 2
-}
 
-public class LoginReq
-{
-    public string Name;
-    public string Phone;
-    public DateTime Time;
-}
-
-public class LoginRst
-{
-    public LoginCode StateCode;
-    public int uid;
-}
-
-public enum LoginCode
-{
-    //10001 登录成功
-    //20001 密码错误
-    //20002 未注册
-    Login_Success = 10001,
-    Login_Fail_PasswordError = 20001,
-    Login_Fail_UnLogin = 20002,
-}
-#endregion
-
-#region 注册用户
-
-#endregion
-
-public class RegiesterUserReq
-{
-    public string name;
-    public string phone;
-    public UserType type;
-}
-
-public class RegiesterUserRst
-{
-    public bool isSuccess;
-}
