@@ -53,29 +53,29 @@ public class chatManager : MonoBehaviour
     public void ClickSend()
     {
         //SendtoServer(100003, content_input.text);
-        Animal dog = new Animal();
-        dog.id = 1001;
-        dog.name = "狗";
-        List<int> skillList = new List<int>(); ;
-        skillList.Add(123);
-        skillList.Add(324);
-        skillList.Add(17);
+        //Animal dog = new Animal();
+        //dog.id = 1001;
+        //dog.name = "狗";
+        //List<int> skillList = new List<int>(); ;
+        //skillList.Add(123);
+        //skillList.Add(324);
+        //skillList.Add(17);
 
-        dog.SkillIdList = skillList;
+        //dog.SkillIdList = skillList;
 
-        NetManager.SendtoServer<Animal>(200001, dog);
+        //NetManager.SendtoServer<Animal>(200001, dog);
 
-        content_input.text = "";
+        //content_input.text = "";
 
-        Debug.Log("客户端-》服务端请求登录：发送文本" + content_input.text);
+        //Debug.Log("客户端-》服务端请求登录：发送文本" + content_input.text);
     }
 
     public void GetInfo()
     {
-        People MrWang = new People();
-        MrWang.name = "王线";
+        //People MrWang = new People();
+        //MrWang.name = "王线";
 
-        NetManager.SendtoServer<People>(200003, MrWang);
+        //NetManager.SendtoServer<People>(200003, MrWang);
     }
 
     // Update is called once per frame

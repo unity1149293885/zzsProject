@@ -30,6 +30,7 @@ public class LoginReq
 public class LoginRst
 {
     public LoginCode StateCode;
+    public UserType userType;
     public int uid;
 }
 

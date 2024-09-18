@@ -3,21 +3,16 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class DataManager : MonoBehaviour
+public static class DataManager
 {
-    public Dictionary<int, UserInfo> AllUserInfos = new Dictionary<int, UserInfo>();
+    public static Dictionary<int, UserInfo> AllUserInfos = new Dictionary<int, UserInfo>();
 
-    public List<ItemInfo> AllItemInfos = new List<ItemInfo>();
+    public static UserInfo MyUserInfo;
 
-    public static DataManager Instance;
-
-    private void Awake()
-    {
-        Instance = this;
-    }
-
+    public static List<ItemInfo> AllItemInfos = new List<ItemInfo>();
+    
     //通过代理价筛选
-    public List<ItemInfo> GetBrokerPriceRangeItemList(List<ItemInfo> List, int low,int high)
+    public static List<ItemInfo> GetBrokerPriceRangeItemList(List<ItemInfo> List, int low,int high)
     {
         List<ItemInfo> ans = new List<ItemInfo>();
         for(int i = 0; i < List.Count; i++)
@@ -32,7 +27,7 @@ public class DataManager : MonoBehaviour
     }
 
     //通过产品类型筛选
-    public List<ItemInfo> GetTypeRangeItemList(List<ItemInfo> List, ItemType type)
+    public static List<ItemInfo> GetTypeRangeItemList(List<ItemInfo> List, ItemType type)
     {
         List<ItemInfo> ans = new List<ItemInfo>();
         for (int i = 0; i < List.Count; i++)
@@ -47,7 +42,7 @@ public class DataManager : MonoBehaviour
     }
 
     //通过产品品牌筛选
-    public List<ItemInfo> GetBrandRangeItemList(List<ItemInfo> List,Brand brand)
+    public static List<ItemInfo> GetBrandRangeItemList(List<ItemInfo> List,Brand brand)
     {
         List<ItemInfo> ans = new List<ItemInfo>();
         for (int i = 0; i < List.Count; i++)
@@ -62,7 +57,7 @@ public class DataManager : MonoBehaviour
     }
 
     //通过itemid 得到指定的ItemInfo
-    public ItemInfo GetItemInfoById(int id)
+    public static ItemInfo GetItemInfoById(int id)
     {
         for(int i=0;i< AllItemInfos.Count; i++)
         {

@@ -5,4 +5,7 @@
 
     //更新通用文本弹窗
     UpdateMessageBox = 10,
+
+    //打开物品详情界面
+    OpenItemInfo = 20,
 }

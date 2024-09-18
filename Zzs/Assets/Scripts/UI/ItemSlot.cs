@@ -44,7 +44,7 @@ public class ItemSlot : MonoBehaviour
 
     public void ClickSlot()
     {
-        ItemDetailPanel.Instance.UpdateItemDetailPanel(iteminfo);
+        EventCenter.Broadcast<ItemInfo>(EventType.OpenItemInfo, iteminfo);
     }
 
 }

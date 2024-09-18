@@ -103,11 +103,15 @@ public class StartPanel : MonoBehaviour
     {
         if (StateCode == LoginCode.Login_Success)
         {
-            MessageTip.showTip("登录成功");
             //进入新场景
             //LoadGroup.SetActive(true);
             //AsyncOp = SceneManager.LoadSceneAsync("mainScene", LoadSceneMode.Single);//异步加载场景名为"Demo Valley"的场景,LoadSceneMode.Single表示不保留现有场景
             //AsyncOp.allowSceneActivation = false;//allowSceneActivation =true表示场景加载完成后自动跳转,经测,此值默认为true
+
+            MyData.userInfo.My_name = Input_name.name;
+            MyData.userInfo.My_phone = Input_phone.name;
+
+            SceneManager.LoadScene(1);
             return;
         }
         else if (StateCode == LoginCode.Register_Success)

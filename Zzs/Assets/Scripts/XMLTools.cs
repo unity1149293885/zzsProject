@@ -6,18 +6,12 @@ using System.Xml;
 using UnityEditor;
 using UnityEngine;
 
-public class XMLTools : MonoBehaviour
+public  static class XMLTools
 {
-    public static XMLTools Instance;
 
-    private void Awake()
-    {
-        Instance = this;
 
-        DontDestroyOnLoad(transform.gameObject);
-    }
     //读取user表
-    public void ReadUserXml()
+    public static void ReadUserXml()
     {
         string path;
 #if UNITY_ANDROID
@@ -74,17 +68,17 @@ public class XMLTools : MonoBehaviour
                     break;
             }
 
-            if (DataManager.Instance.AllUserInfos == null)
+            if (DataManager.AllUserInfos == null)
             {
-                DataManager.Instance.AllUserInfos = new Dictionary<int, UserInfo>();
+                DataManager.AllUserInfos = new Dictionary<int, UserInfo>();
             }
-            DataManager.Instance.AllUserInfos.Add(id, curUser);
+            DataManager.AllUserInfos.Add(id, curUser);
         }
-        Debug.Log("加载user xml资源完毕 user数量："+ DataManager.Instance.AllUserInfos.Count);
+        Debug.Log("加载user xml资源完毕 user数量："+ DataManager.AllUserInfos.Count);
     }
 
     //读取item XML
-    public void ReadItemXml()
+    public static void ReadItemXml()
     {
         string path;
 #if UNITY_ANDROID
@@ -161,13 +155,13 @@ public class XMLTools : MonoBehaviour
 
             curItem.GetAllIconName(assetBundle, curItem.My_type, curItem.My_name);
 
-            if (DataManager.Instance.AllItemInfos == null)
+            if (DataManager.AllItemInfos == null)
             {
-                DataManager.Instance.AllItemInfos = new List<ItemInfo>();
+                DataManager.AllItemInfos = new List<ItemInfo>();
             }
-            DataManager.Instance.AllItemInfos.Add(curItem);
+            DataManager.AllItemInfos.Add(curItem);
         }
-        Debug.Log("加载item xml资源完毕 item数量：" + DataManager.Instance.AllItemInfos.Count);
+        Debug.Log("加载item xml资源完毕 item数量：" + DataManager.AllItemInfos.Count);
     }
     
 }

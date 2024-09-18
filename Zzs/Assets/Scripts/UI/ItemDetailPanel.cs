@@ -29,14 +29,9 @@ public class ItemDetailPanel : MonoBehaviour
 
     private int Pic_Index = 0;
 
-    public static ItemDetailPanel Instance;
-
     public UserType userType;
     private void Awake()
     {
-        Instance = this;
-        
-
         Big_bg.SetActive(false);
         Big_Accros_bg.SetActive(false);
 
@@ -48,13 +43,17 @@ public class ItemDetailPanel : MonoBehaviour
 
         Big_Image.gameObject.GetComponent<Button>().onClick.AddListener(delegate { Close_Picture(); });
         Big_Accros_Image.gameObject.GetComponent<Button>().onClick.AddListener(delegate { Close_Picture(); });
+
+        EventCenter.AddListener<ItemInfo>(EventType.OpenItemInfo, UpdateItemDetailPanel);
+
+        userType = MyData.userInfo.My_UserType;
     }
+    
 
     public void UpdateItemDetailPanel(ItemInfo iteminfo)
     {
-        //Debug.LogError(iteminfo.My_id);
+        Debug.Log("打开物品详情，物品id："+iteminfo.My_id);
         this.itemInfo = iteminfo;
-        //userType = StartPanel.Instance.GetCurUserType();
 
         Name_value.text = iteminfo.My_name;
         Brand_value.text = iteminfo.My_brand.ToString();
@@ -134,5 +133,10 @@ public class ItemDetailPanel : MonoBehaviour
     {
         Big_bg.SetActive(false);
         Big_Accros_bg.SetActive(false);
+    }
+
+    private void OnDestroy()
+    {
+        EventCenter.RemoveListener<ItemInfo>(EventType.OpenItemInfo, UpdateItemDetailPanel);
     }
 }

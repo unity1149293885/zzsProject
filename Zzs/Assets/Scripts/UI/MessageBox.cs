@@ -28,6 +28,12 @@ public class MessageBox : MonoBehaviour
         btn1.onClick.AddListener(OnClickClose);
 
         EventCenter.AddListener<MessageBoxType, string,string,string>(EventType.UpdateMessageBox, OpenMessage);
+        
+    }
+
+    private void Start()
+    {
+        DontDestroyOnLoad(gameObject);
     }
 
     public void OpenMessage(MessageBoxType type,string str,string btn_text1 = null, string btn_text2 = null)

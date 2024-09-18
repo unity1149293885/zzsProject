@@ -14,6 +14,8 @@ public class StartHandler : HandlerBase
                 LoginRst login_rst = JsonConvert.DeserializeObject<LoginRst>(jsonStr);
 
                 EventCenter.Broadcast<LoginCode>(EventType.UpdateLoginState, login_rst.StateCode);
+
+                MyData.userInfo.My_UserType = login_rst.userType;
                 break;
             case 100004:
                 RegiesterUserRst reg_rst = JsonConvert.DeserializeObject<RegiesterUserRst>(jsonStr);

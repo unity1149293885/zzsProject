@@ -16,20 +16,30 @@ public static class MySqlInfo
     public static string password = "zzs20001114";
 }
 
-public class Animal
+public static class MyData
 {
-    public int id;
-    public string name;
-    public List<int> SkillIdList;
-    public int price;
+    public static UserInfo userInfo;
 }
 
-public class People
+public class UserManager
 {
-    public string name;
-    public Dictionary<string, string> friends;
+    public List<UserInfo> UserList;
 }
 
+public class UserInfo
+{
+    //转xml
+    public string id;
+    public string name;
+    public string phone;
+    public string UserType;
+
+    //实际类型
+    public long My_id;
+    public string My_name;
+    public string My_phone;
+    public UserType My_UserType;
+}
 
 
 public enum UserType

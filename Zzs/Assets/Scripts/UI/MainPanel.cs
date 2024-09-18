@@ -6,16 +6,12 @@ using System.Linq.Expressions;
 using UnityEngine;
 using UnityEngine.UI;
 using static UnityEngine.UI.Dropdown;
+using Tools;
 
 public class MainPanel : MonoBehaviour
 {
-    public GameObject MessageBox;
-    public GameObject Grid;
-    public GameObject ItemSlotPrefab;
     public List<ItemSlot> ItemInfos;
-
-    public static MainPanel Instance;
-
+    
     //ui部分
     public InputField lowPrice;
     public InputField highPirce;
@@ -25,33 +21,44 @@ public class MainPanel : MonoBehaviour
 
     public Button sift_Button;
 
-    public GameObject Gird;
-
     //当前界面中显示的格子 共有多少
     int curCount = -1;
 
-    public UserType userType;
+    private UserType userType;
 
-    public GameObject ItemDetailPanel;
+    public RecycleView recycleView;
 
+    protected List<ItemInfo> ItemInfosList;
 
     private void Awake()
     {
-        Instance = this;
+        //ItemDetailPanel.SetActive(false);
 
-        ItemDetailPanel.SetActive(false);
+        XMLTools.ReadItemXml();
 
-        XMLTools.Instance.ReadItemXml();
-
-        sift_Button.onClick.AddListener(UpdateMainPanel);
+        //sift_Button.onClick.AddListener(UpdateMainPanel);
 
         //userType = StartPanel.Instance.GetCurUserType();
 
         InitMainPanel();
     }
 
+    public void NormalCallBack(GameObject cell, int index)
+    {
+        if (index+1 >= ItemInfosList.Count)
+        {
+            return;
+        }
+        ItemSlot slot = cell.GetComponent<ItemSlot>();
+        slot.InitItemSlot(ItemInfosList[index + 1]);
+
+    }
     private void Start()
     {
+        ItemInfosList = DataManager.AllItemInfos;
+
+        recycleView.Init(NormalCallBack);
+
         UpdateMainPanel();
     }
 
@@ -69,13 +76,15 @@ public class MainPanel : MonoBehaviour
 
     public void UpdateMainPanel()
     {
-        List<ItemInfo> list = DataManager.Instance.AllItemInfos;
+        List<ItemInfo> list = DataManager.AllItemInfos;
 
         if (list.Count == 0)
         {
-            Debug.LogError("item数量只有一个");
-            MessageBox.SetActive(true);
+            MessageTip.showTip("产品数量错误！");
+            return;
         }
+
+        recycleView.ShowList(list.Count);
 
         int low = -1;
         if (lowPrice.text == "")
@@ -96,17 +105,15 @@ public class MainPanel : MonoBehaviour
         {
             high = int.Parse(highPirce.text);
         }
-
-        List<ItemInfo> ItemInfosList = null;
-
+        
         //通过价格筛选
-        ItemInfosList = DataManager.Instance.GetBrokerPriceRangeItemList(list, low, high);
+        ItemInfosList = DataManager.GetBrokerPriceRangeItemList(list, low, high);
 
         //通过种类筛选
         if (TypeDropDown.value != 0)
         {
             var it = ItemInfosList;
-            ItemInfosList = DataManager.Instance.GetTypeRangeItemList(it, (ItemType)(TypeDropDown.value));
+            ItemInfosList = DataManager.GetTypeRangeItemList(it, (ItemType)(TypeDropDown.value));
         }
 
         //通过品牌筛选
@@ -128,7 +135,7 @@ public class MainPanel : MonoBehaviour
                 }
             }
                 
-            ItemInfosList = DataManager.Instance.GetBrandRangeItemList(it, curBrand);
+            ItemInfosList = DataManager.GetBrandRangeItemList(it, curBrand);
         }
         curCount = ItemInfosList.Count;
 
@@ -151,24 +158,24 @@ public class MainPanel : MonoBehaviour
 
             for (int i = ItemInfos.Count; i < ItemInfosList.Count; i++)
             {
-                GameObject t = GameObject.Instantiate(ItemSlotPrefab, Grid.transform);
-                ItemInfos.Add(t.GetComponent<ItemSlot>());
+                //GameObject t = GameObject.Instantiate(ItemSlotPrefab, Grid.transform);
+                //ItemInfos.Add(t.GetComponent<ItemSlot>());
 
-                int price = ItemInfosList[i].My_BrokerPrice;
-                if (ItemInfos[i] == null)
-                {
-                    Debug.LogError("ItemInfos[i]为空 请检查");
-                }
-                if (ItemInfosList[i] == null)
-                {
-                    Debug.LogError("ItemInfosList[i]为空 请检查");
-                }
-                if (ItemInfosList[i].IconList.Count == 0)
-                {
-                    Debug.LogError(ItemInfosList[i].My_name + "没有对应icon! 请添加");
-                    continue;
-                }
-                ItemInfos[i].InitItemSlot(ItemInfosList[i]);
+                //int price = ItemInfosList[i].My_BrokerPrice;
+                //if (ItemInfos[i] == null)
+                //{
+                //    Debug.LogError("ItemInfos[i]为空 请检查");
+                //}
+                //if (ItemInfosList[i] == null)
+                //{
+                //    Debug.LogError("ItemInfosList[i]为空 请检查");
+                //}
+                //if (ItemInfosList[i].IconList.Count == 0)
+                //{
+                //    Debug.LogError(ItemInfosList[i].My_name + "没有对应icon! 请添加");
+                //    continue;
+                //}
+                //ItemInfos[i].InitItemSlot(ItemInfosList[i]);
             }
         }
         else
