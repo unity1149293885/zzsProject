@@ -18,7 +18,7 @@ public static class MySqlInfo
 
 public static class MyData
 {
-    public static UserInfo userInfo;
+    public static UserInfo userInfo = new UserInfo();
 }
 
 public class UserManager

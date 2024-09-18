@@ -17,8 +17,6 @@ public class StartPanel : MonoBehaviour
     public GameObject UpdateGroup;
     public GameObject loadText;
 
-    public GameObject LoadGroup;
-
     public Button OpenRegiester_Btn;
     public Button CloseRegiester_Btn;
     public GameObject RegiesterGroup;
@@ -38,9 +36,11 @@ public class StartPanel : MonoBehaviour
 
     private void Awake()
     {
-        //Application.targetFrameRate = 60;
+        Application.targetFrameRate = 60;
 
-        //loadText.SetActive(false);
+        loadText.SetActive(false);
+        UpdateGroup.SetActive(false);
+
     }
     private void Start()
     {
@@ -49,29 +49,28 @@ public class StartPanel : MonoBehaviour
         OpenRegiester_Btn.onClick.AddListener(open_Regiester);
         CloseRegiester_Btn.onClick.AddListener(close_Regiester);
         Regiester_Btn.onClick.AddListener(RegiesterUser);
-        
 
         EventCenter.AddListener<LoginCode>(EventType.UpdateLoginState, UpdateState);
     }
     private void Update()
     {
-        //if (AsyncOp != null)//如果已经开始加载
-        //{
-        //    loadPro = AsyncOp.progress; //获取加载进度,此处特别注意:加载场景的progress值最大为0.9!!!
-        //}
-        //if (loadPro >= 0.9f)//因为progress值最大为0.9,所以我们需要强制将其等于1
-        //{
-        //    loadPro = 1;
-        //}
-        //slider.value = Mathf.Lerp(slider.value, loadPro, 1 * Time.deltaTime);//滑动块的value以插值的方式紧跟进度值
-        //if (slider.value > 0.99f)
-        //{
-        //    slider.value = 1;
-        //    AsyncOp.allowSceneActivation = true;
-        //    UpdateGroup.SetActive(false);
-        //    loadText.SetActive(true);
-        //}
-        //text.text = string.Format("{0:F0}%", slider.value * 100);//文本中以百分比的格式显示加载进度
+        if (AsyncOp != null)//如果已经开始加载
+        {
+            loadPro = AsyncOp.progress; //获取加载进度,此处特别注意:加载场景的progress值最大为0.9!!!
+        }
+        if (loadPro >= 0.9f)//因为progress值最大为0.9,所以我们需要强制将其等于1
+        {
+            loadPro = 1;
+        }
+        slider.value = Mathf.Lerp(slider.value, loadPro, 1 * Time.deltaTime);//滑动块的value以插值的方式紧跟进度值
+        if (slider.value > 0.99f)
+        {
+            slider.value = 1;
+            AsyncOp.allowSceneActivation = true;
+            UpdateGroup.SetActive(false);
+            loadText.SetActive(true);
+        }
+        text.text = "加载进度：" + (int)(slider.value * 100) + "%";
     }
 
 
@@ -80,6 +79,8 @@ public class StartPanel : MonoBehaviour
         LoginReq data = new LoginReq();
         data.Name = Input_name.text;
         data.Phone = Input_phone.text;
+
+        UpdateGroup.SetActive(true);
 
         data.Time = DateTime.Now;
 
@@ -103,15 +104,13 @@ public class StartPanel : MonoBehaviour
     {
         if (StateCode == LoginCode.Login_Success)
         {
-            //进入新场景
-            //LoadGroup.SetActive(true);
-            //AsyncOp = SceneManager.LoadSceneAsync("mainScene", LoadSceneMode.Single);//异步加载场景名为"Demo Valley"的场景,LoadSceneMode.Single表示不保留现有场景
-            //AsyncOp.allowSceneActivation = false;//allowSceneActivation =true表示场景加载完成后自动跳转,经测,此值默认为true
-
             MyData.userInfo.My_name = Input_name.name;
             MyData.userInfo.My_phone = Input_phone.name;
-
-            SceneManager.LoadScene(1);
+            //进入新场景
+            AsyncOp = SceneManager.LoadSceneAsync("mainScene", LoadSceneMode.Single);//异步加载场景名为"Demo Valley"的场景,LoadSceneMode.Single表示不保留现有场景
+            AsyncOp.allowSceneActivation = false;//allowSceneActivation =true表示场景加载完成后自动跳转,经测,此值默认为true
+            
+            //SceneManager.LoadScene(1);
             return;
         }
         else if (StateCode == LoginCode.Register_Success)
