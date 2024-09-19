@@ -9,8 +9,8 @@ public enum ProcolCode
     Code_Login_req = 100001,//µÇÂ¼ÇëÇó
     Code_Login_rst = 100002,//µÇÂ¼·µ»Ø
 
-    Code_Register_req = 100003,//×¢²áÇëÇó
-    Code__Register_rs = 100004,//×¢²á·µ»Ø
+    Code_Register_req = 200001,//×¢²áÇëÇó
+    Code__Register_rst = 200002,//×¢²á·µ»Ø
 }
 
 #region µÇÂ¼Êý¾Ý

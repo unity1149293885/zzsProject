@@ -16,7 +16,6 @@ public class GameStart : MonoBehaviour
     {
         
     }
-
     private void OnDestroy()
     {
         NetManager.CloseNet();

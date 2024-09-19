@@ -7,21 +7,18 @@ public class StartHandler : HandlerBase
 {
     public override void Handler(long ProtocolNumber, string jsonStr)
     {
-        Debug.Log("客户端MainHandler执行事件 id:" + ProtocolNumber);
+        Debug.Log("客户端StartHandler执行事件 id:" + ProtocolNumber);
         switch (ProtocolNumber)
         {
-            case 100002:
+            case (int)ProcolCode.Code_Login_rst:
                 LoginRst login_rst = JsonConvert.DeserializeObject<LoginRst>(jsonStr);
 
                 EventCenter.Broadcast<LoginCode>(EventType.UpdateLoginState, login_rst.StateCode);
 
                 MyData.userInfo.My_UserType = login_rst.userType;
+                //Debug.Log("当前登录账号 账号类型：" + login_rst.userType);
                 break;
-            case 100004:
-                RegiesterUserRst reg_rst = JsonConvert.DeserializeObject<RegiesterUserRst>(jsonStr);
-
-                EventCenter.Broadcast<LoginCode>(EventType.UpdateLoginState, reg_rst.StateCode);
-                break;
+            
         }
     }
 }
