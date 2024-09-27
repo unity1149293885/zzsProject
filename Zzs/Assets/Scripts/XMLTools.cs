@@ -5,6 +5,7 @@ using System.IO;
 using System.Xml;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 public  static class XMLTools
 {
@@ -95,73 +96,79 @@ public  static class XMLTools
         var ab = AssetBundle.LoadFromFile(path);
 
         XmlDocument xmlDoc = new XmlDocument();
-        if (ab == null)
-        {
-            Debug.LogError("读取ab包资源失败");
-            return;
-        }
-        TextAsset text= ab.LoadAsset<TextAsset>("ItemConfig.XML"); //泛型加载
-        if (text == null)
-        {
-            Debug.LogError("读取ItemConfig.XML失败 请检查目录");
-            return;
-        }
-        xmlDoc.LoadXml(text.ToString());
+        //if (ab == null)
+        //{
+        //    Debug.LogError("读取ab包资源失败");
+        //    return;
+        //}
+        //TextAsset text= ab.LoadAsset<TextAsset>("ItemConfig.XML"); //泛型加载
+        //if (text == null)
+        //{
+        //    Debug.LogError("读取ItemConfig.XML失败 请检查目录");
+        //    return;
+        //}
+        //xmlDoc.LoadXml(text.ToString());
 
-        //获取全部子节点;
-        string icon_path;
-#if UNITY_ANDROID
-        icon_path = "jar:file://" + Application.dataPath + "!assets/" + "icon_sprite";
-#endif
+//        //获取全部子节点;
+//        string icon_path;
+//#if UNITY_ANDROID
+//        icon_path = "jar:file://" + Application.dataPath + "!assets/" + "icon_sprite";
+//#endif
 
-#if UNITY_EDITOR
-        icon_path = Path.Combine(Application.streamingAssetsPath, "icon_sprite");
-#endif
+//#if UNITY_EDITOR
+//        icon_path = Path.Combine(Application.streamingAssetsPath, "icon_sprite");
+//#endif
 
-#if UNITY_STANDALONE_WIN
-        icon_path = Path.Combine(Application.streamingAssetsPath, "icon_sprite");
-#endif
-        AssetBundle assetBundle = AssetBundle.LoadFromFile(icon_path);
+//#if UNITY_STANDALONE_WIN
+//        icon_path = Path.Combine(Application.streamingAssetsPath, "icon_sprite");
+//#endif
+//        AssetBundle assetBundle = AssetBundle.LoadFromFile(icon_path);
 
-        if (assetBundle == null)
-        {
-            Debug.LogError("ab包获取失败，路径：" + icon_path);
-            return;
-        }
+//        if (assetBundle == null)
+//        {
+//            Debug.LogError("ab包获取失败，路径：" + icon_path);
+//            return;
+//        }
 
-        XmlNodeList nodeList = xmlDoc.SelectSingleNode("ItemInfos").ChildNodes;
-        foreach (XmlNode child in nodeList)
-        {
-            ItemInfo curItem = new ItemInfo();
-            curItem.My_id = int.Parse(child["id"].InnerText);
-            curItem.My_name = child["name"].InnerText; 
-            foreach (object o in Enum.GetValues(typeof(Brand)))
+        Addressables.LoadAssetAsync<TextAsset>("Assets/XML/ItemConfig.XML").Completed += (obj) => {
+            TextAsset text = obj.Result;
+            xmlDoc.LoadXml(text.ToString());
+
+            XmlNodeList nodeList = xmlDoc.SelectSingleNode("ItemInfos").ChildNodes;
+            foreach (XmlNode child in nodeList)
             {
-                if (o.ToString() == child["brand"].InnerText)
+                ItemInfo curItem = new ItemInfo();
+                curItem.My_id = int.Parse(child["id"].InnerText);
+                curItem.My_name = child["name"].InnerText;
+                foreach (object o in Enum.GetValues(typeof(Brand)))
                 {
-                    curItem.My_brand = (Brand)o;
+                    if (o.ToString() == child["brand"].InnerText)
+                    {
+                        curItem.My_brand = (Brand)o;
+                    }
                 }
-            }
-            curItem.My_type = (ItemType)int.Parse(child["type"].InnerText);
-            curItem.My_TeamPrice = int.Parse(child["teamprice"].InnerText);
-            curItem.My_BrokerPrice = int.Parse(child["brokerprice"].InnerText);
-            curItem.My_RetailPrice = int.Parse(child["retailprice"].InnerText);
-            curItem.My_TaobaoPrice = int.Parse(child["taobaoprice"].InnerText);
-            curItem.My_source = child["source"].InnerText;
-            curItem.My_size = child["size"].InnerText;
-            curItem.My_taste = child["taste"].InnerText;
-            curItem.My_desc = child["desc"].InnerText;
-            curItem.My_tip = child["tip"].InnerText;
+                curItem.My_type = (ItemType)int.Parse(child["type"].InnerText);
+                curItem.My_TeamPrice = int.Parse(child["teamprice"].InnerText);
+                curItem.My_BrokerPrice = int.Parse(child["brokerprice"].InnerText);
+                curItem.My_RetailPrice = int.Parse(child["retailprice"].InnerText);
+                curItem.My_TaobaoPrice = int.Parse(child["taobaoprice"].InnerText);
+                curItem.My_source = child["source"].InnerText;
+                curItem.My_size = child["size"].InnerText;
+                curItem.My_taste = child["taste"].InnerText;
+                curItem.My_desc = child["desc"].InnerText;
+                curItem.My_tip = child["tip"].InnerText;
 
-            curItem.GetAllIconName(assetBundle, curItem.My_type, curItem.My_name);
+                //curItem.GetAllIconName(assetBundle, curItem.My_type, curItem.My_name);
 
-            if (DataManager.AllItemInfos == null)
-            {
-                DataManager.AllItemInfos = new List<ItemInfo>();
+                if (DataManager.AllItemInfos == null)
+                {
+                    DataManager.AllItemInfos = new List<ItemInfo>();
+                }
+                DataManager.AllItemInfos.Add(curItem);
             }
-            DataManager.AllItemInfos.Add(curItem);
-        }
-        Debug.Log("加载item xml资源完毕 item数量：" + DataManager.AllItemInfos.Count);
+            Debug.Log("加载item xml资源完毕 item数量：" + DataManager.AllItemInfos.Count);
+
+            EventCenter.Broadcast(EventType.UpdateMainPanel);
+        };
     }
-    
 }

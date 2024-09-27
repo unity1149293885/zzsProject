@@ -10,6 +10,8 @@ public class HelpPanel : MonoBehaviour
     public Button btn_itemManage;
     public Button btn_quitLogin;
     public Button btn_close;
+
+    public Image image;
     void Start()
     {
         btn_userManage.onClick.AddListener(OpenUserManage);
@@ -26,6 +28,8 @@ public class HelpPanel : MonoBehaviour
         {
             btn_itemManage.gameObject.SetActive(true);
         }
+        var spr = UIResourceLoadManager.Instance.LoadSprite("LittleIcon", "as∞Î∑÷¿Î»È«Â5∞ı_little");
+        image.sprite = spr;
     }
 
     public void OpenUserManage()

@@ -8,4 +8,7 @@
 
     //打开物品详情界面
     OpenItemInfo = 20,
+
+    //更新主界面
+    UpdateMainPanel = 30,
 }

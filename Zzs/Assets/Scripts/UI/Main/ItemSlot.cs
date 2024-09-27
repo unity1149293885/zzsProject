@@ -24,7 +24,7 @@ public class ItemSlot : MonoBehaviour
     {
         text_name.text = iteminfo.My_name;
         text_price.text = iteminfo.My_BrokerPrice.ToString();
-        image_icon.sprite = iteminfo.IconList[0].sprite;
+        image_icon.sprite = UIResourceLoadManager.Instance.LoadSprite("LittleIcon", iteminfo.My_name + "_little");
 
         this.iteminfo = iteminfo;
         bool state = false;

@@ -61,7 +61,7 @@ public class MainPanel : MonoBehaviour
 
         recycleView.Init(NormalCallBack);
 
-        UpdateMainPanel();
+        EventCenter.AddListener(EventType.UpdateMainPanel, UpdateMainPanel);
     }
 
     public void InitMainPanel()
