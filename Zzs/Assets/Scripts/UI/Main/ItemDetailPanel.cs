@@ -79,12 +79,11 @@ public class ItemDetailPanel : MonoBehaviour
        
         if (userType == UserType.Mamager) { 
 
-            Source_value.gameObject.SetActive(true);
             Source_value.text = iteminfo.My_source;
         }
         else
         {
-             Source_value.gameObject.SetActive(false);
+            Source_value.text = "ÌúÖ­";
         }
         Size_value.text = iteminfo.My_size;
         Taste_value.text = iteminfo.My_taste;
