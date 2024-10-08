@@ -20,7 +20,7 @@ public class ItemSlot : MonoBehaviour
         buton_Click.onClick.AddListener(ClickSlot);
     }
 
-    public void InitItemSlot(ItemInfo iteminfo)
+    public async void InitItemSlot(ItemInfo iteminfo)
     {
         text_name.text = iteminfo.My_name;
         text_price.text = iteminfo.My_BrokerPrice.ToString();
@@ -44,7 +44,7 @@ public class ItemSlot : MonoBehaviour
 
     public void ClickSlot()
     {
-        EventCenter.Broadcast<ItemInfo>(EventType.OpenItemInfo, iteminfo);
+        PanelManager.OpenDetailPanel(this.iteminfo);
     }
 
 }

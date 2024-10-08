@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.UI;
 public class ItemDetailPanel : MonoBehaviour
 {
+    public GameObject root;
     private ItemInfo itemInfo;
 
     public Text Name_value;
@@ -28,10 +31,20 @@ public class ItemDetailPanel : MonoBehaviour
     public Image Big_Accros_Image;
 
     private int Pic_Index = 0;
+    private int MaxCount = -1;
 
     public UserType userType;
+
+    private static ItemDetailPanel instance;
+
+    private Sprite sprite;
+
+    public static ItemDetailPanel Instance { get => instance; set => instance = value; }
+
     private void Awake()
     {
+        Instance = this;
+        root.SetActive(false);
         Big_bg.SetActive(false);
         Big_Accros_bg.SetActive(false);
 
@@ -44,16 +57,19 @@ public class ItemDetailPanel : MonoBehaviour
         Big_Image.gameObject.GetComponent<Button>().onClick.AddListener(delegate { Close_Picture(); });
         Big_Accros_Image.gameObject.GetComponent<Button>().onClick.AddListener(delegate { Close_Picture(); });
 
-        EventCenter.AddListener<ItemInfo>(EventType.OpenItemInfo, UpdateItemDetailPanel);
-
         userType = MyData.userInfo.My_UserType;
+
+        
     }
     
 
     public void UpdateItemDetailPanel(ItemInfo iteminfo)
     {
         Debug.Log("打开物品详情，物品id："+iteminfo.My_id);
+        this.root.SetActive(true);
         this.itemInfo = iteminfo;
+
+        MaxCount = UIResourceLoadManager.Instance.GetIconCount(iteminfo);
 
         Name_value.text = iteminfo.My_name;
         Brand_value.text = iteminfo.My_brand.ToString();
@@ -74,16 +90,24 @@ public class ItemDetailPanel : MonoBehaviour
         Taste_value.text = iteminfo.My_taste;
         Desc_value.text = iteminfo.My_desc;
 
-        Main_Image.sprite = iteminfo.IconList[Pic_Index].sprite;
-        Main_Image.GetComponent<RectTransform>().sizeDelta = iteminfo.IconList[Pic_Index].size;
+        ShowPic(iteminfo);
+    }
 
-        gameObject.SetActive(true);
+    public void ShowPic(ItemInfo info)
+    {
+        string path = UIResourceLoadManager.Instance.GetSpritePath(info, Pic_Index);
+        Debug.Log(path);
+        Addressables.LoadAssetAsync<Sprite>(path).Completed += (obj) =>
+        {
+            sprite = obj.Result;
+            Main_Image.sprite = sprite;
+        };
     }
 
     public void CloseDetailPanel() 
     {
         Pic_Index = 0;
-        gameObject.SetActive(false);
+        this.root.SetActive(false);
     }
     public void Cilck_left()
     {
@@ -91,42 +115,44 @@ public class ItemDetailPanel : MonoBehaviour
         Pic_Index--;
         if (Pic_Index < 0)
         {
-            Pic_Index = this.itemInfo.IconList.Count - 1;
+            Pic_Index = MaxCount - 1;
         }
-        UpdateItemDetailPanel(itemInfo);
+        ShowPic(itemInfo);
     }
 
     public void Cilck_right()
     {
         //Debug.LogError("下一张 当前数量："+ this.itemInfo.IconList.Count);
         Pic_Index++;
-        if (Pic_Index >= this.itemInfo.IconList.Count)
+        if (Pic_Index >= MaxCount)
         {
             Pic_Index = 0;
         }
-        UpdateItemDetailPanel(itemInfo);
+        ShowPic(itemInfo);
     }
 
     public void Open_Picture()
     {
         Big_Image.gameObject.SetActive(true);
+        var width = sprite.rect.width;
+        var height = sprite.rect.height;
 
-
-        if (itemInfo.IconList[Pic_Index].size.x > itemInfo.IconList[Pic_Index].size.y)
+        if (width > height)
         {
             Big_bg.SetActive(false);
             Big_Accros_bg.SetActive(true);
 
-            Big_Accros_Image.sprite = itemInfo.IconList[Pic_Index].sprite;
-            Big_Accros_Image.GetComponent<RectTransform>().sizeDelta = itemInfo.IconList[Pic_Index].size;
+            Big_Accros_Image.sprite = sprite;
+            Big_Accros_Image.GetComponent<RectTransform>().sizeDelta = new Vector2(width, height);
         }
 
         else
         {
             Big_bg.SetActive(true);
             Big_Accros_bg.SetActive(false);
-            Big_Image.sprite = itemInfo.IconList[Pic_Index].sprite;
-            Big_Image.GetComponent<RectTransform>().sizeDelta = itemInfo.IconList[Pic_Index].size;
+
+            Big_Image.sprite = sprite;
+            Big_Image.GetComponent<RectTransform>().sizeDelta = new Vector2(width, height);
         }
     }
     public void Close_Picture()
@@ -135,8 +161,4 @@ public class ItemDetailPanel : MonoBehaviour
         Big_Accros_bg.SetActive(false);
     }
 
-    private void OnDestroy()
-    {
-        EventCenter.RemoveListener<ItemInfo>(EventType.OpenItemInfo, UpdateItemDetailPanel);
-    }
 }

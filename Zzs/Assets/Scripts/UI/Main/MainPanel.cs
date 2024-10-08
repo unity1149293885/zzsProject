@@ -153,11 +153,7 @@ public class MainPanel : MonoBehaviour
                 ItemInfos[i].gameObject.SetActive(true);
 
                 int price = ItemInfosList[i].My_BrokerPrice;
-                if (ItemInfosList[i].IconList.Count == 0)
-                {
-                    Debug.LogError(ItemInfosList[i].My_name + "没有对应icon! 请添加");
-                    continue;
-                }
+                
                 ItemInfos[i].InitItemSlot(ItemInfosList[i]);
             }
 
@@ -190,11 +186,7 @@ public class MainPanel : MonoBehaviour
             {
                 ItemInfos[i].gameObject.SetActive(true);
                 int price = ItemInfosList[i].My_BrokerPrice;
-                if (ItemInfosList[i].IconList.Count == 0)
-                {
-                    Debug.LogError(ItemInfosList[i].My_name + "没有对应icon! 请添加");
-                    continue;
-                }
+                
                 ItemInfos[i].InitItemSlot(ItemInfosList[i]);
             }
             for(int i = ItemInfosList.Count;i< ItemInfos.Count; i++)

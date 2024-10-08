@@ -142,7 +142,7 @@ public class ExcelBuild : Editor
     [MenuItem("CustomEditor/检查图集icon拼写错误")]
     public static void CheckLittleRoot()
     {
-        string path = Application.dataPath + "/Resources";
+        string path = Application.dataPath + "/Resources_Pack";
         Debug.Log("检查拼写的工作目录：" + path);
 
         Traverse(path);

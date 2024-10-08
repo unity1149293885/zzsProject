@@ -81,21 +81,21 @@ public  static class XMLTools
     //读取item XML
     public static void ReadItemXml()
     {
-        string path;
-#if UNITY_ANDROID
-        path = "jar:file://" + Application.dataPath + "!assets/" + "itemconfig";
-#endif
+        //        string path;
+        //#if UNITY_ANDROID
+        //        path = "jar:file://" + Application.dataPath + "!assets/" + "itemconfig";
+        //#endif
 
-#if UNITY_EDITOR
-        path = Path.Combine(Application.streamingAssetsPath, "itemconfig");
-#endif
+        //#if UNITY_EDITOR
+        //        path = Path.Combine(Application.streamingAssetsPath, "itemconfig");
+        //#endif
 
-#if UNITY_STANDALONE_WIN
-        path = Path.Combine(Application.streamingAssetsPath, "itemconfig");
-#endif
-        var ab = AssetBundle.LoadFromFile(path);
+        //#if UNITY_STANDALONE_WIN
+        //        path = Path.Combine(Application.streamingAssetsPath, "itemconfig");
+        //#endif
+        //        var ab = AssetBundle.LoadFromFile(path);
 
-        XmlDocument xmlDoc = new XmlDocument();
+
         //if (ab == null)
         //{
         //    Debug.LogError("读取ab包资源失败");
@@ -109,27 +109,28 @@ public  static class XMLTools
         //}
         //xmlDoc.LoadXml(text.ToString());
 
-//        //获取全部子节点;
-//        string icon_path;
-//#if UNITY_ANDROID
-//        icon_path = "jar:file://" + Application.dataPath + "!assets/" + "icon_sprite";
-//#endif
+        //        //获取全部子节点;
+        //        string icon_path;
+        //#if UNITY_ANDROID
+        //        icon_path = "jar:file://" + Application.dataPath + "!assets/" + "icon_sprite";
+        //#endif
 
-//#if UNITY_EDITOR
-//        icon_path = Path.Combine(Application.streamingAssetsPath, "icon_sprite");
-//#endif
+        //#if UNITY_EDITOR
+        //        icon_path = Path.Combine(Application.streamingAssetsPath, "icon_sprite");
+        //#endif
 
-//#if UNITY_STANDALONE_WIN
-//        icon_path = Path.Combine(Application.streamingAssetsPath, "icon_sprite");
-//#endif
-//        AssetBundle assetBundle = AssetBundle.LoadFromFile(icon_path);
+        //#if UNITY_STANDALONE_WIN
+        //        icon_path = Path.Combine(Application.streamingAssetsPath, "icon_sprite");
+        //#endif
+        //        AssetBundle assetBundle = AssetBundle.LoadFromFile(icon_path);
 
-//        if (assetBundle == null)
-//        {
-//            Debug.LogError("ab包获取失败，路径：" + icon_path);
-//            return;
-//        }
+        //        if (assetBundle == null)
+        //        {
+        //            Debug.LogError("ab包获取失败，路径：" + icon_path);
+        //            return;
+        //        }
 
+        XmlDocument xmlDoc = new XmlDocument();
         Addressables.LoadAssetAsync<TextAsset>("Assets/XML/ItemConfig.XML").Completed += (obj) => {
             TextAsset text = obj.Result;
             xmlDoc.LoadXml(text.ToString());
