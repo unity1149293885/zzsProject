@@ -53,9 +53,31 @@ public enum Brand
     印度 = 19,
     紫光=20
 }
-public class ItemManager
+public static class ItemManager
 {
-    public List<ItemInfo> ItemList;
+    public static List<ItemInfo> ItemList;
+
+    public static List<int> DownList;//下架产品
+
+    public static void DownItem(int id)
+    {
+        if (DownList.Contains(id))
+        {
+            Debug.LogError("下架数组中已有该id：" + id);
+            return;
+        }
+        DownList.Add(id);
+    }
+    public static void UpItem(int id)
+    {
+        if (!DownList.Contains(id))
+        {
+            Debug.LogError("下架数组中没有该id：" + id);
+            return;
+        }
+        DownList.Remove(id);
+    }
+
 }
 public struct IconInfo
 {
@@ -78,8 +100,6 @@ public class ItemInfo
     public string desc;
     public string tip;
 
-    public List<string> picList;
-
     public int My_id;
     public string My_name;
     public Brand My_brand;
@@ -94,34 +114,18 @@ public class ItemInfo
     public string My_desc;
     public string My_tip;
 
-    public List<IconInfo> IconList = new List<IconInfo>();
-
-   public void GetAllIconName(AssetBundle ab, ItemType type, string name)
+    public bool isDown
     {
-        //Debug.LogError("获取资源:" + name);
-        int index = 0;
-        while (true)
+        get
         {
-            string curstr = name + "_" + index.ToString()+".JPG";
-            Sprite sprite = ab.LoadAsset<Sprite>(curstr); //泛型加载
-            if (sprite != null)
-            {
-                float bound_x = sprite.bounds.size.x;
-                float bound_y = sprite.bounds.size.y;
-                IconInfo iconInfo = new IconInfo();
-                iconInfo.sprite = sprite;
-                iconInfo.size = new Vector2(bound_x * 110, bound_y * 110);
-                IconList.Add(iconInfo);
-                index++;
-            }
-            else
-            {
-                if (index == 0)
+           foreach(var it in ItemManager.DownList)
+           {
+                if (it == My_id)
                 {
-                    Debug.LogError("读取图片资源sprite:" + curstr + "失败 请检查目录");
+                    return true;
                 }
-                return;
-            }
+           }
+            return false;
         }
     }
 }

@@ -57,7 +57,7 @@ public  static class XMLTools
             {
                 case "0":
                     //管理者
-                    curUser.My_UserType = UserType.Mamager;
+                    curUser.My_UserType = UserType.Manager;
                     break;
                 case "1":
                     //团队成员

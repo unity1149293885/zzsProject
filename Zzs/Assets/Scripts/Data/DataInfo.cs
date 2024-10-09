@@ -21,6 +21,7 @@ public static class MyData
     public static UserInfo userInfo = new UserInfo();
 }
 
+
 public class UserManager
 {
     public List<UserInfo> UserList;
@@ -44,7 +45,7 @@ public class UserInfo
 
 public enum UserType
 {
-    Mamager = 1,
+    Manager = 1,
     Teamer = 2,
     Broker = 3,
 }

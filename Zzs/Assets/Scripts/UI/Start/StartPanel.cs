@@ -97,9 +97,12 @@ public class StartPanel : MonoBehaviour
 
             MyData.userInfo.My_name = Input_name.name;
             MyData.userInfo.My_phone = Input_phone.name;
+
+
             //进入新场景
             AsyncOp = SceneManager.LoadSceneAsync("mainScene", LoadSceneMode.Single);//异步加载场景名为"Demo Valley"的场景,LoadSceneMode.Single表示不保留现有场景
             AsyncOp.allowSceneActivation = false;//allowSceneActivation =true表示场景加载完成后自动跳转,经测,此值默认为true
+
             return;
         }
         else

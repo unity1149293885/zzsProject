@@ -26,28 +26,24 @@ public class MainPanel : MonoBehaviour
     //当前界面中显示的格子 共有多少
     int curCount = -1;
 
-    private UserType userType;
-
     public RecycleView recycleView;
 
     protected List<ItemInfo> ItemInfosList;
 
     private void Awake()
     {
-        //ItemDetailPanel.SetActive(false);
-
         XMLTools.ReadItemXml();
 
-        //sift_Button.onClick.AddListener(UpdateMainPanel);
-
-        //userType = StartPanel.Instance.GetCurUserType();
+        sift_Button.onClick.AddListener(UpdateMainPanel);
 
         InitMainPanel();
+
+        EventCenter.AddListener<bool>(EventType.ChangeItemState, UpdateState);
     }
 
     public void NormalCallBack(GameObject cell, int index)
     {
-        if (index+1 >= ItemInfosList.Count)
+        if (index + 1 >= ItemInfosList.Count)
         {
             return;
         }
@@ -75,8 +71,12 @@ public class MainPanel : MonoBehaviour
         }
         TypeDropDown.AddOptions(options);
 
-
         help_Button.onClick.AddListener(delegate { helpPanel.gameObject.SetActive(true); });
+    }
+
+    public void UpdateState(bool isDown)
+    {
+        UpdateMainPanel();
     }
 
     public void UpdateMainPanel()
@@ -88,8 +88,6 @@ public class MainPanel : MonoBehaviour
             MessageTip.showTip("产品数量错误！");
             return;
         }
-
-        recycleView.ShowList(list.Count);
 
         int low = -1;
         if (lowPrice.text == "")
@@ -142,57 +140,10 @@ public class MainPanel : MonoBehaviour
                 
             ItemInfosList = DataManager.GetBrandRangeItemList(it, curBrand);
         }
-        curCount = ItemInfosList.Count;
-
-        if ( ItemInfosList.Count > ItemInfos.Count)
-        {
-            //当前格子不够
-            int cur = ItemInfosList.Count - ItemInfos.Count;
-            for(int i=0 ;i< ItemInfos.Count; i++)
-            {
-                ItemInfos[i].gameObject.SetActive(true);
-
-                int price = ItemInfosList[i].My_BrokerPrice;
-                
-                ItemInfos[i].InitItemSlot(ItemInfosList[i]);
-            }
-
-            for (int i = ItemInfos.Count; i < ItemInfosList.Count; i++)
-            {
-                //GameObject t = GameObject.Instantiate(ItemSlotPrefab, Grid.transform);
-                //ItemInfos.Add(t.GetComponent<ItemSlot>());
-
-                //int price = ItemInfosList[i].My_BrokerPrice;
-                //if (ItemInfos[i] == null)
-                //{
-                //    Debug.LogError("ItemInfos[i]为空 请检查");
-                //}
-                //if (ItemInfosList[i] == null)
-                //{
-                //    Debug.LogError("ItemInfosList[i]为空 请检查");
-                //}
-                //if (ItemInfosList[i].IconList.Count == 0)
-                //{
-                //    Debug.LogError(ItemInfosList[i].My_name + "没有对应icon! 请添加");
-                //    continue;
-                //}
-                //ItemInfos[i].InitItemSlot(ItemInfosList[i]);
-            }
-        }
-        else
-        {
-            //格子太多 需要隐藏
-            for(int i= 0;i< ItemInfosList.Count; i++)
-            {
-                ItemInfos[i].gameObject.SetActive(true);
-                int price = ItemInfosList[i].My_BrokerPrice;
-                
-                ItemInfos[i].InitItemSlot(ItemInfosList[i]);
-            }
-            for(int i = ItemInfosList.Count;i< ItemInfos.Count; i++)
-            {
-                ItemInfos[i].gameObject.SetActive(false);
-            }
-        }
+        recycleView.ShowList(ItemInfosList.Count);
+    }
+    private void OnDestroy()
+    {
+        EventCenter.RemoveListener<bool>(EventType.ChangeItemState, UpdateState);
     }
 }

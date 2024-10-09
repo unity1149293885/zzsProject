@@ -15,6 +15,7 @@ public static class ProctoolInfo
     public static Dictionary<KeyValuePair<long, long>, HandlerBase> ProctoolDic = new Dictionary<KeyValuePair<long, long>, HandlerBase>()
     {
         { new KeyValuePair<long, long>(100001, 199999),new StartHandler() },
-        { new KeyValuePair<long, long>(200001, 299999),new MainHandler() }
+        { new KeyValuePair<long, long>(200001, 299999),new MainHandler() },
+        { new KeyValuePair<long, long>(300001, 399999),new ItemHandler() }
     };
 }

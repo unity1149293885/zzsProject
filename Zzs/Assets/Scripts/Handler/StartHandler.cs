@@ -15,6 +15,8 @@ public class StartHandler : HandlerBase
 
                 EventCenter.Broadcast<LoginCode>(EventType.UpdateLoginState, login_rst.StateCode);
 
+                ItemManager.DownList = login_rst.DownList;
+
                 MyData.userInfo.My_UserType = login_rst.userType;
                 //Debug.Log("当前登录账号 账号类型：" + login_rst.userType);
                 break;

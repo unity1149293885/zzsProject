@@ -30,10 +30,11 @@ public class ItemDetailPanel : MonoBehaviour
     public GameObject Big_Accros_bg;
     public Image Big_Accros_Image;
 
+    public Button Button_ChangeState;
+    public Text Text_State;
+
     private int Pic_Index = 0;
     private int MaxCount = -1;
-
-    public UserType userType;
 
     private static ItemDetailPanel instance;
 
@@ -56,12 +57,10 @@ public class ItemDetailPanel : MonoBehaviour
 
         Big_Image.gameObject.GetComponent<Button>().onClick.AddListener(delegate { Close_Picture(); });
         Big_Accros_Image.gameObject.GetComponent<Button>().onClick.AddListener(delegate { Close_Picture(); });
+        Button_ChangeState.onClick.AddListener(delegate { Click_ChangeState(); });
 
-        userType = MyData.userInfo.My_UserType;
-
-        
+        EventCenter.AddListener<bool>(EventType.ChangeItemState, UpdateStateInfo);
     }
-    
 
     public void UpdateItemDetailPanel(ItemInfo iteminfo)
     {
@@ -71,25 +70,42 @@ public class ItemDetailPanel : MonoBehaviour
 
         MaxCount = UIResourceLoadManager.Instance.GetIconCount(iteminfo);
 
+        update_Text(iteminfo);
+
+        ShowPic(iteminfo);
+
+        UpdateStateInfo(iteminfo.isDown);
+    }
+
+    public void UpdateStateInfo(bool isDown)
+    {
+        
+        Text_State.text = isDown ? "上架" : "下架";
+    }
+
+    public void update_Text(ItemInfo iteminfo)
+    {
         Name_value.text = iteminfo.My_name;
         Brand_value.text = iteminfo.My_brand.ToString();
         Type_value.text = iteminfo.My_type.ToString();
-        Price_value.text = iteminfo.My_BrokerPrice.ToString();
         Taobao_value.text = iteminfo.My_TaobaoPrice.ToString();
-       
-        if (userType == UserType.Mamager) { 
 
-            Source_value.text = iteminfo.My_source;
-        }
-        else
+        if (MyData.userInfo.My_UserType == UserType.Teamer || MyData.userInfo.My_UserType == UserType.Manager)
         {
-            Source_value.text = "铁汁";
+            Price_value.text = iteminfo.My_TeamPrice.ToString();
+            Source_value.text = iteminfo.My_source;
+            Button_ChangeState.gameObject.SetActive(true);
         }
+        else if (MyData.userInfo.My_UserType == UserType.Broker)
+        {
+            Price_value.text = iteminfo.My_BrokerPrice.ToString();
+            Source_value.text = "铁汁";
+            Button_ChangeState.gameObject.SetActive(false);
+        }
+
         Size_value.text = iteminfo.My_size;
         Taste_value.text = iteminfo.My_taste;
         Desc_value.text = iteminfo.My_desc;
-
-        ShowPic(iteminfo);
     }
 
     public void ShowPic(ItemInfo info)
@@ -110,7 +126,6 @@ public class ItemDetailPanel : MonoBehaviour
     }
     public void Cilck_left()
     {
-       //Debug.LogError("上一张 当前数量："+ this.itemInfo.IconList.Count);
         Pic_Index--;
         if (Pic_Index < 0)
         {
@@ -121,13 +136,21 @@ public class ItemDetailPanel : MonoBehaviour
 
     public void Cilck_right()
     {
-        //Debug.LogError("下一张 当前数量："+ this.itemInfo.IconList.Count);
         Pic_Index++;
         if (Pic_Index >= MaxCount)
         {
             Pic_Index = 0;
         }
         ShowPic(itemInfo);
+    }
+
+    public void Click_ChangeState()
+    {
+        ItemChangeStateReq req = new ItemChangeStateReq();
+        req.id = itemInfo.My_id;
+        req.isDown = !itemInfo.isDown;
+
+        NetManager.SendtoServer<ItemChangeStateReq>((int)ProcolCode.Code_Item_ChangeState_req, req);
     }
 
     public void Open_Picture()
@@ -158,6 +181,11 @@ public class ItemDetailPanel : MonoBehaviour
     {
         Big_bg.SetActive(false);
         Big_Accros_bg.SetActive(false);
+    }
+
+    private void OnDestroy()
+    {
+        EventCenter.RemoveListener<bool>(EventType.ChangeItemState, UpdateStateInfo);
     }
 
 }

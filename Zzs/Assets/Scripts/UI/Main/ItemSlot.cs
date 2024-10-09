@@ -15,6 +15,8 @@ public class ItemSlot : MonoBehaviour
     public GameObject Tipobj;
     public Text tip_text;
 
+    public GameObject DownTip; 
+
     private void Awake()
     {
         buton_Click.onClick.AddListener(ClickSlot);
@@ -23,7 +25,6 @@ public class ItemSlot : MonoBehaviour
     public async void InitItemSlot(ItemInfo iteminfo)
     {
         text_name.text = iteminfo.My_name;
-        text_price.text = iteminfo.My_BrokerPrice.ToString();
         image_icon.sprite = UIResourceLoadManager.Instance.LoadSprite("LittleIcon", iteminfo.My_name + "_little");
 
         this.iteminfo = iteminfo;
@@ -32,12 +33,28 @@ public class ItemSlot : MonoBehaviour
         {
             state = true;
         }
+
+        update_price();
+
         update_tip(state, iteminfo.My_tip);
+
+        DownTip.SetActive(iteminfo.isDown);
+    }
+
+    public void update_price()
+    {
+        if (MyData.userInfo.My_UserType == UserType.Teamer || MyData.userInfo.My_UserType == UserType.Manager)
+        {
+            text_price.text = iteminfo.My_TeamPrice.ToString();
+        }
+        else if (MyData.userInfo.My_UserType == UserType.Broker)
+        {
+            text_price.text = iteminfo.My_BrokerPrice.ToString();
+        }
     }
 
     public void update_tip(bool state,string content)
     {
-       
         Tipobj.SetActive(state);
         tip_text.text = content;
     }

@@ -112,7 +112,7 @@ public static class NetManager
         }
         if (handler == null)
         {
-            Debug.LogError("handler么有找到");
+            Debug.LogError("handler么有找到 协议号："+ ProtocolNumber);
             return;
         }
         handler.Handler(ProtocolNumber, jsonStr);

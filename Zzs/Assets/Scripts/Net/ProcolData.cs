@@ -11,6 +11,9 @@ public enum ProcolCode
 
     Code_Register_req = 200001,//注册请求
     Code__Register_rst = 200002,//注册返回
+
+    Code_Item_ChangeState_req = 300001,//商品上/下架请求
+    Code_Item_ChangeState_rst = 300002,//商品上/下架返回
 }
 
 #region 登录数据
@@ -32,6 +35,7 @@ public class LoginRst
     public LoginCode StateCode;
     public UserType userType;
     public int uid;
+    public List<int> DownList;
 }
 
 public enum LoginCode
@@ -69,5 +73,20 @@ public class RegiesterUserRst
 {
     public LoginCode StateCode;
     public long uid;
+}
+#endregion
+
+#region 商品上下架
+public class ItemChangeStateReq
+{
+    public int id;
+    public bool isDown;//true 上架，false 下架
+}
+
+public class ItemChangeStateRst
+{
+    public int id;
+    public bool isDown;//true 上架，false 下架
+    public bool isSuccess;
 }
 #endregion

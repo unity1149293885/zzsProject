@@ -11,9 +11,9 @@ public class MainHandler : HandlerBase
         switch (ProtocolNumber)
         {
             case (int)ProcolCode.Code__Register_rst:
-                RegiesterUserRst reg_rst = JsonConvert.DeserializeObject<RegiesterUserRst>(jsonStr);
+                    RegiesterUserRst reg_rst = JsonConvert.DeserializeObject<RegiesterUserRst>(jsonStr);
 
-                EventCenter.Broadcast<LoginCode>(EventType.UpdateLoginState, reg_rst.StateCode);
+                    EventCenter.Broadcast<LoginCode>(EventType.UpdateLoginState, reg_rst.StateCode);
                 break;
         }
     }

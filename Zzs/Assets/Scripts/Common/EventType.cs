@@ -11,4 +11,7 @@
 
     //更新主界面
     UpdateMainPanel = 30,
+
+    //上下架更新
+    ChangeItemState = 40,
 }
