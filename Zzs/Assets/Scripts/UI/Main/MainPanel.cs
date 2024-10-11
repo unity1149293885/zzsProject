@@ -43,12 +43,8 @@ public class MainPanel : MonoBehaviour
 
     public void NormalCallBack(GameObject cell, int index)
     {
-        if (index + 1 >= ItemInfosList.Count)
-        {
-            return;
-        }
         ItemSlot slot = cell.GetComponent<ItemSlot>();
-        slot.InitItemSlot(ItemInfosList[index + 1]);
+        slot.InitItemSlot(ItemInfosList[index]);
 
     }
     private void Start()
@@ -65,9 +61,10 @@ public class MainPanel : MonoBehaviour
         TypeDropDown.ClearOptions();
 
         List<OptionData> options = new List<OptionData>();
-        foreach (ItemType aType in Enum.GetValues(typeof(ItemType)))
+
+        foreach(var it in DataManager.TypeDic)
         {
-            options.Add(new OptionData(aType.ToString()));
+            options.Add(new OptionData(it.Value.ToString()));
         }
         TypeDropDown.AddOptions(options);
 
@@ -116,7 +113,7 @@ public class MainPanel : MonoBehaviour
         if (TypeDropDown.value != 0)
         {
             var it = ItemInfosList;
-            ItemInfosList = DataManager.GetTypeRangeItemList(it, (ItemType)(TypeDropDown.value));
+            ItemInfosList = DataManager.GetTypeRangeItemList(it, TypeDropDown.value);
         }
 
         //通过品牌筛选
@@ -126,15 +123,13 @@ public class MainPanel : MonoBehaviour
                 
             string str = BrandInput.text;
 
-            Brand curBrand = Brand.gat;
+            int curBrand = -1;
 
-            foreach (object o in Enum.GetValues(typeof(Brand)))
+            foreach(var brand in DataManager.BrandDic)
             {
-                string cur = o.ToString();
-
-                if (cur.Contains(str))
+                if (brand.Value.Contains(str))
                 {
-                    curBrand = (Brand)o;
+                    curBrand = brand.Key;
                 }
             }
                 

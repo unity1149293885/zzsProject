@@ -10,123 +10,88 @@ using System.Text.RegularExpressions;
 using UnityEditor;
 using System;
 
-public class ExcelTool
-{
-    /// <summary>
-    /// 读取excel文件内容
-    /// </summary>
-    /// <param name="filePath">文件路径</param>
-    /// <param name="columnNum">行数</param>
-    /// <param name="rowNum">列数</param>
-    /// <returns></returns>
-    static ExcelWorksheet ReadExcelContext(string filePath)
-    {
-        FileInfo fileInfo = new FileInfo(filePath);
-        ExcelPackage excelPackage = new ExcelPackage(fileInfo);
-        ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets[1];
-
-        return worksheet;
-    }
-
-    /// <summary>
-    /// 读取表数据，生成对应的数组
-    /// </summary>
-    /// <param name="filePath">excel文件全路径</param>
-    /// <returns>Item数组</returns>
-    public static UserManager CreateUserArrayWithExcel(string filePath)
-    {
-        ExcelWorksheet worksheet = ReadExcelContext(filePath);
-
-        List<UserInfo> infos = new List<UserInfo>();
-      
-        int index = 2;
-        while (index > 0)
-        {
-            if (worksheet.Cells[index, 1].Value == null) break;
-
-            UserInfo item = new UserInfo();
-            //解析每列的数据
-            item.id = worksheet.Cells[index, 1].Value.ToString();
-            item.name = worksheet.Cells[index, 2].Value.ToString();
-            item.phone = worksheet.Cells[index, 3].Value.ToString();
-            item.UserType = worksheet.Cells[index, 4].Value.ToString();
-            infos.Add(item);
-            index++;
-
-        }
-
-        UserManager res = new UserManager();
-        res.UserList = infos;
-        return res;
-    }
-
-    public static ItemManager CreasteItemArrayWithExcel(string filePath)
-    {
-        ExcelWorksheet worksheet = ReadExcelContext(filePath);
-
-        List<ItemInfo> infos = new List<ItemInfo>();
-        int i = 2;
-        while (i > 0)
-        {
-            if (worksheet.Cells[i, 1].Value == null) break;
-
-            ItemInfo item = new ItemInfo();
-            //解析每列的数据
-            //Debug.LogError(worksheet.Cells[i, 2].Value.ToString());
-            item.id = worksheet.Cells[i, 1].Value.ToString();
-            item.name = worksheet.Cells[i, 2].Value.ToString();
-            item.brand = worksheet.Cells[i, 3].Value.ToString();
-            item.type = worksheet.Cells[i, 4].Value.ToString();
-            item.TeamPrice = worksheet.Cells[i, 5].Value.ToString();
-            item.BrokerPrice = worksheet.Cells[i, 6].Value.ToString();
-            item.RetailPrice = worksheet.Cells[i, 7].Value.ToString();
-            item.TaobaoPrice = worksheet.Cells[i, 8].Value.ToString();
-            item.source = worksheet.Cells[i, 9].Value.ToString();
-            item.size = worksheet.Cells[i, 10].Value.ToString();
-            item.taste = worksheet.Cells[i, 11].Value.ToString();
-            item.desc = worksheet.Cells[i, 12].Value.ToString();
-            item.tip = worksheet.Cells[i, 13].Value.ToString();
-
-            infos.Add(item);
-            i++;
-        }
-
-        ItemManager res = new ItemManager();
-        res.ItemList = infos;
-        return res;
-    }
-
-
-}
-
 public class ExcelConfig
 {
     /// <summary>
     /// 存放excel表文件夹的的路径，本例Excel表放在了"Assets/Excels/"当中
     /// </summary>
-    public static readonly string excelsFolderPath = Application.dataPath + "/XML/";
+    public static readonly string excelsFolderPath = Application.dataPath + "/Excel/";
 
-    /// <summary>
-    /// 要读取的用户 Excel文件名称 -- 后缀为xlsx
-    /// </summary>
-    public static readonly string UserexcelName = "用户.xlsx";
-
-    /// <summary>
-    /// 要读取的物品 Excel文件名称 -- 后缀为xlsx
-    /// </summary>
-    public static readonly string ItemexcelName = "物品.xlsx";
 
     /// <summary>
     /// 存放Excel转化后文件的文件夹路径
     /// </summary>
-    public static readonly string assetPath = "Assets/XML/";
+    public static readonly string XMLExportPath = "Assets/XML/";
 
-    /// <summary>
-    /// 保存处理后user数据文件名称
-    /// </summary>
-    public static readonly string UserInfoXML = "UserConfig";
-    /// <summary>
-    /// 保存处理后item数据文件名称
-    /// </summary>
-    public static readonly string ItemInfoXML = "ItemConfig";
+}
+
+public class ExcelTool
+{
+    [MenuItem("Zzs工具/Excel表格转成XML数据")]
+    public static void ExcelToXML()
+    {
+        DirectoryInfo folder = new DirectoryInfo(ExcelConfig.excelsFolderPath);
+        foreach (FileInfo excel in folder.GetFiles("*.xlsx"))
+        {
+            //遍历所有excel表
+            string excelName = excel.Name;
+
+            //excel表
+            ExcelPackage excelPackage = new ExcelPackage(excel);
+            //遍历所有sheet
+            for (int SheetIndex = 1; SheetIndex <= excelPackage.Workbook.Worksheets.Count; SheetIndex++)
+            {
+                ExcelWorksheet sheet = excelPackage.Workbook.Worksheets[SheetIndex];
+                string sheetName = sheet.Name;
+
+                //XML名字为:表格名字_sheet名字(这里的.name带有xlxs后缀 要去除一下）
+                string XmlName = excelName.Substring(0, excelName.IndexOf('.')) + "_" + sheetName;
+
+                //完整存放地址+名字+后缀
+                string XmlPath = ExcelConfig.XMLExportPath + XmlName + ".XML";
+
+                XmlDocument doc = new XmlDocument();
+                //创建根节点
+                XmlElement root = doc.CreateElement(sheetName);
+                doc.AppendChild(root);
+
+                //拿到第一行数据，待会做赋值处理
+                List<string> TitleNames = new List<string>() { "" };
+                for (int rowIndex = 1; rowIndex <= sheet.Dimension.Columns; rowIndex++)
+                {
+                    string rowData = sheet.Cells[1, rowIndex].Value.ToString();
+
+                    TitleNames.Add(rowData);
+                }
+
+                //遍历每一行数据
+                int ColumnIndex = 2;
+                while (ColumnIndex > 0)
+                {
+                    //没有数据就跳出循环
+                    if (sheet.Cells[ColumnIndex, 1].Value == null) break;
+
+                    //开始写入Xml
+                    // 一级子节点
+                    XmlElement Columndata = doc.CreateElement("data" + (ColumnIndex + 1).ToString());
+                    // 设置和根节点的关系
+                    root.AppendChild(Columndata);
+
+                    //某一行的所有列
+                    for (int rowIndex = 1; rowIndex <= sheet.Dimension.Columns; rowIndex++)
+                    {
+                        string rowData = sheet.Cells[ColumnIndex, rowIndex].Value.ToString();
+
+                        //当前格子的数据
+                        XmlElement Rowdata = doc.CreateElement(TitleNames[rowIndex]);
+                        Columndata.AppendChild(Rowdata);
+                        Rowdata.InnerText = rowData;
+                    }
+                    ColumnIndex++;
+                }
+                doc.Save(XmlPath);
+            }
+        }
+        AssetDatabase.Refresh();
+    }
 }

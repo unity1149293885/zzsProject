@@ -3,14 +3,39 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
+
 public static class DataManager
 {
     public static Dictionary<int, UserInfo> AllUserInfos = new Dictionary<int, UserInfo>();
 
     public static UserInfo MyUserInfo;
 
-    public static List<ItemInfo> AllItemInfos = new List<ItemInfo>();
-    
+    public static List<ItemInfo> AllItemInfos = new List<ItemInfo>();//运行时的总item数据
+    public static Dictionary<int, string> BrandDic = new Dictionary<int, string>();//品牌数据
+    public static Dictionary<int, string> TypeDic = new Dictionary<int, string>();//产品类型数据
+
+    public static List<int> DownList;//下架产品数组
+    //下架产品
+    public static void DownItem(int id)
+    {
+        if (DownList.Contains(id))
+        {
+            Debug.LogError("下架数组中已有该id：" + id);
+            return;
+        }
+        DownList.Add(id);
+    }
+    //上架产品
+    public static void UpItem(int id)
+    {
+        if (!DownList.Contains(id))
+        {
+            Debug.LogError("下架数组中没有该id：" + id);
+            return;
+        }
+        DownList.Remove(id);
+    }
+
     //通过代理价筛选
     public static List<ItemInfo> GetBrokerPriceRangeItemList(List<ItemInfo> List, int low,int high)
     {
@@ -27,12 +52,12 @@ public static class DataManager
     }
 
     //通过产品类型筛选
-    public static List<ItemInfo> GetTypeRangeItemList(List<ItemInfo> List, ItemType type)
+    public static List<ItemInfo> GetTypeRangeItemList(List<ItemInfo> List, int typeId)
     {
         List<ItemInfo> ans = new List<ItemInfo>();
         for (int i = 0; i < List.Count; i++)
         {
-            if (List[i].My_type == type)
+            if (List[i].My_typeId == typeId)
             {
                 ans.Add(List[i]);
             }
@@ -42,12 +67,12 @@ public static class DataManager
     }
 
     //通过产品品牌筛选
-    public static List<ItemInfo> GetBrandRangeItemList(List<ItemInfo> List,Brand brand)
+    public static List<ItemInfo> GetBrandRangeItemList(List<ItemInfo> List,int brandId)
     {
         List<ItemInfo> ans = new List<ItemInfo>();
         for (int i = 0; i < List.Count; i++)
         {
-            if (List[i].My_brand == brand)
+            if (List[i].My_brandId == brandId)
             {
                 ans.Add(List[i]);
             }
@@ -67,3 +92,21 @@ public static class DataManager
         return null;
     }
 }
+
+
+public struct brandInfo
+{
+    public string id;
+    public string name;
+}
+
+public struct typeInfo
+{
+    public string id;
+    public string name;
+}
+public static class ExcelTools
+{
+   
+}
+

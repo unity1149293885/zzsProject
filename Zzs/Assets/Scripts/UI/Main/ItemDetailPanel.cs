@@ -68,7 +68,7 @@ public class ItemDetailPanel : MonoBehaviour
         this.root.SetActive(true);
         this.itemInfo = iteminfo;
 
-        MaxCount = UIResourceLoadManager.Instance.GetIconCount(iteminfo);
+        //MaxCount = UIResourceLoadManager.Instance.GetIconCount(iteminfo);
 
         update_Text(iteminfo);
 
@@ -86,8 +86,8 @@ public class ItemDetailPanel : MonoBehaviour
     public void update_Text(ItemInfo iteminfo)
     {
         Name_value.text = iteminfo.My_name;
-        Brand_value.text = iteminfo.My_brand.ToString();
-        Type_value.text = iteminfo.My_type.ToString();
+        Brand_value.text = iteminfo.My_brandId.ToString();
+        Type_value.text = iteminfo.My_typeId.ToString();
         Taobao_value.text = iteminfo.My_TaobaoPrice.ToString();
 
         if (MyData.userInfo.My_UserType == UserType.Teamer || MyData.userInfo.My_UserType == UserType.Manager)

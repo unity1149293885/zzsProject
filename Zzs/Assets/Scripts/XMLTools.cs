@@ -9,165 +9,67 @@ using UnityEngine.AddressableAssets;
 
 public  static class XMLTools
 {
-
-
-    //读取user表
-    public static void ReadUserXml()
-    {
-        string path;
-#if UNITY_ANDROID
-        path = "jar:file://" + Application.dataPath + "!assets/" + "userconfig";
-#endif
-
-#if UNITY_EDITOR
-        path = Path.Combine(Application.streamingAssetsPath, "userconfig");
-#endif
-
-#if UNITY_STANDALONE_WIN
-        path = Path.Combine(Application.streamingAssetsPath, "userconfig");
-#endif
-        var ab = AssetBundle.LoadFromFile(path);
-
-        if (ab == null)
-        {
-
-            Debug.LogError("ab=null 路径："+ path);
-        }
-        XmlDocument xmlDoc = new XmlDocument();
-
-        TextAsset text = ab.LoadAsset<TextAsset>("UserConfig.XML"); //泛型加载
-        if (text == null)
-        {
-            Debug.LogError("读取UserConfig.XML失败 请检查目录");
-            return;
-        }
-        xmlDoc.LoadXml(text.ToString());
-
-        //获取全部子节点;
-        XmlNodeList nodeList = xmlDoc.SelectSingleNode("UserInfos").ChildNodes;
-        foreach (XmlNode child in nodeList)
-        {
-            int id = int.Parse(child["id"].InnerText);
-
-            UserInfo curUser = new UserInfo();
-            curUser.My_id = id;
-            curUser.My_name = child["name"].InnerText;
-            curUser.My_phone = child["phone"].InnerText;
-            switch (child["isManager"].InnerText)
-            {
-                case "0":
-                    //管理者
-                    curUser.My_UserType = UserType.Manager;
-                    break;
-                case "1":
-                    //团队成员
-                    curUser.My_UserType = UserType.Teamer;
-                    break;
-                case "2":
-                    //代理层
-                    curUser.My_UserType = UserType.Broker;
-                    break;
-            }
-
-            if (DataManager.AllUserInfos == null)
-            {
-                DataManager.AllUserInfos = new Dictionary<int, UserInfo>();
-            }
-            DataManager.AllUserInfos.Add(id, curUser);
-        }
-        Debug.Log("加载user xml资源完毕 user数量："+ DataManager.AllUserInfos.Count);
-    }
-
     //读取item XML
     public static void ReadItemXml()
     {
-        //        string path;
-        //#if UNITY_ANDROID
-        //        path = "jar:file://" + Application.dataPath + "!assets/" + "itemconfig";
-        //#endif
+        XmlDocument Brand_xmlDoc = new XmlDocument();
+        Addressables.LoadAssetAsync<TextAsset>("Assets/XML/Item_Brand.XML").Completed += (obj) => {
+            TextAsset text = obj.Result;
+            Brand_xmlDoc.LoadXml(text.ToString());
 
-        //#if UNITY_EDITOR
-        //        path = Path.Combine(Application.streamingAssetsPath, "itemconfig");
-        //#endif
+            XmlNodeList nodeList = Brand_xmlDoc.SelectSingleNode("Brand").ChildNodes;
+            foreach (XmlNode child in nodeList)
+            {
+                int id = int.Parse(child["id"].InnerText);
+                string name = child["brand"].InnerText;
 
-        //#if UNITY_STANDALONE_WIN
-        //        path = Path.Combine(Application.streamingAssetsPath, "itemconfig");
-        //#endif
-        //        var ab = AssetBundle.LoadFromFile(path);
+                DataManager.BrandDic.Add(id, name);
+            }
+            Debug.Log("加载Item_Brand.XML资源完毕 品牌数量：" + DataManager.BrandDic.Count);
+        };
 
+        XmlDocument Type_xmlDoc = new XmlDocument();
+        Addressables.LoadAssetAsync<TextAsset>("Assets/XML/Item_ItemType.XML").Completed += (obj) => {
+            TextAsset text = obj.Result;
+            Type_xmlDoc.LoadXml(text.ToString());
 
-        //if (ab == null)
-        //{
-        //    Debug.LogError("读取ab包资源失败");
-        //    return;
-        //}
-        //TextAsset text= ab.LoadAsset<TextAsset>("ItemConfig.XML"); //泛型加载
-        //if (text == null)
-        //{
-        //    Debug.LogError("读取ItemConfig.XML失败 请检查目录");
-        //    return;
-        //}
-        //xmlDoc.LoadXml(text.ToString());
+            XmlNodeList nodeList = Type_xmlDoc.SelectSingleNode("ItemType").ChildNodes;
+            foreach (XmlNode child in nodeList)
+            {
+                int id = int.Parse(child["id"].InnerText);
+                string name = child["type"].InnerText;
 
-        //        //获取全部子节点;
-        //        string icon_path;
-        //#if UNITY_ANDROID
-        //        icon_path = "jar:file://" + Application.dataPath + "!assets/" + "icon_sprite";
-        //#endif
-
-        //#if UNITY_EDITOR
-        //        icon_path = Path.Combine(Application.streamingAssetsPath, "icon_sprite");
-        //#endif
-
-        //#if UNITY_STANDALONE_WIN
-        //        icon_path = Path.Combine(Application.streamingAssetsPath, "icon_sprite");
-        //#endif
-        //        AssetBundle assetBundle = AssetBundle.LoadFromFile(icon_path);
-
-        //        if (assetBundle == null)
-        //        {
-        //            Debug.LogError("ab包获取失败，路径：" + icon_path);
-        //            return;
-        //        }
+                DataManager.TypeDic.Add(id, name);
+            }
+            Debug.Log("加载Item_ItemType.XML资源完毕 类型数量：" + DataManager.TypeDic.Count);
+        };
 
         XmlDocument xmlDoc = new XmlDocument();
-        Addressables.LoadAssetAsync<TextAsset>("Assets/XML/ItemConfig.XML").Completed += (obj) => {
+        Addressables.LoadAssetAsync<TextAsset>("Assets/XML/Item_Item.XML").Completed += (obj) => {
             TextAsset text = obj.Result;
             xmlDoc.LoadXml(text.ToString());
 
-            XmlNodeList nodeList = xmlDoc.SelectSingleNode("ItemInfos").ChildNodes;
+            XmlNodeList nodeList = xmlDoc.SelectSingleNode("Item").ChildNodes;
             foreach (XmlNode child in nodeList)
             {
                 ItemInfo curItem = new ItemInfo();
                 curItem.My_id = int.Parse(child["id"].InnerText);
                 curItem.My_name = child["name"].InnerText;
-                foreach (object o in Enum.GetValues(typeof(Brand)))
-                {
-                    if (o.ToString() == child["brand"].InnerText)
-                    {
-                        curItem.My_brand = (Brand)o;
-                    }
-                }
-                curItem.My_type = (ItemType)int.Parse(child["type"].InnerText);
-                curItem.My_TeamPrice = int.Parse(child["teamprice"].InnerText);
-                curItem.My_BrokerPrice = int.Parse(child["brokerprice"].InnerText);
-                curItem.My_RetailPrice = int.Parse(child["retailprice"].InnerText);
-                curItem.My_TaobaoPrice = int.Parse(child["taobaoprice"].InnerText);
+                curItem.My_brandId = int.Parse(child["brand"].InnerText);
+                curItem.My_typeId = int.Parse(child["type"].InnerText);
+                curItem.My_TeamPrice = int.Parse(child["teamPrice"].InnerText);
+                curItem.My_BrokerPrice = int.Parse(child["brokerPrice"].InnerText);
+                curItem.My_RetailPrice = int.Parse(child["retailPrice"].InnerText);
+                curItem.My_TaobaoPrice = int.Parse(child["taobaoPrice"].InnerText);
                 curItem.My_source = child["source"].InnerText;
                 curItem.My_size = child["size"].InnerText;
                 curItem.My_taste = child["taste"].InnerText;
                 curItem.My_desc = child["desc"].InnerText;
                 curItem.My_tip = child["tip"].InnerText;
 
-                //curItem.GetAllIconName(assetBundle, curItem.My_type, curItem.My_name);
-
-                if (DataManager.AllItemInfos == null)
-                {
-                    DataManager.AllItemInfos = new List<ItemInfo>();
-                }
                 DataManager.AllItemInfos.Add(curItem);
             }
-            Debug.Log("加载item xml资源完毕 item数量：" + DataManager.AllItemInfos.Count);
+            Debug.Log("加载item xml资源完毕 产品数量：" + DataManager.AllItemInfos.Count);
 
             EventCenter.Broadcast(EventType.UpdateMainPanel);
         };

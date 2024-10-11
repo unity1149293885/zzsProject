@@ -1042,7 +1042,7 @@ public class ModifyFilesInBulk : EditorWindow
 
 public class ArtMaterialSet : EditorWindow
 {
-    [MenuItem("CustomEditor/png")]
+    [MenuItem("Zzs工具/批量修改Png文件格式")]
     static void showWindow()
     {
         EditorWindow window = EditorWindow.GetWindow(typeof(ModifyFilesInBulk));
