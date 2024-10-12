@@ -22,8 +22,9 @@ public  static class XMLTools
             {
                 int id = int.Parse(child["id"].InnerText);
                 string name = child["brand"].InnerText;
+                int sort = int.Parse(child["sort"].InnerText);
 
-                DataManager.BrandDic.Add(id, name);
+                DataManager.BrandDic.Add(id, new BrandInfo(id,name, sort));
             }
             Debug.Log("加载Item_Brand.XML资源完毕 品牌数量：" + DataManager.BrandDic.Count);
         };
@@ -38,10 +39,15 @@ public  static class XMLTools
             {
                 int id = int.Parse(child["id"].InnerText);
                 string name = child["type"].InnerText;
+                int sort = int.Parse(child["sort"].InnerText);
 
-                DataManager.TypeDic.Add(id, name);
+                DataManager.TypeDic.Add(id, new typeInfo(id,name,sort));
             }
+
+            DataManager.SortType();
             Debug.Log("加载Item_ItemType.XML资源完毕 类型数量：" + DataManager.TypeDic.Count);
+
+            EventCenter.Broadcast(EventType.LoadedItemType);
         };
 
         XmlDocument xmlDoc = new XmlDocument();
@@ -53,22 +59,24 @@ public  static class XMLTools
             foreach (XmlNode child in nodeList)
             {
                 ItemInfo curItem = new ItemInfo();
-                curItem.My_id = int.Parse(child["id"].InnerText);
-                curItem.My_name = child["name"].InnerText;
-                curItem.My_brandId = int.Parse(child["brand"].InnerText);
-                curItem.My_typeId = int.Parse(child["type"].InnerText);
-                curItem.My_TeamPrice = int.Parse(child["teamPrice"].InnerText);
-                curItem.My_BrokerPrice = int.Parse(child["brokerPrice"].InnerText);
-                curItem.My_RetailPrice = int.Parse(child["retailPrice"].InnerText);
-                curItem.My_TaobaoPrice = int.Parse(child["taobaoPrice"].InnerText);
-                curItem.My_source = child["source"].InnerText;
-                curItem.My_size = child["size"].InnerText;
-                curItem.My_taste = child["taste"].InnerText;
-                curItem.My_desc = child["desc"].InnerText;
-                curItem.My_tip = child["tip"].InnerText;
+                curItem.id = int.Parse(child["id"].InnerText);
+                curItem.name = child["name"].InnerText;
+                curItem.brandId = int.Parse(child["brand"].InnerText);
+                curItem.typeId = int.Parse(child["type"].InnerText);
+                curItem.TeamPrice = int.Parse(child["teamPrice"].InnerText);
+                curItem.BrokerPrice = int.Parse(child["brokerPrice"].InnerText);
+                curItem.RetailPrice = int.Parse(child["retailPrice"].InnerText);
+                curItem.TaobaoPrice = int.Parse(child["taobaoPrice"].InnerText);
+                curItem.source = child["source"].InnerText;
+                curItem.size = child["size"].InnerText;
+                curItem.taste = child["taste"].InnerText;
+                curItem.desc = child["desc"].InnerText;
+                curItem.tip = child["tip"].InnerText;
 
                 DataManager.AllItemInfos.Add(curItem);
             }
+
+            DataManager.SortItem();
             Debug.Log("加载item xml资源完毕 产品数量：" + DataManager.AllItemInfos.Count);
 
             EventCenter.Broadcast(EventType.UpdateMainPanel);

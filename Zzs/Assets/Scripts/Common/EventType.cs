@@ -14,4 +14,7 @@
 
     //上下架更新
     ChangeItemState = 40,
+
+    //产品种类加载完毕
+    LoadedItemType = 50,
 }

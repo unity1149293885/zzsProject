@@ -64,7 +64,7 @@ public class ItemDetailPanel : MonoBehaviour
 
     public void UpdateItemDetailPanel(ItemInfo iteminfo)
     {
-        Debug.Log("打开物品详情，物品id："+iteminfo.My_id);
+        Debug.Log("打开物品详情，物品id："+iteminfo.id);
         this.root.SetActive(true);
         this.itemInfo = iteminfo;
 
@@ -85,27 +85,27 @@ public class ItemDetailPanel : MonoBehaviour
 
     public void update_Text(ItemInfo iteminfo)
     {
-        Name_value.text = iteminfo.My_name;
-        Brand_value.text = iteminfo.My_brandId.ToString();
-        Type_value.text = iteminfo.My_typeId.ToString();
-        Taobao_value.text = iteminfo.My_TaobaoPrice.ToString();
+        Name_value.text = iteminfo.name;
+        Brand_value.text = DataManager.BrandDic[iteminfo.brandId].ToString();
+        Type_value.text = DataManager.TypeDic[iteminfo.typeId].ToString();
+        Taobao_value.text = iteminfo.TaobaoPrice.ToString();
 
         if (MyData.userInfo.My_UserType == UserType.Teamer || MyData.userInfo.My_UserType == UserType.Manager)
         {
-            Price_value.text = iteminfo.My_TeamPrice.ToString();
-            Source_value.text = iteminfo.My_source;
+            Price_value.text = iteminfo.TeamPrice.ToString();
+            Source_value.text = iteminfo.source;
             Button_ChangeState.gameObject.SetActive(true);
         }
         else if (MyData.userInfo.My_UserType == UserType.Broker)
         {
-            Price_value.text = iteminfo.My_BrokerPrice.ToString();
+            Price_value.text = iteminfo.BrokerPrice.ToString();
             Source_value.text = "铁汁";
             Button_ChangeState.gameObject.SetActive(false);
         }
 
-        Size_value.text = iteminfo.My_size;
-        Taste_value.text = iteminfo.My_taste;
-        Desc_value.text = iteminfo.My_desc;
+        Size_value.text = iteminfo.size;
+        Taste_value.text = iteminfo.taste;
+        Desc_value.text = iteminfo.desc;
     }
 
     public void ShowPic(ItemInfo info)
@@ -147,7 +147,7 @@ public class ItemDetailPanel : MonoBehaviour
     public void Click_ChangeState()
     {
         ItemChangeStateReq req = new ItemChangeStateReq();
-        req.id = itemInfo.My_id;
+        req.id = itemInfo.id;
         req.isDown = !itemInfo.isDown;
 
         NetManager.SendtoServer<ItemChangeStateReq>((int)ProcolCode.Code_Item_ChangeState_req, req);

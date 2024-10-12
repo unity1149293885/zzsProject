@@ -24,19 +24,19 @@ public class ItemSlot : MonoBehaviour
 
     public async void InitItemSlot(ItemInfo iteminfo)
     {
-        text_name.text = iteminfo.My_name;
-        image_icon.sprite = UIResourceLoadManager.Instance.LoadSprite("LittleIcon", iteminfo.My_name + "_little");
+        text_name.text = iteminfo.name;
+        image_icon.sprite = UIResourceLoadManager.Instance.LoadSprite("LittleIcon", iteminfo.name + "_little");
 
         this.iteminfo = iteminfo;
         bool state = false;
-        if(iteminfo.My_tip != "0")
+        if(iteminfo.tip != "0")
         {
             state = true;
         }
 
         update_price();
 
-        update_tip(state, iteminfo.My_tip);
+        update_tip(state, iteminfo.tip);
 
         DownTip.SetActive(iteminfo.isDown);
 
@@ -47,7 +47,7 @@ public class ItemSlot : MonoBehaviour
         
         if (MyData.userInfo.My_UserType == UserType.Teamer || MyData.userInfo.My_UserType == UserType.Manager)
         {
-            text_price.text = iteminfo.My_TeamPrice.ToString();
+            text_price.text = iteminfo.TeamPrice.ToString();
         }
         else if (MyData.userInfo.My_UserType == UserType.Broker)
         {
@@ -55,7 +55,7 @@ public class ItemSlot : MonoBehaviour
             {
                 text_price.text = "已下架";
             }
-            text_price.text = iteminfo.My_BrokerPrice.ToString();
+            text_price.text = iteminfo.BrokerPrice.ToString();
         }
     }
 

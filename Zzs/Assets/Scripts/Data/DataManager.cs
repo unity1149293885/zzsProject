@@ -1,18 +1,99 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
 
 public static class DataManager
 {
-    public static Dictionary<int, UserInfo> AllUserInfos = new Dictionary<int, UserInfo>();
-
     public static UserInfo MyUserInfo;
 
+    public static Dictionary<int, UserInfo> AllUserInfos = new Dictionary<int, UserInfo>();
     public static List<ItemInfo> AllItemInfos = new List<ItemInfo>();//运行时的总item数据
-    public static Dictionary<int, string> BrandDic = new Dictionary<int, string>();//品牌数据
-    public static Dictionary<int, string> TypeDic = new Dictionary<int, string>();//产品类型数据
+    public static Dictionary<int, BrandInfo> BrandDic = new Dictionary<int, BrandInfo>();//品牌数据
+    public static Dictionary<int, typeInfo> TypeDic = new Dictionary<int, typeInfo>();//产品类型数据
+
+    /// <summary>
+    /// 排序产品种类序列
+    /// </summary>
+    public static void SortType()
+    {
+        Dictionary<int, typeInfo> ans = new Dictionary<int, typeInfo>();
+
+        int sortIndex = 1;
+        while (true)
+        {
+            bool ishave = false;
+            foreach(var it in TypeDic)
+            {
+                if (it.Value.sortid == sortIndex)
+                {
+                    ans.Add(it.Key, it.Value);
+
+                    ishave = true;
+                }
+            }
+
+            if(ishave == false)
+            {
+                break;
+            }
+            sortIndex++;
+        }
+
+        TypeDic = ans;
+    }
+
+    /// <summary>
+    /// 排序产品
+    /// </summary>
+    public static void SortItem()
+    {
+        AllItemInfos.Sort(new ItemComparer());
+
+        //foreach(var it in AllItemInfos)
+        //{
+        //    Debug.LogError(it.name);
+        //}
+    }
+
+    class ItemComparer : Comparer<ItemInfo>
+    {
+        public override int Compare(ItemInfo a, ItemInfo b)
+        {
+            int brand_a_sort = BrandDic[a.brandId].sortid;
+            int type_a_sort = TypeDic[a.typeId].sortid;
+
+            int brand_b_sort = BrandDic[b.brandId].sortid;
+            int type_b_sort = TypeDic[b.typeId].sortid;
+
+            int sort_a = brand_a_sort + type_a_sort;
+            int sort_b = brand_b_sort + type_b_sort;
+
+            return sort_a > sort_b ? 1 : -1;
+        }
+    }
+
+    /// <summary>
+    /// 获取第几个选项的数据
+    /// </summary>
+    /// <param name="index"></param>
+    public static typeInfo gettypeInfoByIndex(int index)
+    {
+        int curindex = 0;
+        foreach(var it in TypeDic)
+        {
+            if(index == curindex)
+            {
+                return it.Value;
+            }
+            
+            curindex++;
+        }
+        Debug.LogError("没有这个选项：" + index);
+        return null;
+    }
 
     public static List<int> DownList;//下架产品数组
     //下架产品
@@ -42,7 +123,7 @@ public static class DataManager
         List<ItemInfo> ans = new List<ItemInfo>();
         for(int i = 0; i < List.Count; i++)
         {
-            if (List[i].My_BrokerPrice >= low && List[i].My_BrokerPrice <= high)
+            if (List[i].BrokerPrice >= low && List[i].BrokerPrice <= high)
             {
                 ans.Add(List[i]);
             }
@@ -57,7 +138,7 @@ public static class DataManager
         List<ItemInfo> ans = new List<ItemInfo>();
         for (int i = 0; i < List.Count; i++)
         {
-            if (List[i].My_typeId == typeId)
+            if (List[i].typeId == typeId)
             {
                 ans.Add(List[i]);
             }
@@ -72,7 +153,7 @@ public static class DataManager
         List<ItemInfo> ans = new List<ItemInfo>();
         for (int i = 0; i < List.Count; i++)
         {
-            if (List[i].My_brandId == brandId)
+            if (List[i].brandId == brandId)
             {
                 ans.Add(List[i]);
             }
@@ -80,33 +161,6 @@ public static class DataManager
 
         return ans;
     }
-
-    //通过itemid 得到指定的ItemInfo
-    public static ItemInfo GetItemInfoById(int id)
-    {
-        for(int i=0;i< AllItemInfos.Count; i++)
-        {
-            if (id == AllItemInfos[i].My_id) return AllItemInfos[i];
-        }
-        Debug.LogError("物品id为: " + id + "的物品 不存在表里 请检查！");
-        return null;
-    }
 }
 
-
-public struct brandInfo
-{
-    public string id;
-    public string name;
-}
-
-public struct typeInfo
-{
-    public string id;
-    public string name;
-}
-public static class ExcelTools
-{
-   
-}
 

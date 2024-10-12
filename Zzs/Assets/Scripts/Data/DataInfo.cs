@@ -34,35 +34,52 @@ public enum UserType
     Teamer = 2,
     Broker = 3,
 }
+
+public class BrandInfo
+{
+    public int id;
+    public string brand;
+    public int sortid;
+
+    public BrandInfo(int id,string name,int sort)
+    {
+        this.id = id;
+        brand = name;
+        sortid = sort;
+    }
+}
+
+public class typeInfo
+{
+    public int id;
+    public string type;
+    public int sortid;
+
+    public typeInfo() { }
+
+    public typeInfo(int id,string name, int sort)
+    {
+        this.id = id;
+        type = name;
+        sortid = sort;
+    }
+}
+
 public class ItemInfo
 {
-    public string id;
+    public int id;
     public string name;
-    public string brand;
-    public string type;
-    public string TeamPrice;
-    public string BrokerPrice;
-    public string RetailPrice;
-    public string TaobaoPrice;
+    public int brandId;
+    public int typeId;
+    public int TeamPrice;
+    public int BrokerPrice;
+    public int RetailPrice;
+    public int TaobaoPrice;
     public string size;
     public string taste;
     public string source;
     public string desc;
     public string tip;
-
-    public int My_id;
-    public string My_name;
-    public int My_brandId;
-    public int My_typeId;
-    public int My_TeamPrice;
-    public int My_BrokerPrice;
-    public int My_RetailPrice;
-    public int My_TaobaoPrice;
-    public string My_size;
-    public string My_taste;
-    public string My_source;
-    public string My_desc;
-    public string My_tip;
 
     public bool isDown
     {
@@ -70,7 +87,7 @@ public class ItemInfo
         {
             foreach (var it in DataManager.DownList)
             {
-                if (it == My_id)
+                if (it == id)
                 {
                     return true;
                 }

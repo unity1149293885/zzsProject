@@ -27,7 +27,7 @@ public class ExcelConfig
 
 public class ExcelTool
 {
-    [MenuItem("Zzs工具/Excel表格转成XML数据")]
+    [MenuItem("Zzs工具/刷表---Excel表格转成XML数据")]
     public static void ExcelToXML()
     {
         DirectoryInfo folder = new DirectoryInfo(ExcelConfig.excelsFolderPath);

@@ -10,8 +10,6 @@ using Tools;
 
 public class MainPanel : MonoBehaviour
 {
-    public List<ItemSlot> ItemInfos;
-    
     //ui部分
     public InputField lowPrice;
     public InputField highPirce;
@@ -23,9 +21,6 @@ public class MainPanel : MonoBehaviour
     public Button help_Button;
     public GameObject helpPanel;
 
-    //当前界面中显示的格子 共有多少
-    int curCount = -1;
-
     public RecycleView recycleView;
 
     protected List<ItemInfo> ItemInfosList;
@@ -34,11 +29,9 @@ public class MainPanel : MonoBehaviour
     {
         XMLTools.ReadItemXml();
 
-        sift_Button.onClick.AddListener(UpdateMainPanel);
-
-        InitMainPanel();
-
         EventCenter.AddListener<bool>(EventType.ChangeItemState, UpdateState);
+        EventCenter.AddListener(EventType.UpdateMainPanel, UpdateMainPanel);
+        EventCenter.AddListener(EventType.LoadedItemType, InitUI);
     }
 
     public void NormalCallBack(GameObject cell, int index)
@@ -52,11 +45,9 @@ public class MainPanel : MonoBehaviour
         ItemInfosList = DataManager.AllItemInfos;
 
         recycleView.Init(NormalCallBack);
-
-        EventCenter.AddListener(EventType.UpdateMainPanel, UpdateMainPanel);
     }
 
-    public void InitMainPanel()
+    public void InitUI()
     {
         TypeDropDown.ClearOptions();
 
@@ -64,11 +55,12 @@ public class MainPanel : MonoBehaviour
 
         foreach(var it in DataManager.TypeDic)
         {
-            options.Add(new OptionData(it.Value.ToString()));
+            options.Add(new OptionData(it.Value.type.ToString()));
         }
         TypeDropDown.AddOptions(options);
 
         help_Button.onClick.AddListener(delegate { helpPanel.gameObject.SetActive(true); });
+        sift_Button.onClick.AddListener(UpdateMainPanel);
     }
 
     public void UpdateState(bool isDown)
@@ -113,7 +105,8 @@ public class MainPanel : MonoBehaviour
         if (TypeDropDown.value != 0)
         {
             var it = ItemInfosList;
-            ItemInfosList = DataManager.GetTypeRangeItemList(it, TypeDropDown.value);
+
+            ItemInfosList = DataManager.GetTypeRangeItemList(it,DataManager.gettypeInfoByIndex(TypeDropDown.value).id);
         }
 
         //通过品牌筛选
@@ -125,11 +118,11 @@ public class MainPanel : MonoBehaviour
 
             int curBrand = -1;
 
-            foreach(var brand in DataManager.BrandDic)
+            foreach(var info in DataManager.BrandDic)
             {
-                if (brand.Value.Contains(str))
+                if (info.Value.brand.Contains(str))
                 {
-                    curBrand = brand.Key;
+                    curBrand = info.Key;
                 }
             }
                 
@@ -140,5 +133,7 @@ public class MainPanel : MonoBehaviour
     private void OnDestroy()
     {
         EventCenter.RemoveListener<bool>(EventType.ChangeItemState, UpdateState);
+        EventCenter.RemoveListener(EventType.UpdateMainPanel, UpdateMainPanel);
+        EventCenter.RemoveListener(EventType.LoadedItemType, InitUI);
     }
 }
