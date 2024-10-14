@@ -93,5 +93,77 @@ public class ExcelTool
             }
         }
         AssetDatabase.Refresh();
+
+        Debug.Log("刷表完成！");
+    }
+}
+
+public static class CheckPicRes
+{
+    public static XmlDocument doc = null;
+
+    public static XmlElement root = null;
+    //完整存放地址+名字+后缀
+    public static string XmlPath = ExcelConfig.XMLExportPath + "PicCount" + ".XML";
+
+    /// <summary>
+    /// 检查图集icon拼写错误
+    /// </summary>
+    [MenuItem("Zzs工具/检查--图集icon拼写错误")]
+    public static void CheckLittleRoot()
+    {
+        string path = Application.dataPath + "/Resources_Pack";
+        Debug.Log("检查拼写的工作目录：" + path);
+
+        //创建节点
+        doc = new XmlDocument();
+        root = doc.CreateElement("Root");
+        doc.AppendChild(root);
+
+        Traverse(path);
+
+        doc.Save(XmlPath);
+        AssetDatabase.Refresh();
+    }
+
+    //递归
+    private static void Traverse(string path)
+    {
+        DirectoryInfo folder = new DirectoryInfo(path);
+
+        if (folder.GetDirectories().Length == 0)
+        {
+            //下边没有文件夹了
+            string name = folder.Name + "_little.jpg";
+
+            bool ishave = false;
+            foreach (var file in folder.GetFiles())
+            {
+                if (file.Name == name)
+                {
+                    ishave = true;
+                }
+            }
+
+            if (ishave == false)
+            {
+                Debug.LogError("文件夹：" + folder.FullName + "下 缺少图标icon：" + name);
+            }
+            else
+            {
+                //创建节点
+                XmlElement data = doc.CreateElement(folder.Name);
+                
+                root.AppendChild(data);
+                data.InnerText = (folder.GetFiles("*.jpg").Length - 1).ToString();
+            }
+        }
+        else
+        {
+            foreach (var f in folder.GetDirectories())
+            {
+                Traverse(f.FullName);
+            }
+        }
     }
 }

@@ -13,6 +13,8 @@ public class PackPc : MonoBehaviour
     {
         //1.更新最新表格数据
         ExcelTool.ExcelToXML();
+        //更新资源数据
+        CheckPicRes.CheckLittleRoot();
 
         //2.打包整体资源
         //3.打包

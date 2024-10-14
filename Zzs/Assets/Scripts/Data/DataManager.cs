@@ -9,10 +9,12 @@ public static class DataManager
 {
     public static UserInfo MyUserInfo;
 
-    public static Dictionary<int, UserInfo> AllUserInfos = new Dictionary<int, UserInfo>();
+    public static Dictionary<int, UserInfo> AllUserInfos = new Dictionary<int, UserInfo>();//玩家数据
     public static List<ItemInfo> AllItemInfos = new List<ItemInfo>();//运行时的总item数据
     public static Dictionary<int, BrandInfo> BrandDic = new Dictionary<int, BrandInfo>();//品牌数据
     public static Dictionary<int, typeInfo> TypeDic = new Dictionary<int, typeInfo>();//产品类型数据
+
+    public static Dictionary<string, int> PicDic = new Dictionary<string, int>();//key 资源名字，value资源数量
 
     /// <summary>
     /// 排序产品种类序列
@@ -62,6 +64,11 @@ public static class DataManager
     {
         public override int Compare(ItemInfo a, ItemInfo b)
         {
+            if(BrandDic.Count == 0 || TypeDic.Count == 0)
+            {
+                Debug.LogError("数据异常！");
+                return 1;
+            }
             int brand_a_sort = BrandDic[a.brandId].sortid;
             int type_a_sort = TypeDic[a.typeId].sortid;
 

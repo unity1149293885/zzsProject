@@ -21,11 +21,10 @@ public class ItemSlot : MonoBehaviour
     {
         buton_Click.onClick.AddListener(ClickSlot);
     }
-
     public async void InitItemSlot(ItemInfo iteminfo)
     {
         text_name.text = iteminfo.name;
-        image_icon.sprite = UIResourceLoadManager.Instance.LoadSprite("LittleIcon", iteminfo.name + "_little");
+        //image_icon.sprite = UIResourceLoadManager.Instance.LoadSprite("LittleIcon", iteminfo.name + "_little");
 
         this.iteminfo = iteminfo;
         bool state = false;
@@ -69,5 +68,4 @@ public class ItemSlot : MonoBehaviour
     {
         PanelManager.OpenDetailPanel(this.iteminfo);
     }
-
 }

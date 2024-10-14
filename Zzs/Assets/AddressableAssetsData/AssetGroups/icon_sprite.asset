@@ -62,21 +62,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Texture
-  - m_GUID: 2c6be3b20ee71c5428cec434d1fafd33
-    m_Address: "Assets/Resources_Pack/\u5370\u5EA6/\u5E0C\u7231\u529B\u4E00\u677F\uFF0810\u7C92\uFF09/\u5E0C\u7231\u529B\u4E00\u677F\uFF0810\u7C92\uFF09_0.jpg"
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Texture
-  - m_GUID: 29dfed75bb028d744a6441944584513d
-    m_Address: "Assets/Resources_Pack/\u5370\u5EA6/\u5E0C\u7231\u529B\u4E00\u677F\uFF0810\u7C92\uFF09/\u5E0C\u7231\u529B\u4E00\u677F\uFF0810\u7C92\uFF09_1.jpg"
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Texture
-  - m_GUID: d3e2149befb127941bdb762d027b893d
-    m_Address: "Assets/Resources_Pack/\u5370\u5EA6/\u5E0C\u7231\u529B\u4E00\u677F\uFF0810\u7C92\uFF09/\u5E0C\u7231\u529B\u4E00\u677F\uFF0810\u7C92\uFF09_2.jpg"
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Texture
   - m_GUID: 299b63eeacb6f4a4ab881b1735851082
     m_Address: "Assets/Resources_Pack/\u589E\u808C\u7C89/\u5EB7\u6BD4\u7279\u4E03\u78C5\u589E\u808C\u7C89/\u5EB7\u6BD4\u7279\u4E03\u78C5\u589E\u808C\u7C89_0.jpg"
     m_ReadOnly: 0
@@ -394,21 +379,6 @@ MonoBehaviour:
     - Texture
   - m_GUID: 8a42b38ddecf9024f9a724853c32d2eb
     m_Address: "Assets/Resources_Pack/\u62A4\u5177/\u516C\u7235\u538B\u5370\u8170\u5E26/\u516C\u7235\u538B\u5370\u8170\u5E26_4.jpg"
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Texture
-  - m_GUID: e50f17fb65314ae4da5a43a79e698968
-    m_Address: "Assets/Resources_Pack/\u86CB\u767D\u7C89/Mts\u4E73\u6E05/Mts\u4E73\u6E05_0.jpg"
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Texture
-  - m_GUID: 9416ffb21311c584dac4290374444413
-    m_Address: "Assets/Resources_Pack/\u86CB\u767D\u7C89/Mts\u4E73\u6E05/Mts\u4E73\u6E05_1.jpg"
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Texture
-  - m_GUID: c4f95c747f421ec4388b2cde13c40e71
-    m_Address: "Assets/Resources_Pack/\u86CB\u767D\u7C89/Mts\u4E73\u6E05/Mts\u4E73\u6E05_2.jpg"
     m_ReadOnly: 0
     m_SerializedLabels:
     - Texture

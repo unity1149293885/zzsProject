@@ -68,7 +68,7 @@ public class ItemDetailPanel : MonoBehaviour
         this.root.SetActive(true);
         this.itemInfo = iteminfo;
 
-        //MaxCount = UIResourceLoadManager.Instance.GetIconCount(iteminfo);
+        MaxCount = DataManager.PicDic[iteminfo.name];
 
         update_Text(iteminfo);
 
@@ -79,7 +79,6 @@ public class ItemDetailPanel : MonoBehaviour
 
     public void UpdateStateInfo(bool isDown)
     {
-        
         Text_State.text = isDown ? "ио╪э" : "об╪э";
     }
 

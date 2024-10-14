@@ -25,13 +25,13 @@ public class MainPanel : MonoBehaviour
 
     protected List<ItemInfo> ItemInfosList;
 
-    private void Awake()
+    async void Awake()
     {
-        XMLTools.ReadItemXml();
-
         EventCenter.AddListener<bool>(EventType.ChangeItemState, UpdateState);
         EventCenter.AddListener(EventType.UpdateMainPanel, UpdateMainPanel);
         EventCenter.AddListener(EventType.LoadedItemType, InitUI);
+
+        await XMLTools.ReadItemXml();
     }
 
     public void NormalCallBack(GameObject cell, int index)
