@@ -51,7 +51,7 @@
   </data12>
   <data13>
     <id>110</id>
-    <brand>肌械时代</brand>
+    <brand>海德力</brand>
     <sort>2</sort>
   </data13>
   <data14>
@@ -66,12 +66,12 @@
   </data15>
   <data16>
     <id>113</id>
-    <brand>巅峰</brand>
+    <brand>孤品无视品牌</brand>
     <sort>2</sort>
   </data16>
   <data17>
     <id>114</id>
-    <brand>氧气能量</brand>
+    <brand>肌肉博士</brand>
     <sort>2</sort>
   </data17>
   <data18>
@@ -94,4 +94,24 @@
     <brand>特拉维尔</brand>
     <sort>1</sort>
   </data21>
+  <data22>
+    <id>119</id>
+    <brand>马泰</brand>
+    <sort>2</sort>
+  </data22>
+  <data23>
+    <id>120</id>
+    <brand>顽皮男孩</brand>
+    <sort>2</sort>
+  </data23>
+  <data24>
+    <id>121</id>
+    <brand>smart</brand>
+    <sort>2</sort>
+  </data24>
+  <data25>
+    <id>122</id>
+    <brand>魔兽</brand>
+    <sort>2</sort>
+  </data25>
 </Brand>

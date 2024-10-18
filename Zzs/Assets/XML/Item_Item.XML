@@ -1,96 +1,306 @@
 <Item>
   <data3>
-    <id>2</id>
+    <id>2011</id>
     <name>as半分离乳清5磅</name>
     <brand>100</brand>
     <type>201</type>
-    <teamPrice>240</teamPrice>
-    <brokerPrice>260</brokerPrice>
-    <retailPrice>320</retailPrice>
-    <taobaoPrice>299</taobaoPrice>
+    <teamPrice>220</teamPrice>
+    <brokerPrice>225</brokerPrice>
+    <retailPrice>240</retailPrice>
+    <taobaoPrice>240</taobaoPrice>
     <source>猿人</source>
     <size>5</size>
     <taste>巧克力|香蕉|柠檬|提拉米苏|草莓</taste>
     <desc>可可类似巧克力，香蕉口感比较丝滑（偏浓），柠檬偏淡，提拉米苏居中，草莓也好喝</desc>
-    <tip>爆单</tip>
+    <tip>0</tip>
   </data3>
   <data4>
-    <id>3</id>
-    <name>as十全鹿丸</name>
-    <brand>100</brand>
-    <type>207</type>
-    <teamPrice>138</teamPrice>
-    <brokerPrice>170</brokerPrice>
-    <retailPrice>268</retailPrice>
-    <taobaoPrice>299</taobaoPrice>
-    <source>健美佳</source>
-    <size>30次</size>
-    <taste>无</taste>
-    <desc>最牛的促睾（促睾+补肾）配料都是中药材</desc>
-    <tip>利润</tip>
-  </data4>
-  <data5>
-    <id>101</id>
-    <name>埃姆特肌酸</name>
-    <brand>105</brand>
-    <type>203</type>
-    <teamPrice>57</teamPrice>
-    <brokerPrice>65</brokerPrice>
-    <retailPrice>88</retailPrice>
-    <taobaoPrice>95</taobaoPrice>
-    <source>猿人</source>
-    <size>300g（100次）</size>
-    <taste>无</taste>
-    <desc>经典进口肌酸，瑞典进口，助你力量提升一个档次</desc>
-    <tip>0</tip>
-  </data5>
-  <data6>
-    <id>203</id>
-    <name>肌肉科技袋装乳清</name>
-    <brand>102</brand>
-    <type>201</type>
-    <teamPrice>150</teamPrice>
-    <brokerPrice>180</brokerPrice>
-    <retailPrice>220</retailPrice>
-    <taobaoPrice>400</taobaoPrice>
-    <source>啊洋</source>
-    <size>五磅</size>
-    <taste>巧克力</taste>
-    <desc>主打性价比，蛋白质含量65%，巧克力口味，好喝</desc>
-    <tip>利润</tip>
-  </data6>
-  <data7>
-    <id>301</id>
+    <id>2012</id>
     <name>肌肉梦想乳清</name>
     <brand>108</brand>
     <type>201</type>
-    <teamPrice>185</teamPrice>
-    <brokerPrice>210</brokerPrice>
-    <retailPrice>288</retailPrice>
+    <teamPrice>178</teamPrice>
+    <brokerPrice>200</brokerPrice>
+    <retailPrice>265</retailPrice>
     <taobaoPrice>468</taobaoPrice>
-    <source>老董</source>
+    <source>简单</source>
     <size>5磅</size>
-    <taste>草莓果粒|巧克力</taste>
+    <taste>草莓果粒|巧克力|酸奶</taste>
     <desc>性价比比较高的乳清，蛋白质72%，口感好，带草莓果粒</desc>
     <tip>利润</tip>
+  </data4>
+  <data5>
+    <id>2013</id>
+    <name>肌肉科技袋装乳清</name>
+    <brand>102</brand>
+    <type>201</type>
+    <teamPrice>135</teamPrice>
+    <brokerPrice>150</brokerPrice>
+    <retailPrice>199</retailPrice>
+    <taobaoPrice>400</taobaoPrice>
+    <source>啊洋</source>
+    <size>5磅</size>
+    <taste>巧克力</taste>
+    <desc>主打性价比，蛋白质含量65%，巧克力口味，好喝</desc>
+    <tip>利润</tip>
+  </data5>
+  <data6>
+    <id>2014</id>
+    <name>康比特益生菌乳清</name>
+    <brand>101</brand>
+    <type>201</type>
+    <teamPrice>265</teamPrice>
+    <brokerPrice>275</brokerPrice>
+    <retailPrice>319</retailPrice>
+    <taobaoPrice>399</taobaoPrice>
+    <source>奔腾</source>
+    <size>4磅</size>
+    <taste>奶茶|酸奶|香草</taste>
+    <desc>乳清的基础上添加了益生菌，吸收效果更好，蛋白质75%</desc>
+    <tip>好卖</tip>
+  </data6>
+  <data7>
+    <id>2015</id>
+    <name>康比特炽金乳清</name>
+    <brand>101</brand>
+    <type>201</type>
+    <teamPrice>295</teamPrice>
+    <brokerPrice>315</brokerPrice>
+    <retailPrice>360</retailPrice>
+    <taobaoPrice>388</taobaoPrice>
+    <source>奔腾</source>
+    <size>5磅</size>
+    <taste>巧克力|香蕉|芒果|百香果|香草|抹茶|酸奶|椰子</taste>
+    <desc>经典五磅乳清，蛋白质75%</desc>
+    <tip>好卖</tip>
   </data7>
   <data8>
-    <id>302</id>
+    <id>2016</id>
+    <name>未来之星乳清</name>
+    <brand>111</brand>
+    <type>201</type>
+    <teamPrice>95</teamPrice>
+    <brokerPrice>110</brokerPrice>
+    <retailPrice>140</retailPrice>
+    <taobaoPrice>158</taobaoPrice>
+    <source>健身爱好者</source>
+    <size>800g</size>
+    <taste>牛奶</taste>
+    <desc>蛋白质85%，质量过硬，超过肌肉科技白金，口感也无敌</desc>
+    <tip>质量</tip>
+  </data8>
+  <data9>
+    <id>2017</id>
+    <name>海德力乳清</name>
+    <brand>110</brand>
+    <type>201</type>
+    <teamPrice>279</teamPrice>
+    <brokerPrice>285</brokerPrice>
+    <retailPrice>299</retailPrice>
+    <taobaoPrice>299</taobaoPrice>
+    <source>简单</source>
+    <size>5磅</size>
+    <taste>抹茶|草莓</taste>
+    <desc>国产老品牌，品质还算ok</desc>
+    <tip>0</tip>
+  </data9>
+  <data10>
+    <id>2018</id>
+    <name>肌肉博士乳清</name>
+    <brand>114</brand>
+    <type>201</type>
+    <teamPrice>205</teamPrice>
+    <brokerPrice>215</brokerPrice>
+    <retailPrice>245</retailPrice>
+    <taobaoPrice>255</taobaoPrice>
+    <source>鲨鱼</source>
+    <size>4磅</size>
+    <taste>库存更新太快，私聊</taste>
+    <desc>性价比高，抖音比较火，小白喜欢</desc>
+    <tip>0</tip>
+  </data10>
+  <data11>
+    <id>2019</id>
+    <name>马泰二磅乳清</name>
+    <brand>119</brand>
+    <type>201</type>
+    <teamPrice>75</teamPrice>
+    <brokerPrice>80</brokerPrice>
+    <retailPrice>95</retailPrice>
+    <taobaoPrice>95</taobaoPrice>
+    <source>阿昌</source>
+    <size>2磅</size>
+    <taste>茉莉奶绿|巧克力|拿铁|荔枝|白桃酸奶|杨枝甘露</taste>
+    <desc>为数不多的小重量乳清，口味多，蛋白质75%</desc>
+    <tip>好卖</tip>
+  </data11>
+  <data12>
+    <id>2020</id>
+    <name>顽皮男孩乳清</name>
+    <brand>120</brand>
+    <type>201</type>
+    <teamPrice>320</teamPrice>
+    <brokerPrice>330</brokerPrice>
+    <retailPrice>365</retailPrice>
+    <taobaoPrice>375</taobaoPrice>
+    <source>猿人</source>
+    <size>4.4磅</size>
+    <taste>焦糖饼干|草莓|香草</taste>
+    <desc>进口三重乳清，品质不错，焦糖饼干很nice</desc>
+    <tip>质量</tip>
+  </data12>
+  <data13>
+    <id>2021</id>
+    <name>smart乳清</name>
+    <brand>121</brand>
+    <type>201</type>
+    <teamPrice>225</teamPrice>
+    <brokerPrice>235</brokerPrice>
+    <retailPrice>260</retailPrice>
+    <taobaoPrice>265</taobaoPrice>
+    <source>吴凡</source>
+    <size>5磅</size>
+    <taste>原味|香草|巧克力|草莓|椰子|菠萝|抹茶|香蕉酸奶</taste>
+    <desc>口感偏甜，唯一缺点，原味蛋白质80%，其余蛋白质75%，不介意甜的很合适</desc>
+    <tip>0</tip>
+  </data13>
+  <data14>
+    <id>2191</id>
+    <name>康比特分离乳清</name>
+    <brand>101</brand>
+    <type>219</type>
+    <teamPrice>365</teamPrice>
+    <brokerPrice>385</brokerPrice>
+    <retailPrice>430</retailPrice>
+    <taobaoPrice>488</taobaoPrice>
+    <source>奔腾</source>
+    <size>4磅</size>
+    <taste>绿茶|酸奶|抹茶|咖啡</taste>
+    <desc>康比特旗下，品质最高的粉，蛋白质88% 纯分离</desc>
+    <tip>好卖</tip>
+  </data14>
+  <data15>
+    <id>2192</id>
+    <name>mts分离乳清</name>
+    <brand>112</brand>
+    <type>219</type>
+    <teamPrice>400</teamPrice>
+    <brokerPrice>410</brokerPrice>
+    <retailPrice>440</retailPrice>
+    <taobaoPrice>448</taobaoPrice>
+    <source>鲨鱼/猿人</source>
+    <size>5磅</size>
+    <taste>玫瑰|牛奶|香草|香蕉|巧克力|薄荷|蓝莓|教父|比基尼</taste>
+    <desc>首位分离乳清，成分对标on金标乳清，蛋白质75%</desc>
+    <tip>质量</tip>
+  </data15>
+  <data16>
+    <id>2193</id>
+    <name>肌肉博士分离乳清</name>
+    <brand>114</brand>
+    <type>219</type>
+    <teamPrice>355</teamPrice>
+    <brokerPrice>360</brokerPrice>
+    <retailPrice>380</retailPrice>
+    <taobaoPrice>380</taobaoPrice>
+    <source>鲨鱼</source>
+    <size>4磅</size>
+    <taste>库存更新太快，私聊</taste>
+    <desc>国产分离，性价比高点</desc>
+    <tip>0</tip>
+  </data16>
+  <data17>
+    <id>2194</id>
+    <name>海德力分离乳清</name>
+    <brand>110</brand>
+    <type>219</type>
+    <teamPrice>323</teamPrice>
+    <brokerPrice>335</brokerPrice>
+    <retailPrice>365</retailPrice>
+    <taobaoPrice>365</taobaoPrice>
+    <source>简单</source>
+    <size>4磅</size>
+    <taste>抹茶|草莓</taste>
+    <desc>混合分离，蛋白质92%，性价比可以的，小白喜欢</desc>
+    <tip>0</tip>
+  </data17>
+  <data18>
+    <id>2195</id>
+    <name>黑天鹅分离乳清</name>
+    <brand>113</brand>
+    <type>219</type>
+    <teamPrice>430</teamPrice>
+    <brokerPrice>440</brokerPrice>
+    <retailPrice>448</retailPrice>
+    <taobaoPrice>448</taobaoPrice>
+    <source>阿荣</source>
+    <size>4.4磅</size>
+    <taste>货少，具体私聊</taste>
+    <desc>高端分离系列，价格略贵</desc>
+    <tip>质量</tip>
+  </data18>
+  <data19>
+    <id>2021</id>
     <name>肌肉梦想增肌粉</name>
     <brand>108</brand>
     <type>202</type>
-    <teamPrice>75</teamPrice>
-    <brokerPrice>85</brokerPrice>
-    <retailPrice>130</retailPrice>
+    <teamPrice>70</teamPrice>
+    <brokerPrice>80</brokerPrice>
+    <retailPrice>125</retailPrice>
     <taobaoPrice>288</taobaoPrice>
-    <source>猿人</source>
+    <source>简单</source>
     <size>5磅</size>
-    <taste>草莓</taste>
+    <taste>草莓|椰奶</taste>
     <desc>性价比最高且效果好的增肌粉（没有之一）</desc>
     <tip>利润</tip>
-  </data8>
-  <data9>
-    <id>303</id>
+  </data19>
+  <data20>
+    <id>2022</id>
+    <name>康比特七磅增肌粉</name>
+    <brand>101</brand>
+    <type>202</type>
+    <teamPrice>255</teamPrice>
+    <brokerPrice>275</brokerPrice>
+    <retailPrice>320</retailPrice>
+    <taobaoPrice>399</taobaoPrice>
+    <source>猿人</source>
+    <size>7磅</size>
+    <taste>奶茶|巧克力|椰奶</taste>
+    <desc>增肌粉中最牛逼的，没有之一，碳水75%，蛋白质25%</desc>
+    <tip>好卖</tip>
+  </data20>
+  <data21>
+    <id>2023</id>
+    <name>mts碳水能量粉</name>
+    <brand>112</brand>
+    <type>202</type>
+    <teamPrice>190</teamPrice>
+    <brokerPrice>200</brokerPrice>
+    <retailPrice>280</retailPrice>
+    <taobaoPrice>399</taobaoPrice>
+    <source>猿人</source>
+    <size>5磅</size>
+    <taste>草莓|香草</taste>
+    <desc>不是简单的增肌粉，具体看后边图里的成分表</desc>
+    <tip>利润</tip>
+  </data21>
+  <data22>
+    <id>2024</id>
+    <name>袋装米糊4磅</name>
+    <brand>113</brand>
+    <type>202</type>
+    <teamPrice>35</teamPrice>
+    <brokerPrice>40</brokerPrice>
+    <retailPrice>48</retailPrice>
+    <taobaoPrice>48</taobaoPrice>
+    <source>小羽</source>
+    <size>4磅</size>
+    <taste>原味</taste>
+    <desc>瘦子必备迷糊，嘎嘎补充碳水</desc>
+    <tip>0</tip>
+  </data22>
+  <data23>
+    <id>2031</id>
     <name>肌肉梦想复合肌酸</name>
     <brand>108</brand>
     <type>203</type>
@@ -103,24 +313,24 @@
     <taste>菠萝</taste>
     <desc>果味肌酸，400g大包装，富含维生素，不喜欢墙皮味可以冲</desc>
     <tip>0</tip>
-  </data9>
-  <data10>
-    <id>504</id>
-    <name>公爵压印腰带</name>
-    <brand>104</brand>
-    <type>208</type>
-    <teamPrice>49</teamPrice>
-    <brokerPrice>60</brokerPrice>
-    <retailPrice>79</retailPrice>
-    <taobaoPrice>80</taobaoPrice>
-    <source>肌霸</source>
-    <size>选规格</size>
-    <taste>看图</taste>
-    <desc>硬拉，深蹲保护腰椎，避免受伤</desc>
-    <tip>爆单</tip>
-  </data10>
-  <data11>
-    <id>602</id>
+  </data23>
+  <data24>
+    <id>2032</id>
+    <name>埃姆特肌酸</name>
+    <brand>105</brand>
+    <type>203</type>
+    <teamPrice>45</teamPrice>
+    <brokerPrice>55</brokerPrice>
+    <retailPrice>68</retailPrice>
+    <taobaoPrice>89</taobaoPrice>
+    <source>猿人</source>
+    <size>300g</size>
+    <taste>原味</taste>
+    <desc>经典进口肌酸，瑞典进口，助你力量提升一个档次</desc>
+    <tip>好卖</tip>
+  </data24>
+  <data25>
+    <id>2033</id>
     <name>gat300肌酸</name>
     <brand>103</brand>
     <type>203</type>
@@ -130,12 +340,12 @@
     <taobaoPrice>138</taobaoPrice>
     <source>猿人</source>
     <size>300g</size>
-    <taste>无</taste>
+    <taste>原味</taste>
     <desc>市面上稍有的纯度100%肌酸 贵一点 好很多</desc>
     <tip>0</tip>
-  </data11>
-  <data12>
-    <id>603</id>
+  </data25>
+  <data26>
+    <id>2034</id>
     <name>gat1000肌酸</name>
     <brand>103</brand>
     <type>203</type>
@@ -145,57 +355,12 @@
     <taobaoPrice>350</taobaoPrice>
     <source>猿人</source>
     <size>1000g</size>
-    <taste>无</taste>
+    <taste>原味</taste>
     <desc>市面上稍有的纯度100%肌酸 贵一点 好很多，比300g性价比高，一次一年量</desc>
     <tip>0</tip>
-  </data12>
-  <data13>
-    <id>701</id>
-    <name>康比特益生菌乳清</name>
-    <brand>101</brand>
-    <type>201</type>
-    <teamPrice>230</teamPrice>
-    <brokerPrice>240</brokerPrice>
-    <retailPrice>270</retailPrice>
-    <taobaoPrice>299</taobaoPrice>
-    <source>简单</source>
-    <size>4磅</size>
-    <taste>奶茶|酸奶|香草</taste>
-    <desc>乳清的基础上添加了益生菌，吸收效果更好</desc>
-    <tip>0</tip>
-  </data13>
-  <data14>
-    <id>702</id>
-    <name>康比特炽金乳清</name>
-    <brand>101</brand>
-    <type>201</type>
-    <teamPrice>285</teamPrice>
-    <brokerPrice>290</brokerPrice>
-    <retailPrice>320</retailPrice>
-    <taobaoPrice>360</taobaoPrice>
-    <source>胖虎</source>
-    <size>五磅</size>
-    <taste>巧克力|香蕉|芒果|百香果等具体看淘宝</taste>
-    <desc>经典五磅乳清</desc>
-    <tip>0</tip>
-  </data14>
-  <data15>
-    <id>703</id>
-    <name>康比特分离乳清</name>
-    <brand>101</brand>
-    <type>219</type>
-    <teamPrice>330</teamPrice>
-    <brokerPrice>340</brokerPrice>
-    <retailPrice>370</retailPrice>
-    <taobaoPrice>380</taobaoPrice>
-    <source>待定</source>
-    <size>四磅</size>
-    <taste>柠檬|酸奶|抹茶|咖啡</taste>
-    <desc>康比特旗下，品质最高的粉</desc>
-    <tip>0</tip>
-  </data15>
-  <data16>
-    <id>704</id>
+  </data26>
+  <data27>
+    <id>2035</id>
     <name>康比特锌镁肌酸</name>
     <brand>101</brand>
     <type>203</type>
@@ -203,89 +368,314 @@
     <brokerPrice>90</brokerPrice>
     <retailPrice>120</retailPrice>
     <taobaoPrice>140</taobaoPrice>
-    <source>猿人</source>
+    <source>奔腾</source>
     <size>300g</size>
-    <taste>菠萝|混合莓|石榴</taste>
-    <desc>额外添加锌镁元素，促睾增肌</desc>
-    <tip>0</tip>
-  </data16>
-  <data17>
-    <id>705</id>
-    <name>康比特支链</name>
-    <brand>101</brand>
-    <type>206</type>
-    <teamPrice>-1</teamPrice>
-    <brokerPrice>-1</brokerPrice>
-    <retailPrice>-1</retailPrice>
-    <taobaoPrice>100</taobaoPrice>
-    <source>待定</source>
+    <taste>菠萝|混合莓|可乐</taste>
+    <desc>一水肌酸的基础上额外添加锌镁元素，促睾增肌</desc>
+    <tip>好卖</tip>
+  </data27>
+  <data28>
+    <id>2036</id>
+    <name>诺特100g肌酸</name>
+    <brand>115</brand>
+    <type>203</type>
+    <teamPrice>14</teamPrice>
+    <brokerPrice>18</brokerPrice>
+    <retailPrice>23</retailPrice>
+    <taobaoPrice>23</taobaoPrice>
+    <source>老何</source>
+    <size>100g</size>
+    <taste>原味</taste>
+    <desc>性价比高，成交价低的一水</desc>
+    <tip>好卖</tip>
+  </data28>
+  <data29>
+    <id>2037</id>
+    <name>特拉维尔肌酸</name>
+    <brand>118</brand>
+    <type>203</type>
+    <teamPrice>53</teamPrice>
+    <brokerPrice>60</brokerPrice>
+    <retailPrice>78</retailPrice>
+    <taobaoPrice>78</taobaoPrice>
+    <source>吴凡</source>
+    <size>500g</size>
+    <taste>原味</taste>
+    <desc>500g肌酸，性价比高，但是网上没有控价</desc>
+    <tip>实惠</tip>
+  </data29>
+  <data30>
+    <id>2041</id>
+    <name>sst怪兽氮泵</name>
+    <brand>106</brand>
+    <type>204</type>
+    <teamPrice>64</teamPrice>
+    <brokerPrice>70</brokerPrice>
+    <retailPrice>88</retailPrice>
+    <taobaoPrice>99</taobaoPrice>
+    <source>简单</source>
     <size>300g</size>
-    <taste>西柚</taste>
-    <desc>促进肌肉合成，防止有氧肌肉分解</desc>
-    <tip>0</tip>
-  </data17>
-  <data18>
-    <id>709</id>
+    <taste>橙子|葡萄|冰红茶|可乐</taste>
+    <desc>百元内氮泵天花板，无对手，成分优于病原体，凯文</desc>
+    <tip>好卖</tip>
+  </data30>
+  <data31>
+    <id>2042</id>
+    <name>勇士涂抹氮泵</name>
+    <brand>113</brand>
+    <type>204</type>
+    <teamPrice>20</teamPrice>
+    <brokerPrice>25</brokerPrice>
+    <retailPrice>35</retailPrice>
+    <taobaoPrice>35</taobaoPrice>
+    <source>涂抹</source>
+    <size>120ml</size>
+    <taste>雨后浪漫|夏日激情</taste>
+    <desc>无效退款，非常牛逼，可修复关节</desc>
+    <tip>质量</tip>
+  </data31>
+  <data32>
+    <id>2051</id>
+    <name>keep谷氨酰胺200g</name>
+    <brand>117</brand>
+    <type>205</type>
+    <teamPrice>40</teamPrice>
+    <brokerPrice>48</brokerPrice>
+    <retailPrice>60</retailPrice>
+    <taobaoPrice>60</taobaoPrice>
+    <source>吴凡/简单</source>
+    <size>200g</size>
+    <taste>原味</taste>
+    <desc>纯谷氨酰胺，品质好</desc>
+    <tip>实惠</tip>
+  </data32>
+  <data33>
+    <id>2052</id>
+    <name>keep谷氨酰胺300g</name>
+    <brand>117</brand>
+    <type>205</type>
+    <teamPrice>43</teamPrice>
+    <brokerPrice>50</brokerPrice>
+    <retailPrice>68</retailPrice>
+    <taobaoPrice>88</taobaoPrice>
+    <source>简单</source>
+    <size>300g</size>
+    <taste>原味</taste>
+    <desc>纯谷氨酰胺，品质好,性价比拉满的产品</desc>
+    <tip>实惠</tip>
+  </data33>
+  <data34>
+    <id>2061</id>
     <name>康比特锌镁支链</name>
     <brand>101</brand>
     <type>206</type>
-    <teamPrice>65</teamPrice>
-    <brokerPrice>70</brokerPrice>
-    <retailPrice>80</retailPrice>
-    <taobaoPrice>88</taobaoPrice>
-    <source>IFBB詹</source>
+    <teamPrice>30</teamPrice>
+    <brokerPrice>38</brokerPrice>
+    <retailPrice>58</retailPrice>
+    <taobaoPrice>68</taobaoPrice>
+    <source>肌肉引擎</source>
     <size>120g</size>
     <taste>冰红茶</taste>
     <desc>促进肌肉合成，防止肌肉分解</desc>
     <tip>0</tip>
-  </data18>
-  <data19>
-    <id>715</id>
-    <name>康比特七磅增肌粉</name>
-    <brand>101</brand>
-    <type>202</type>
-    <teamPrice>235</teamPrice>
-    <brokerPrice>250</brokerPrice>
-    <retailPrice>320</retailPrice>
-    <taobaoPrice>399</taobaoPrice>
-    <source>待定</source>
-    <size>7磅</size>
-    <taste>奶茶|巧克力</taste>
-    <desc>增肌粉中最牛逼的，没有之一</desc>
-    <tip>0</tip>
-  </data19>
-  <data20>
-    <id>801</id>
-    <name>sst怪兽氮泵</name>
-    <brand>106</brand>
-    <type>204</type>
-    <teamPrice>65</teamPrice>
-    <brokerPrice>70</brokerPrice>
-    <retailPrice>88</retailPrice>
-    <taobaoPrice>99</taobaoPrice>
-    <source>猿人</source>
+  </data34>
+  <data35>
+    <id>2062</id>
+    <name>Keep支链300g</name>
+    <brand>117</brand>
+    <type>206</type>
+    <teamPrice>43</teamPrice>
+    <brokerPrice>50</brokerPrice>
+    <retailPrice>68</retailPrice>
+    <taobaoPrice>75</taobaoPrice>
+    <source>简单</source>
     <size>300g</size>
-    <taste>苹果|橙子|葡萄|冰红茶|可乐</taste>
-    <desc>百元内氮泵天花板，无对手，成分优于病原体，凯文</desc>
-    <tip>爆单</tip>
-  </data20>
-  <data21>
-    <id>802</id>
+    <taste>橙子|西瓜|柠檬</taste>
+    <desc>口感好，训练过程中当饮料喝很不错</desc>
+    <tip>0</tip>
+  </data35>
+  <data36>
+    <id>2063</id>
+    <name>Keep支链500g</name>
+    <brand>117</brand>
+    <type>206</type>
+    <teamPrice>60</teamPrice>
+    <brokerPrice>70</brokerPrice>
+    <retailPrice>95</retailPrice>
+    <taobaoPrice>99</taobaoPrice>
+    <source>简单</source>
+    <size>500g</size>
+    <taste>百香果|橙子|苹果|绿茶|柠檬</taste>
+    <desc>口感好，训练过程中当饮料喝很不错，500g大包装，性价比高</desc>
+    <tip>实惠</tip>
+  </data36>
+  <data37>
+    <id>2071</id>
+    <name>as十全鹿丸</name>
+    <brand>100</brand>
+    <type>207</type>
+    <teamPrice>135</teamPrice>
+    <brokerPrice>145</brokerPrice>
+    <retailPrice>299</retailPrice>
+    <taobaoPrice>199</taobaoPrice>
+    <source>健美佳</source>
+    <size>30次</size>
+    <taste>无</taste>
+    <desc>最牛的促睾（促睾+补肾）配料都是中药材</desc>
+    <tip>0</tip>
+  </data37>
+  <data38>
+    <id>2072</id>
+    <name>诺特锌镁片</name>
+    <brand>115</brand>
+    <type>207</type>
+    <teamPrice>5</teamPrice>
+    <brokerPrice>6</brokerPrice>
+    <retailPrice>10</retailPrice>
+    <taobaoPrice>12</taobaoPrice>
+    <source>健美佳</source>
+    <size>60粒</size>
+    <taste>无</taste>
+    <desc>最便宜的促睾，可以顺便补充维生素</desc>
+    <tip>实惠</tip>
+  </data38>
+  <data39>
+    <id>2073</id>
+    <name>特拉维尔精氨酸</name>
+    <brand>118</brand>
+    <type>207</type>
+    <teamPrice>15</teamPrice>
+    <brokerPrice>20</brokerPrice>
+    <retailPrice>28</retailPrice>
+    <taobaoPrice>35</taobaoPrice>
+    <source>吴凡</source>
+    <size>90粒</size>
+    <taste>无</taste>
+    <desc>45天量，精氨酸+维生素二合一</desc>
+    <tip>实惠</tip>
+  </data39>
+  <data40>
+    <id>2074</id>
+    <name>土克甾酮</name>
+    <brand>113</brand>
+    <type>207</type>
+    <teamPrice>75</teamPrice>
+    <brokerPrice>90</brokerPrice>
+    <retailPrice>168</retailPrice>
+    <taobaoPrice>168</taobaoPrice>
+    <source>啊亮/胖虎</source>
+    <size>60粒</size>
+    <taste>无</taste>
+    <desc>自然选手外挂</desc>
+    <tip>质量</tip>
+  </data40>
+  <data41>
+    <id>2151</id>
     <name>sst维生素</name>
     <brand>106</brand>
-    <type>216</type>
-    <teamPrice>18</teamPrice>
-    <brokerPrice>23</brokerPrice>
-    <retailPrice>35</retailPrice>
-    <taobaoPrice>49</taobaoPrice>
+    <type>215</type>
+    <teamPrice>15</teamPrice>
+    <brokerPrice>20</brokerPrice>
+    <retailPrice>28</retailPrice>
+    <taobaoPrice>35</taobaoPrice>
     <source>简单</source>
-    <size>一个月量</size>
+    <size>60粒</size>
     <taste>无</taste>
     <desc>维生素天花板</desc>
     <tip>质量</tip>
-  </data21>
-  <data22>
-    <id>901</id>
+  </data41>
+  <data42>
+    <id>2141</id>
+    <name>gat左旋</name>
+    <brand>103</brand>
+    <type>214</type>
+    <teamPrice>23</teamPrice>
+    <brokerPrice>26</brokerPrice>
+    <retailPrice>38</retailPrice>
+    <taobaoPrice>39</taobaoPrice>
+    <source>吴凡</source>
+    <size>500ml</size>
+    <taste>草莓</taste>
+    <desc>性价比最高的左旋，没有之一</desc>
+    <tip>实惠</tip>
+  </data42>
+  <data43>
+    <id>2142</id>
+    <name>炽天使燃脂</name>
+    <brand>113</brand>
+    <type>214</type>
+    <teamPrice>89</teamPrice>
+    <brokerPrice>100</brokerPrice>
+    <retailPrice>140</retailPrice>
+    <taobaoPrice>168</taobaoPrice>
+    <source>猿人</source>
+    <size>60粒</size>
+    <taste>无</taste>
+    <desc>效果对标蓝魔，利润高，早上空腹有氧前吃一个或者两个，嘎嘎猛</desc>
+    <tip>质量</tip>
+  </data43>
+  <data44>
+    <id>2161</id>
+    <name>特拉维尔鱼油</name>
+    <brand>118</brand>
+    <type>216</type>
+    <teamPrice>78</teamPrice>
+    <brokerPrice>85</brokerPrice>
+    <retailPrice>115</retailPrice>
+    <taobaoPrice>125</taobaoPrice>
+    <source>吴凡</source>
+    <size>400粒</size>
+    <taste>无</taste>
+    <desc>性价比比较高的鱼油，线上没有控价，灵活定价</desc>
+    <tip>实惠</tip>
+  </data44>
+  <data45>
+    <id>2082</id>
+    <name>诺特电解质</name>
+    <brand>115</brand>
+    <type>220</type>
+    <teamPrice>4</teamPrice>
+    <brokerPrice>6</brokerPrice>
+    <retailPrice>8</retailPrice>
+    <taobaoPrice>10</taobaoPrice>
+    <source>健美佳</source>
+    <size>6条</size>
+    <taste>草莓|柠檬|橙子|西游|可乐</taste>
+    <desc>每单2块钱邮费，一盒6块钱，十盒打包50</desc>
+    <tip>0</tip>
+  </data45>
+  <data46>
+    <id>2081</id>
+    <name>公爵牛皮助力带</name>
+    <brand>104</brand>
+    <type>208</type>
+    <teamPrice>35</teamPrice>
+    <brokerPrice>40</brokerPrice>
+    <retailPrice>48</retailPrice>
+    <taobaoPrice>48</taobaoPrice>
+    <source>公爵</source>
+    <size>均码</size>
+    <taste>棕|黑|紫</taste>
+    <desc>练背辅助握力</desc>
+    <tip>质量</tip>
+  </data46>
+  <data47>
+    <id>2082</id>
+    <name>公爵压印腰带</name>
+    <brand>104</brand>
+    <type>208</type>
+    <teamPrice>45</teamPrice>
+    <brokerPrice>55</brokerPrice>
+    <retailPrice>75</retailPrice>
+    <taobaoPrice>80</taobaoPrice>
+    <source>肌霸</source>
+    <size>选规格</size>
+    <taste>看图</taste>
+    <desc>硬拉，深蹲保护腰椎，避免受伤</desc>
+    <tip>质量</tip>
+  </data47>
+  <data48>
+    <id>2083</id>
     <name>轮子哥护腕</name>
     <brand>107</brand>
     <type>208</type>
@@ -298,10 +688,10 @@
     <taste>绿|黑</taste>
     <desc>轮子哥赛季护腕，为你的训练保驾护航，远离伤病</desc>
     <tip>质量</tip>
-  </data22>
-  <data23>
-    <id>902</id>
-    <name>轮子哥护肘（绑）</name>
+  </data48>
+  <data49>
+    <id>2084</id>
+    <name>轮子哥绑肘</name>
     <brand>107</brand>
     <type>208</type>
     <teamPrice>35</teamPrice>
@@ -313,10 +703,10 @@
     <taste>绿|黑</taste>
     <desc>轮子哥赛季护肘，为你的训练保驾护航，远离伤病</desc>
     <tip>质量</tip>
-  </data23>
-  <data24>
-    <id>903</id>
-    <name>轮子哥护肘（套）</name>
+  </data49>
+  <data50>
+    <id>2085</id>
+    <name>轮子哥套肘</name>
     <brand>107</brand>
     <type>208</type>
     <teamPrice>65</teamPrice>
@@ -328,10 +718,10 @@
     <taste>蓝|灰|黑</taste>
     <desc>轮子哥赛季护肘，为你的训练保驾护航，远离伤病，价格高于绑肘</desc>
     <tip>0</tip>
-  </data24>
-  <data25>
-    <id>904</id>
-    <name>轮子哥护膝（绑）</name>
+  </data50>
+  <data51>
+    <id>2086</id>
+    <name>轮子哥绑膝</name>
     <brand>107</brand>
     <type>208</type>
     <teamPrice>45</teamPrice>
@@ -342,11 +732,11 @@
     <size>均码</size>
     <taste>绿|黑</taste>
     <desc>轮子哥赛季护膝，为你的训练保驾护航，远离伤病</desc>
-    <tip>质量</tip>
-  </data25>
-  <data26>
-    <id>905</id>
-    <name>轮子哥护膝（套）</name>
+    <tip>0</tip>
+  </data51>
+  <data52>
+    <id>2087</id>
+    <name>轮子哥套膝</name>
     <brand>107</brand>
     <type>208</type>
     <teamPrice>75</teamPrice>
@@ -358,69 +748,114 @@
     <taste>蓝|灰|黑</taste>
     <desc>轮子哥赛季护膝，为你的训练保驾护航，远离伤病，价格高于绑膝</desc>
     <tip>0</tip>
-  </data26>
-  <data27>
-    <id>1101</id>
+  </data52>
+  <data53>
+    <id>2181</id>
+    <name>电动摇摇杯</name>
+    <brand>115</brand>
+    <type>218</type>
+    <teamPrice>20</teamPrice>
+    <brokerPrice>25</brokerPrice>
+    <retailPrice>35</retailPrice>
+    <taobaoPrice>40</taobaoPrice>
+    <source>吴凡</source>
+    <size>无</size>
+    <taste>无</taste>
+    <desc>装电池，解放双手</desc>
+    <tip>0</tip>
+  </data53>
+  <data54>
+    <id>2182</id>
+    <name>魔兽健身包</name>
+    <brand>122</brand>
+    <type>218</type>
+    <teamPrice>18</teamPrice>
+    <brokerPrice>23</brokerPrice>
+    <retailPrice>35</retailPrice>
+    <taobaoPrice>45</taobaoPrice>
+    <source>吴凡</source>
+    <size>无</size>
+    <taste>无</taste>
+    <desc>可以放两桶五磅的粉，日常够用，干湿分离，性价比高，防水耐磨</desc>
+    <tip>0</tip>
+  </data54>
+  <data55>
+    <id>2183</id>
+    <name>嗅盐</name>
+    <brand>113</brand>
+    <type>218</type>
+    <teamPrice>5</teamPrice>
+    <brokerPrice>8</brokerPrice>
+    <retailPrice>10</retailPrice>
+    <taobaoPrice>10</taobaoPrice>
+    <source>肌霸</source>
+    <size>无</size>
+    <taste>薄荷|玫瑰|原味薰衣草</taste>
+    <desc>一口提神醒脑，开车，训练，上课都能用来提神，保存好可以用好几个月</desc>
+    <tip>好卖</tip>
+  </data55>
+  <data56>
+    <id>2111</id>
     <name>cbba初级</name>
     <brand>109</brand>
     <type>211</type>
     <teamPrice>400</teamPrice>
-    <brokerPrice>700</brokerPrice>
+    <brokerPrice>600</brokerPrice>
     <retailPrice>999</retailPrice>
     <taobaoPrice>0</taobaoPrice>
-    <source>太原</source>
+    <source>太原/姜太医</source>
     <size>无</size>
     <taste>无</taste>
-    <desc>健身行业敲门砖，含金量偏高，保有量最大，需要考试</desc>
+    <desc>健身行业敲门砖，含金量偏高，保有量最大，需要线上考试</desc>
     <tip>利润</tip>
-  </data27>
-  <data28>
-    <id>1102</id>
+  </data56>
+  <data57>
+    <id>2112</id>
     <name>cbba中级</name>
     <brand>109</brand>
     <type>211</type>
     <teamPrice>600</teamPrice>
-    <brokerPrice>1000</brokerPrice>
+    <brokerPrice>850</brokerPrice>
     <retailPrice>1500</retailPrice>
     <taobaoPrice>0</taobaoPrice>
-    <source>太原</source>
+    <source>太原/姜太医</source>
     <size>无</size>
     <taste>无</taste>
-    <desc>健身行业敲门砖，含金量偏高，保有量最大，需要考试</desc>
+    <desc>健身行业敲门砖，含金量偏高，保有量最大，需要线上考试</desc>
     <tip>利润</tip>
-  </data28>
-  <data29>
-    <id>1103</id>
+  </data57>
+  <data58>
+    <id>2113</id>
     <name>cbba高级</name>
     <brand>109</brand>
     <type>211</type>
     <teamPrice>900</teamPrice>
-    <brokerPrice>1500</brokerPrice>
+    <brokerPrice>1200</brokerPrice>
     <retailPrice>1999</retailPrice>
     <taobaoPrice>0</taobaoPrice>
-    <source>太原</source>
+    <source>太原/姜太医</source>
     <size>无</size>
     <taste>无</taste>
-    <desc>健身行业敲门砖，含金量偏高，保有量最大，需要考试</desc>
+    <desc>健身行业敲门砖，含金量偏高，保有量最大，需要线上考试</desc>
     <tip>利润</tip>
-  </data29>
-  <data30>
-    <id>1104</id>
+  </data58>
+  <data59>
+    <id>2114</id>
     <name>cbba国家级</name>
     <brand>109</brand>
     <type>211</type>
-    <teamPrice>1600</teamPrice>
-    <brokerPrice>2100</brokerPrice>
+    <teamPrice>1500</teamPrice>
+    <brokerPrice>1800</brokerPrice>
     <retailPrice>2300</retailPrice>
     <taobaoPrice>0</taobaoPrice>
-    <source>太原</source>
+    <source>太原/姜太医</source>
     <size>无</size>
     <taste>无</taste>
-    <desc>健身行业敲门砖，含金量偏高，保有量最大，需要考试</desc>
+    <desc>健身行业敲门砖，含金量偏高，保有量最大，需要线上考试</desc>
     <tip>利润</tip>
-  </data30>
-  <data31>
-    <id>1105</id>
+  </data59>
+  <data60>
+    <id>2115</id>
     <name>ifbb</name>
     <brand>109</brand>
     <type>211</type>
@@ -433,9 +868,9 @@
     <taste>无</taste>
     <desc>含金量不如cbba，不需要考试</desc>
     <tip>0</tip>
-  </data31>
-  <data32>
-    <id>1106</id>
+  </data60>
+  <data61>
+    <id>2116</id>
     <name>欧盟</name>
     <brand>109</brand>
     <type>211</type>
@@ -448,24 +883,39 @@
     <taste>无</taste>
     <desc>b格很高，含金量也不错，无需考试</desc>
     <tip>0</tip>
-  </data32>
-  <data33>
-    <id>1107</id>
-    <name>奥赛</name>
+  </data61>
+  <data62>
+    <id>2117</id>
+    <name>奥赛注册级</name>
     <brand>109</brand>
     <type>211</type>
-    <teamPrice>1200</teamPrice>
+    <teamPrice>780</teamPrice>
+    <brokerPrice>1100</brokerPrice>
+    <retailPrice>1600</retailPrice>
+    <taobaoPrice>0</taobaoPrice>
+    <source>太原</source>
+    <size>无</size>
+    <taste>无</taste>
+    <desc>b格最高，陈康同款，含金量高，无需考试。分为注册级和高级，高级含金量更高也更贵</desc>
+    <tip>0</tip>
+  </data62>
+  <data63>
+    <id>2117</id>
+    <name>奥赛高级</name>
+    <brand>109</brand>
+    <type>211</type>
+    <teamPrice>1150</teamPrice>
     <brokerPrice>1600</brokerPrice>
     <retailPrice>1999</retailPrice>
     <taobaoPrice>0</taobaoPrice>
     <source>太原</source>
     <size>无</size>
     <taste>无</taste>
-    <desc>b格最高，职业同款，含金量高，无需考试</desc>
+    <desc>b格最高，陈康同款，含金量高，无需考试。分为注册级和高级，高级含金量更高也更贵</desc>
     <tip>0</tip>
-  </data33>
-  <data34>
-    <id>1108</id>
+  </data63>
+  <data64>
+    <id>2118</id>
     <name>ifba</name>
     <brand>109</brand>
     <type>211</type>
@@ -478,65 +928,20 @@
     <taste>无</taste>
     <desc>私教，体适能，体重，康复，营养，体态，格斗，普拉提，产后都可办理</desc>
     <tip>0</tip>
-  </data34>
-  <data35>
-    <id>1002</id>
-    <name>未来之星乳清</name>
-    <brand>111</brand>
-    <type>201</type>
-    <teamPrice>95</teamPrice>
-    <brokerPrice>120</brokerPrice>
-    <retailPrice>140</retailPrice>
-    <taobaoPrice>158</taobaoPrice>
-    <source>享享</source>
-    <size>800g</size>
-    <taste>牛奶</taste>
-    <desc>蛋白质85%，质量过硬，超过肌肉科技白金，口感也无敌</desc>
-    <tip>质量</tip>
-  </data35>
-  <data36>
-    <id>1004</id>
-    <name>蓝魔</name>
-    <brand>113</brand>
-    <type>215</type>
-    <teamPrice>130</teamPrice>
-    <brokerPrice>140</brokerPrice>
-    <retailPrice>170</retailPrice>
-    <taobaoPrice>180</taobaoPrice>
-    <source>猿人</source>
-    <size>60粒</size>
-    <taste>无</taste>
-    <desc>不做有氧也有效果，增加全身代谢，抑制食欲</desc>
-    <tip>0</tip>
-  </data36>
-  <data37>
-    <id>10003</id>
-    <name>希爱力一板（10粒）</name>
+  </data64>
+  <data65>
+    <id>2091</id>
+    <name>希爱力10粒</name>
     <brand>116</brand>
     <type>209</type>
-    <teamPrice>30</teamPrice>
-    <brokerPrice>100</brokerPrice>
-    <retailPrice>199</retailPrice>
+    <teamPrice>35</teamPrice>
+    <brokerPrice>80</brokerPrice>
+    <retailPrice>148</retailPrice>
     <taobaoPrice>0</taobaoPrice>
     <source>印度调货</source>
     <size>10粒</size>
     <taste>无</taste>
     <desc>严格按照说明服用，半个起步</desc>
-    <tip>质量</tip>
-  </data37>
-  <data38>
-    <id>12001</id>
-    <name>keep谷氨酰胺</name>
-    <brand>117</brand>
-    <type>205</type>
-    <teamPrice>40</teamPrice>
-    <brokerPrice>48</brokerPrice>
-    <retailPrice>60</retailPrice>
-    <taobaoPrice>60</taobaoPrice>
-    <source>吴凡/简单</source>
-    <size>200g</size>
-    <taste>原味</taste>
-    <desc>纯谷氨酰胺，品质好</desc>
-    <tip>性价比</tip>
-  </data38>
+    <tip>利润</tip>
+  </data65>
 </Item>

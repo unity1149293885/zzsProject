@@ -307,7 +307,7 @@ public class ModifyFilesInBulk : EditorWindow
 
             GUILayout.Space(10);
 
-            GUILayout.Label("Default��");
+            GUILayout.Label("Default");
             DefaultMaxSizeIndex = EditorGUILayout.Popup("Max Size", DefaultMaxSizeIndex, DefaultMaxSizeOptions);
             DefaultResizeAlgorithmIndex = EditorGUILayout.Popup("Resize Algorithm", DefaultResizeAlgorithmIndex, DefaultResizeAlgorithmOptions);
             DefaultFormatIndex = EditorGUILayout.Popup("Format", DefaultFormatIndex, DefaultFormatOptions);
@@ -317,7 +317,7 @@ public class ModifyFilesInBulk : EditorWindow
 
             GUILayout.Space(10);
 
-            EditorGUILayout.LabelField("IOS��");
+            EditorGUILayout.LabelField("IOS");
             isOverrideIOS = GUILayout.Toggle(isOverrideIOS, "Override for IOS", GUILayout.Height(20), GUILayout.Width(100));
 
             if (isOverrideIOS)
@@ -330,7 +330,7 @@ public class ModifyFilesInBulk : EditorWindow
             }
             GUILayout.Space(10);
 
-            EditorGUILayout.LabelField("Android��");
+            EditorGUILayout.LabelField("Android");
             isOverrideAndroid = GUILayout.Toggle(isOverrideAndroid, "Override for Android", GUILayout.Height(20), GUILayout.Width(100));
 
             if (isOverrideAndroid)
@@ -1042,7 +1042,7 @@ public class ModifyFilesInBulk : EditorWindow
 
 public class ArtMaterialSet : EditorWindow
 {
-    [MenuItem("Zzs工具/批量修改Png文件格式")]
+    [MenuItem("Zzs工具/资源/批量修改Png文件格式")]
     static void showWindow()
     {
         EditorWindow window = EditorWindow.GetWindow(typeof(ModifyFilesInBulk));

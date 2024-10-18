@@ -17,8 +17,6 @@ public class StartPanel : MonoBehaviour
     public GameObject UpdateGroup;
     public GameObject loadText;
 
-    public Button OpenRegiester_Btn;
-
     // 加载进度
     float loadPro = 0;
 

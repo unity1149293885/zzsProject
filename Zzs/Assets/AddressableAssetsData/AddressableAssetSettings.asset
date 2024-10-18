@@ -34,7 +34,7 @@ MonoBehaviour:
   m_MonoScriptBundleNaming: 0
   m_MonoScriptBundleCustomNaming: 
   m_RemoteCatalogBuildPath:
-    m_Id: 80d0851b7923367499174b9e962c8632
+    m_Id: 5cd769a1e5e71af42b0895a7b4679e20
   m_RemoteCatalogLoadPath:
     m_Id: 7f665ed5e9935fe4a8207767ebb769c1
   m_ContentStateBuildPath: 
@@ -43,9 +43,9 @@ MonoBehaviour:
   m_GroupAssets:
   - {fileID: 11400000, guid: e33792e423d6b5b45aa913c6fe88a191, type: 2}
   - {fileID: 11400000, guid: 992220f0db1218947bee56e99062e928, type: 2}
-  - {fileID: 11400000, guid: 6a2ded6f87fb7f044a7f6fa7576c9105, type: 2}
   - {fileID: 11400000, guid: fb2df71c17ed5314b8e1bc894feb3f89, type: 2}
-  - {fileID: 11400000, guid: 6892573c1c501424ebb7bf1a5601a020, type: 2}
+  - {fileID: 11400000, guid: cf0229e36b66bb2418c712bc5acb5e27, type: 2}
+  - {fileID: 11400000, guid: 4aeaf1391fd08cd45bfefb6d51ac70f0, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -67,6 +67,20 @@ MonoBehaviour:
         m_Value: ServerData/[BuildTarget]
       - m_Id: 7f665ed5e9935fe4a8207767ebb769c1
         m_Value: http://[PrivateIpAddress]:[HostingServicePort]
+    - m_InheritedParent: 
+      m_Id: cd9d8ad195ab4e740b4bd4664f613abf
+      m_ProfileName: New Profile
+      m_Values:
+      - m_Id: 6f306ed8d81b5484789386ffd59821f5
+        m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
+      - m_Id: 80d0851b7923367499174b9e962c8632
+        m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]'
+      - m_Id: 65367c47e647c75499f85103439fa447
+        m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
+      - m_Id: 5cd769a1e5e71af42b0895a7b4679e20
+        m_Value: ServerData/[BuildTarget]
+      - m_Id: 7f665ed5e9935fe4a8207767ebb769c1
+        m_Value: https://gitee.com/unity007/hot/raw/master/File
     m_ProfileEntryNames:
     - m_Id: 6f306ed8d81b5484789386ffd59821f5
       m_Name: BuildTarget
@@ -103,7 +117,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0cdf8d8bea04189488ed4afdae512609, type: 2}
   - {fileID: 11400000, guid: 5d541eecf80b0e64f959f48c429d9268, type: 2}
   - {fileID: 11400000, guid: 9d69da82f00c3bb438709a4424ed9d81, type: 2}
-  m_ActiveProfileId: 6e866b940ae3dcc429fbacf37f749f42
+  m_ActiveProfileId: cd9d8ad195ab4e740b4bd4664f613abf
   m_HostingServicesManager:
     m_HostingServiceInfos:
     - classRef: UnityEditor.AddressableAssets.HostingServices.HttpHostingService,
@@ -120,11 +134,11 @@ MonoBehaviour:
           m_Key: HostingServiceUploadSpeed
         - m_AssemblyName: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           m_ClassName: System.String
-          m_Data: ServerData/StandaloneWindows64
+          m_Data: ServerData/Android
           m_Key: ContentRoot
         - m_AssemblyName: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           m_ClassName: System.Boolean
-          m_Data: True
+          m_Data: False
           m_Key: IsEnabled
         - m_AssemblyName: mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
           m_ClassName: System.String

@@ -64,7 +64,7 @@ public class ItemDetailPanel : MonoBehaviour
 
     public void UpdateItemDetailPanel(ItemInfo iteminfo)
     {
-        Debug.Log("打开物品详情，物品id："+iteminfo.id);
+        Debug.Log("打开物品详情，物品id：" + iteminfo.id);
         this.root.SetActive(true);
         this.itemInfo = iteminfo;
 
@@ -75,6 +75,8 @@ public class ItemDetailPanel : MonoBehaviour
         ShowPic(iteminfo);
 
         UpdateStateInfo(iteminfo.isDown);
+
+        UpdateBtnState(Pic_Index);
     }
 
     public void UpdateStateInfo(bool isDown)
@@ -123,24 +125,43 @@ public class ItemDetailPanel : MonoBehaviour
         Pic_Index = 0;
         this.root.SetActive(false);
     }
+
+    private void UpdateBtnState(int index)
+    {
+        Button_Left.gameObject.SetActive(true);
+        Button_Right.gameObject.SetActive(true);
+        if (index == 0)
+        {
+            Button_Left.gameObject.SetActive(false);
+        }
+        if(index == MaxCount - 1)
+        {
+            Button_Right.gameObject.SetActive(false);
+        }
+        
+        if(index != 0 && index != MaxCount - 1)
+        {
+            Button_Left.gameObject.SetActive(true);
+            Button_Right.gameObject.SetActive(true);
+        }
+    }
+
     public void Cilck_left()
     {
         Pic_Index--;
-        if (Pic_Index < 0)
-        {
-            Pic_Index = MaxCount - 1;
-        }
+        
         ShowPic(itemInfo);
+
+        UpdateBtnState(Pic_Index);
     }
 
     public void Cilck_right()
     {
         Pic_Index++;
-        if (Pic_Index >= MaxCount)
-        {
-            Pic_Index = 0;
-        }
+       
         ShowPic(itemInfo);
+
+        UpdateBtnState(Pic_Index);
     }
 
     public void Click_ChangeState()

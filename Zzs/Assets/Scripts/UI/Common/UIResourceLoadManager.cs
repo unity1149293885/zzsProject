@@ -18,7 +18,14 @@ public class UIResourceLoadManager : UnitySingleton<UIResourceLoadManager>
         Addressables.LoadAssetAsync<SpriteAtlas>("LittleIcon").Completed += (obj) =>
         {
             handle = obj;
-            Debug.Log("加载图集LittleIcon完成");
+            if (handle.Result != null)
+            {
+                Debug.Log("加载图集LittleIcon完成");
+            }
+            else
+            {
+                Debug.LogError("加载图集LittleIcon失败 请检查！");
+            }
         };
     }
 
@@ -72,11 +79,7 @@ public class UIResourceLoadManager : UnitySingleton<UIResourceLoadManager>
 
     public string GetSpritePath(ItemInfo info,int num)
     {
-        string ans = "Assets/Resources_Pack/";
-        ans += DataManager.TypeDic[info.typeId].type.ToString();
-        ans += "/";
-        ans += info.name;
-        ans += "/";
+        string ans ="";
         ans += info.name;
         ans += "_";
         ans += num.ToString();

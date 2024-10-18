@@ -24,7 +24,7 @@ public class ItemSlot : MonoBehaviour
     public async void InitItemSlot(ItemInfo iteminfo)
     {
         text_name.text = iteminfo.name;
-        //image_icon.sprite = UIResourceLoadManager.Instance.LoadSprite("LittleIcon", iteminfo.name + "_little");
+        image_icon.sprite = UIResourceLoadManager.Instance.LoadSprite("LittleIcon", iteminfo.name + "_little");
 
         this.iteminfo = iteminfo;
         bool state = false;

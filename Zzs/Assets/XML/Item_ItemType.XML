@@ -81,7 +81,7 @@
   </data18>
   <data19>
     <id>217</id>
-    <type>补剂功能介绍</type>
+    <type>待填充</type>
     <sort>8</sort>
   </data19>
   <data20>
@@ -94,4 +94,9 @@
     <type>分离乳清</type>
     <sort>2</sort>
   </data21>
+  <data22>
+    <id>220</id>
+    <type>运动恢复相关</type>
+    <sort>4</sort>
+  </data22>
 </ItemType>
