@@ -175,9 +175,10 @@ public class ItemDetailPanel : MonoBehaviour
 
     public void Open_Picture()
     {
+        //屏幕宽度是1080，需要根据比例缩放
         Big_Image.gameObject.SetActive(true);
-        var width = sprite.rect.width;
-        var height = sprite.rect.height;
+        float width = sprite.rect.width;
+        float height = sprite.rect.height;
 
         if (width > height)
         {
@@ -185,7 +186,10 @@ public class ItemDetailPanel : MonoBehaviour
             Big_Accros_bg.SetActive(true);
 
             Big_Accros_Image.sprite = sprite;
-            Big_Accros_Image.GetComponent<RectTransform>().sizeDelta = new Vector2(width, height);
+
+            float scale = 1080 / height;//得到放大倍数
+
+            Big_Accros_Image.GetComponent<RectTransform>().sizeDelta = new Vector2(width * scale, height * scale);
         }
 
         else
@@ -194,7 +198,11 @@ public class ItemDetailPanel : MonoBehaviour
             Big_Accros_bg.SetActive(false);
 
             Big_Image.sprite = sprite;
-            Big_Image.GetComponent<RectTransform>().sizeDelta = new Vector2(width, height);
+            
+            float scale = 1080 / width;//得到放大倍数
+
+            Big_Image.GetComponent<RectTransform>().sizeDelta = new Vector2(width * scale, height * scale);
+
         }
     }
     public void Close_Picture()
