@@ -82,7 +82,17 @@ public class StartPanel : MonoBehaviour
 
         };
 
-        NetManager.SendtoServer<LoginReq>((int)ProcolCode.Code_Login_req, data, callback);
+        if (GameConfig.isConnectNet)
+        {
+            //走网络通信
+            NetManager.SendtoServer<LoginReq>((int)ProcolCode.Code_Login_req, data, callback);
+        }
+        else
+        {
+            //走本地表格数据
+            DataManager.Native_LoginGame(data);
+        }
+        
     }
     
 
@@ -93,8 +103,8 @@ public class StartPanel : MonoBehaviour
         {
             UpdateGroup.SetActive(true);
 
-            MyData.userInfo.My_name = Input_name.name;
-            MyData.userInfo.My_phone = Input_phone.name;
+            MyData.userInfo.name = Input_name.name;
+            MyData.userInfo.phone = Input_phone.name;
 
 
             //进入新场景
@@ -121,10 +131,4 @@ public class StartPanel : MonoBehaviour
         EventCenter.RemoveListener<LoginCode>(EventType.UpdateLoginState, UpdateState);
     }
 
-    
-
-    public UserType GetCurUserType()
-    {
-        return userType;
-    }
 }

@@ -11,7 +11,7 @@
     <source>猿人</source>
     <size>5</size>
     <taste>巧克力|香蕉|柠檬|提拉米苏|草莓</taste>
-    <desc>可可类似巧克力，香蕉口感比较丝滑（偏浓），柠檬偏淡，提拉米苏居中，草莓也好喝</desc>
+    <desc>目前利润少得可怜，不推荐卖</desc>
     <tip>0</tip>
   </data3>
   <data4>
@@ -26,7 +26,7 @@
     <source>简单</source>
     <size>5磅</size>
     <taste>草莓果粒|巧克力|酸奶</taste>
-    <desc>性价比比较高的乳清，蛋白质72%，口感好，带草莓果粒</desc>
+    <desc>性价比比较高的乳清，蛋白质72%，口感偏甜，酸奶和康比特酸奶类似</desc>
     <tip>利润</tip>
   </data4>
   <data5>
@@ -56,7 +56,7 @@
     <source>奔腾</source>
     <size>4磅</size>
     <taste>奶茶|酸奶|香草</taste>
-    <desc>乳清的基础上添加了益生菌，吸收效果更好，蛋白质75%</desc>
+    <desc>乳清的基础上添加了益生菌，吸收效果更好，蛋白质75%（需要下过单的客户，可先下任何产品 后下单）</desc>
     <tip>好卖</tip>
   </data6>
   <data7>
@@ -71,7 +71,7 @@
     <source>奔腾</source>
     <size>5磅</size>
     <taste>巧克力|香蕉|芒果|百香果|香草|抹茶|酸奶|椰子</taste>
-    <desc>经典五磅乳清，蛋白质75%</desc>
+    <desc>经典五磅乳清，蛋白质75%（需要下过单的客户，可先下任何产品 后下单）</desc>
     <tip>好卖</tip>
   </data7>
   <data8>
@@ -101,7 +101,7 @@
     <source>简单</source>
     <size>5磅</size>
     <taste>抹茶|草莓</taste>
-    <desc>国产老品牌，品质还算ok</desc>
+    <desc>国产老品牌，品质还算ok，利润一般</desc>
     <tip>0</tip>
   </data9>
   <data10>
@@ -116,7 +116,7 @@
     <source>鲨鱼</source>
     <size>4磅</size>
     <taste>库存更新太快，私聊</taste>
-    <desc>性价比高，抖音比较火，小白喜欢</desc>
+    <desc>性价比高，抖音比较火，小白喜欢，利润一般</desc>
     <tip>0</tip>
   </data10>
   <data11>
@@ -131,7 +131,7 @@
     <source>阿昌</source>
     <size>2磅</size>
     <taste>茉莉奶绿|巧克力|拿铁|荔枝|白桃酸奶|杨枝甘露</taste>
-    <desc>为数不多的小重量乳清，口味多，蛋白质75%</desc>
+    <desc>为数不多的小重量乳清，口味多，蛋白质75%，可以卖卖</desc>
     <tip>好卖</tip>
   </data11>
   <data12>
@@ -176,7 +176,7 @@
     <source>奔腾</source>
     <size>4磅</size>
     <taste>绿茶|酸奶|抹茶|咖啡</taste>
-    <desc>康比特旗下，品质最高的粉，蛋白质88% 纯分离</desc>
+    <desc>康比特旗下，品质最高的粉，蛋白质88% 纯分离（需要下过单的客户，可先下任何产品 后下单）</desc>
     <tip>好卖</tip>
   </data14>
   <data15>
@@ -184,7 +184,7 @@
     <name>mts分离乳清</name>
     <brand>112</brand>
     <type>219</type>
-    <teamPrice>999</teamPrice>
+    <teamPrice>400</teamPrice>
     <brokerPrice>410</brokerPrice>
     <retailPrice>440</retailPrice>
     <taobaoPrice>448</taobaoPrice>
@@ -206,7 +206,7 @@
     <source>鲨鱼</source>
     <size>4磅</size>
     <taste>库存更新太快，私聊</taste>
-    <desc>国产分离，性价比高点</desc>
+    <desc>国产分离，性价比高点，利润一般</desc>
     <tip>0</tip>
   </data16>
   <data17>
@@ -221,7 +221,7 @@
     <source>简单</source>
     <size>4磅</size>
     <taste>抹茶|草莓</taste>
-    <desc>混合分离，蛋白质92%，性价比可以的，小白喜欢</desc>
+    <desc>混合分离，蛋白质92%，性价比可以的，小白喜欢，利润还行</desc>
     <tip>0</tip>
   </data17>
   <data18>
@@ -251,7 +251,7 @@
     <source>简单</source>
     <size>5磅</size>
     <taste>草莓|椰奶</taste>
-    <desc>性价比最高且效果好的增肌粉（没有之一）</desc>
+    <desc>性价比最高且效果好的增肌粉</desc>
     <tip>利润</tip>
   </data19>
   <data20>
@@ -266,7 +266,7 @@
     <source>猿人</source>
     <size>7磅</size>
     <taste>奶茶|巧克力|椰奶</taste>
-    <desc>增肌粉中最牛逼的，没有之一，碳水75%，蛋白质25%</desc>
+    <desc>增肌粉中比较牛逼的，没有之一，碳水75%，蛋白质25%（需要下过单的客户，可先下任何产品 后下单）</desc>
     <tip>好卖</tip>
   </data20>
   <data21>
@@ -311,7 +311,7 @@
     <source>简单</source>
     <size>400g</size>
     <taste>菠萝</taste>
-    <desc>果味肌酸，400g大包装，富含维生素，不喜欢墙皮味可以冲</desc>
+    <desc>果味肌酸，400g大包装，富含维生素，这个肌酸含量不高，随缘卖</desc>
     <tip>0</tip>
   </data23>
   <data24>
@@ -326,7 +326,7 @@
     <source>猿人</source>
     <size>300g</size>
     <taste>原味</taste>
-    <desc>经典进口肌酸，瑞典进口，助你力量提升一个档次</desc>
+    <desc>品质可以，配料表现在统一99.99%，因为中国不让标100%</desc>
     <tip>好卖</tip>
   </data24>
   <data25>
@@ -401,7 +401,7 @@
     <source>吴凡</source>
     <size>500g</size>
     <taste>原味</taste>
-    <desc>500g肌酸，性价比高，但是网上没有控价</desc>
+    <desc>500g肌酸，性价比高，但是网上没有控价，利润一般</desc>
     <tip>实惠</tip>
   </data29>
   <data30>
@@ -439,11 +439,11 @@
     <name>keep谷氨酰胺200g</name>
     <brand>117</brand>
     <type>205</type>
-    <teamPrice>40</teamPrice>
-    <brokerPrice>48</brokerPrice>
+    <teamPrice>35</teamPrice>
+    <brokerPrice>40</brokerPrice>
     <retailPrice>60</retailPrice>
     <taobaoPrice>60</taobaoPrice>
-    <source>吴凡/简单</source>
+    <source>吴凡</source>
     <size>200g</size>
     <taste>原味</taste>
     <desc>纯谷氨酰胺，品质好</desc>
@@ -680,12 +680,12 @@
     <brand>107</brand>
     <type>208</type>
     <teamPrice>23</teamPrice>
-    <brokerPrice>33</brokerPrice>
+    <brokerPrice>30</brokerPrice>
     <retailPrice>60</retailPrice>
     <taobaoPrice>120</taobaoPrice>
     <source>衣服</source>
     <size>均码</size>
-    <taste>绿|黑</taste>
+    <taste>绿|黑|紫</taste>
     <desc>轮子哥赛季护腕，为你的训练保驾护航，远离伤病</desc>
     <tip>质量</tip>
   </data48>
@@ -700,7 +700,7 @@
     <taobaoPrice>150</taobaoPrice>
     <source>衣服</source>
     <size>均码</size>
-    <taste>绿|黑</taste>
+    <taste>绿|黑|紫</taste>
     <desc>轮子哥赛季护肘，为你的训练保驾护航，远离伤病</desc>
     <tip>质量</tip>
   </data49>
@@ -730,7 +730,7 @@
     <taobaoPrice>200</taobaoPrice>
     <source>华嘉</source>
     <size>均码</size>
-    <taste>绿|黑</taste>
+    <taste>绿|黑|紫</taste>
     <desc>轮子哥赛季护膝，为你的训练保驾护航，远离伤病</desc>
     <tip>0</tip>
   </data51>

@@ -5,14 +5,23 @@ using UnityEngine;
 //ÓÎÏ·Æô¶¯Âß¼­
 public class GameStart : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Awake()
+    async void Awake()
     {
-        NetManager.InitNet();
+        if (GameConfig.isConnectNet)
+        {
+            NetManager.InitNet();
+        }
+        else
+        {
+            await XMLTools.LoadUser();
+        }
     }
 
     private void OnDestroy()
     {
-        NetManager.CloseNet();
+        if (GameConfig.isConnectNet)
+        {
+            NetManager.CloseNet();
+        }
     }
 }

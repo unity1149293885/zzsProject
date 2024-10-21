@@ -27,8 +27,10 @@ public class ItemDetailPanel : MonoBehaviour
 
     public GameObject Big_bg;
     public Image Big_Image;
+    public Text Picname_Text;
     public GameObject Big_Accros_bg;
     public Image Big_Accros_Image;
+    public Text Picname_Accros_Text;
 
     public Button Button_ChangeState;
     public Text Text_State;
@@ -87,17 +89,19 @@ public class ItemDetailPanel : MonoBehaviour
     public void update_Text(ItemInfo iteminfo)
     {
         Name_value.text = iteminfo.name;
-        Brand_value.text = DataManager.BrandDic[iteminfo.brandId].ToString();
-        Type_value.text = DataManager.TypeDic[iteminfo.typeId].ToString();
+        Brand_value.text = DataManager.BrandDic[iteminfo.brandId].brand.ToString();
+        Type_value.text = DataManager.TypeDic[iteminfo.typeId].type.ToString();
         Taobao_value.text = iteminfo.TaobaoPrice.ToString();
 
-        if (MyData.userInfo.My_UserType == UserType.Teamer || MyData.userInfo.My_UserType == UserType.Manager)
+        if (MyData.userInfo.UserType == UserType.Teamer || MyData.userInfo.UserType == UserType.Manager)
         {
             Price_value.text = iteminfo.TeamPrice.ToString();
             Source_value.text = iteminfo.source;
-            Button_ChangeState.gameObject.SetActive(true);
+            
+            //服务器不能用，暂时砍掉下架功能
+            //Button_ChangeState.gameObject.SetActive(true);
         }
-        else if (MyData.userInfo.My_UserType == UserType.Broker)
+        else if (MyData.userInfo.UserType == UserType.Broker)
         {
             Price_value.text = iteminfo.BrokerPrice.ToString();
             Source_value.text = "铁汁";
@@ -117,6 +121,13 @@ public class ItemDetailPanel : MonoBehaviour
         {
             sprite = obj.Result;
             Main_Image.sprite = sprite;
+
+            float width = sprite.rect.width;
+            float height = sprite.rect.height;
+
+            float scale = width > height ? 400 / height : 400 / width;
+
+            Main_Image.GetComponent<RectTransform>().sizeDelta = new Vector2(width * scale, height * scale);
         };
     }
 
@@ -190,6 +201,8 @@ public class ItemDetailPanel : MonoBehaviour
             float scale = 1080 / height;//得到放大倍数
 
             Big_Accros_Image.GetComponent<RectTransform>().sizeDelta = new Vector2(width * scale, height * scale);
+
+            Picname_Accros_Text.text = MyData.userInfo.pic_name;
         }
 
         else
@@ -203,6 +216,7 @@ public class ItemDetailPanel : MonoBehaviour
 
             Big_Image.GetComponent<RectTransform>().sizeDelta = new Vector2(width * scale, height * scale);
 
+            Picname_Text.text = MyData.userInfo.pic_name;
         }
     }
     public void Close_Picture()

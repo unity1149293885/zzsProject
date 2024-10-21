@@ -8,7 +8,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
-public  static class XMLTools
+public static class XMLTools
 {
     //读取item XML
     public static async Task ReadItemXml()
@@ -39,6 +39,31 @@ public  static class XMLTools
                 DataManager.PicDic.Add(child.Name,int.Parse(child.InnerText));
             }
             Debug.Log("加载PicCount.XML资源完毕 文件夹数量：" + DataManager.PicDic.Count);
+        };
+    }
+
+    //加载用户列表
+    public static async Task LoadUser()
+    {
+        XmlDocument User_xmlDoc = new XmlDocument();
+        Addressables.LoadAssetAsync<TextAsset>("User_User.XML").Completed += (obj) => {
+            TextAsset text = obj.Result;
+            User_xmlDoc.LoadXml(text.ToString());
+
+            XmlNodeList nodeList = User_xmlDoc.SelectSingleNode("User").ChildNodes;
+            foreach (XmlNode child in nodeList)
+            {
+                UserInfo info = new UserInfo();
+                info.id = int.Parse(child["id"].InnerText);
+                info.name = child["name"].InnerText;
+                info.phone = child["phone"].InnerText;
+                int type = int.Parse(child["type"].InnerText);
+                info.UserType = (UserType)type;
+                info.pic_name = child["pic_name"].InnerText;
+
+                DataManager.AllUserInfos.Add(int.Parse(child["id"].InnerText), info);
+            }
+            Debug.Log("加载User_User.XML资源完毕 已添加用户数量：" + DataManager.AllUserInfos.Count);
         };
     }
     public static async Task LoadBrand()

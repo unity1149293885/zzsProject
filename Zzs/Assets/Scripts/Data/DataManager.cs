@@ -102,7 +102,7 @@ public static class DataManager
         return null;
     }
 
-    public static List<int> DownList;//下架产品数组
+    public static List<int> DownList = new List<int>();//下架产品数组
     //下架产品
     public static void DownItem(int id)
     {
@@ -167,6 +167,43 @@ public static class DataManager
         }
 
         return ans;
+    }
+
+    //本地读表登录
+    public static void Native_LoginGame(LoginReq data)
+    {
+        //直接登录无需校验
+        if (GameConfig.isDirectLogin)
+        {
+            //登录成功 模拟网络返回
+            LoginRst currst = new LoginRst();
+            currst.StateCode = LoginCode.Login_Success;
+
+            MyData.userInfo.UserType = UserType.Broker;
+            MyData.userInfo.pic_name = "测试";
+
+            EventCenter.Broadcast<LoginCode>(EventType.UpdateLoginState, currst.StateCode);
+            return;
+        }
+        LoginRst rst = new LoginRst();
+        foreach (var info in AllUserInfos)
+        {
+            if(info.Value.name == data.Name && info.Value.phone == data.Phone)
+            {
+                //登录成功 模拟网络返回
+                rst.StateCode = LoginCode.Login_Success;
+
+                MyData.userInfo.UserType = info.Value.UserType;
+                MyData.userInfo.pic_name = info.Value.pic_name;
+
+                EventCenter.Broadcast<LoginCode>(EventType.UpdateLoginState, rst.StateCode);
+                return;
+            }
+        }
+        //登录失败
+        rst.StateCode = LoginCode.Login_Fail_UnLogin;
+
+        EventCenter.Broadcast<LoginCode>(EventType.UpdateLoginState, rst.StateCode);
     }
 }
 

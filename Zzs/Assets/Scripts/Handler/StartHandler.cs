@@ -17,7 +17,7 @@ public class StartHandler : HandlerBase
 
                 DataManager.DownList = login_rst.DownList;
 
-                MyData.userInfo.My_UserType = login_rst.userType;
+                MyData.userInfo.UserType = login_rst.userType;
                 //Debug.Log("当前登录账号 账号类型：" + login_rst.userType);
                 break;
             

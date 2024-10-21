@@ -45,7 +45,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 992220f0db1218947bee56e99062e928, type: 2}
   - {fileID: 11400000, guid: fb2df71c17ed5314b8e1bc894feb3f89, type: 2}
   - {fileID: 11400000, guid: cf0229e36b66bb2418c712bc5acb5e27, type: 2}
-  - {fileID: 11400000, guid: 4aeaf1391fd08cd45bfefb6d51ac70f0, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -69,7 +68,7 @@ MonoBehaviour:
         m_Value: http://[PrivateIpAddress]:[HostingServicePort]
     - m_InheritedParent: 
       m_Id: cd9d8ad195ab4e740b4bd4664f613abf
-      m_ProfileName: New Profile
+      m_ProfileName: Git
       m_Values:
       - m_Id: 6f306ed8d81b5484789386ffd59821f5
         m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'

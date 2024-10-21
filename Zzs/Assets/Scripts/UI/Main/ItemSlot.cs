@@ -44,11 +44,11 @@ public class ItemSlot : MonoBehaviour
     public void update_price()
     {
         
-        if (MyData.userInfo.My_UserType == UserType.Teamer || MyData.userInfo.My_UserType == UserType.Manager)
+        if (MyData.userInfo.UserType == UserType.Teamer || MyData.userInfo.UserType == UserType.Manager)
         {
             text_price.text = iteminfo.TeamPrice.ToString();
         }
-        else if (MyData.userInfo.My_UserType == UserType.Broker)
+        else if (MyData.userInfo.UserType == UserType.Broker)
         {
             if (this.iteminfo.isDown)
             {

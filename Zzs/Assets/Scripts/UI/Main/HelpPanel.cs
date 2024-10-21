@@ -17,12 +17,12 @@ public class HelpPanel : MonoBehaviour
         btn_quitLogin.onClick.AddListener(quitlogin);
         btn_close.onClick.AddListener(close);
 
-        if(MyData.userInfo.My_UserType == UserType.Manager)
+        if(MyData.userInfo.UserType == UserType.Manager)
         {
             btn_userManage.gameObject.SetActive(true);
             btn_itemManage.gameObject.SetActive(true);
         }
-        else if (MyData.userInfo.My_UserType == UserType.Teamer)
+        else if (MyData.userInfo.UserType == UserType.Teamer)
         {
             btn_itemManage.gameObject.SetActive(true);
         }

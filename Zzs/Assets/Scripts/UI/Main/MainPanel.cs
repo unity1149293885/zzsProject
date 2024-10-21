@@ -27,6 +27,11 @@ public class MainPanel : MonoBehaviour
 
     async void Awake()
     {
+        if (GameConfig.isConnectNet)
+        {
+            NetManager.InitNet();
+        }
+
         EventCenter.AddListener<bool>(EventType.ChangeItemState, UpdateState);
         EventCenter.AddListener(EventType.UpdateMainPanel, UpdateMainPanel);
         EventCenter.AddListener(EventType.LoadedItemType, InitUI);
@@ -135,5 +140,10 @@ public class MainPanel : MonoBehaviour
         EventCenter.RemoveListener<bool>(EventType.ChangeItemState, UpdateState);
         EventCenter.RemoveListener(EventType.UpdateMainPanel, UpdateMainPanel);
         EventCenter.RemoveListener(EventType.LoadedItemType, InitUI);
+
+        if (GameConfig.isConnectNet)
+        {
+            NetManager.CloseNet();
+        }
     }
 }

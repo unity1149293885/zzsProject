@@ -16,16 +16,22 @@ public static class MySqlInfo
     public static string password = "zzs20001114";
 }
 
+public static class AssetInfo
+{
+    public static string JPGToolPath = "Assets/Config/png.asset";
+}
+
 public static class MyData
 {
     public static UserInfo userInfo = new UserInfo();
 }
 public class UserInfo
 {
-    public long My_id;
-    public string My_name;
-    public string My_phone;
-    public UserType My_UserType;
+    public long id;
+    public string name;
+    public string phone;
+    public UserType UserType;
+    public string pic_name;
 }
 
 public enum UserType

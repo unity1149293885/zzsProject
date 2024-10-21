@@ -28,7 +28,7 @@ public static class CheckPicRes
     [MenuItem("Zzs工具/资源/icon拼写错误检查&&生成资源XML")]
     public static void CheckLittleRoot()
     {
-        Debug.Log("检查拼写的工作目录：" + path);
+        Debug.Log("检查拼写的工作目录：" + path + "完成！");
 
         //创建节点
         doc = new XmlDocument();
@@ -46,7 +46,7 @@ public static class CheckPicRes
         doc.Save(XmlPath);
         AssetDatabase.Refresh();
 
-        Debug.Log("资源信息XML生成成功！：");
+        Debug.Log("资源信息XML生成成功！");
     }
 
     //递归
