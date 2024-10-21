@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 586ceffa498f0c64e82545a049d6c5c7, type: 3}
+  m_Name: png
+  m_EditorClassIdentifier: 
+  paths: []
+  TextureType: 8
+  TextureShape: 1
+  sRGB: 1
+  AlphaSource: 1
+  AlphaIsTransparency: 0
+  NonPowerOf2: 0
+  IsRead: 1
+  StreamingMipmaps: 0
+  MipMapPriority: 0
+  GenerateMipMaps: 0
+  BorderMipmap: 0
+  MipMapFiltering: 0
+  AlphaCutoffValue: 0.5
+  MipMapsPreserveCoverage: 0
+  FadeoutMipMaps: 0
+  FadeRangeleft: 0
+  FadeRangeright: 1
+  WrapMode: 0
+  FilterMode: 1
+  AnisoLevel: 1
+  DefaultMaxSize: 1024
+  DefaultResizeAlgorithm: 0
+  DefaultFormat: 4
+  DefaultCompression: 0
+  IsUseCurnchCompre: 0
+  DefaultCompressionQuality: 50
+  isOverrideIOS: 0
+  IOSMaxSize: 1024
+  IOSResizeAlgorithm: 0
+  IOSFormat: 4
+  IOSCompressionQuality: 50
+  isOverrideAndroid: 1
+  AndroidMaxSize: 1024
+  AndroidResizeAlgorithm: 0
+  AndroidFormat: 53
+  AndroidCompressionQuality: 50
+  androidETC2FallbackOverride: 0
