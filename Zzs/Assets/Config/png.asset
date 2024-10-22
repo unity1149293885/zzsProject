@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 586ceffa498f0c64e82545a049d6c5c7, type: 3}
   m_Name: png
   m_EditorClassIdentifier: 
-  paths: []
+  paths:
+  - "D:\\Unity\\zhangzishuai\\Client\\Zzs\\Assets\\Resources_Pack\\\u8C37\u6C28\u9170\u80FA"
   TextureType: 8
   TextureShape: 1
   sRGB: 1
@@ -43,10 +44,10 @@ MonoBehaviour:
   IOSMaxSize: 1024
   IOSResizeAlgorithm: 0
   IOSFormat: 4
-  IOSCompressionQuality: 50
+  IOSCompressionQuality: 0
   isOverrideAndroid: 1
   AndroidMaxSize: 1024
   AndroidResizeAlgorithm: 0
   AndroidFormat: 53
-  AndroidCompressionQuality: 50
+  AndroidCompressionQuality: 0
   androidETC2FallbackOverride: 0

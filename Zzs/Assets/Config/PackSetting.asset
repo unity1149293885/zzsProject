@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 1
-  m_EditorClassIdentifier: Assembly-CSharp::GameConfig2
+  m_Script: {fileID: 11500000, guid: b2366f4b34a465f4da7a52e516795f73, type: 3}
+  m_Name: PackSetting
+  m_EditorClassIdentifier: 
   isConnectNet: 0
-  isDebug: 1
-  isDirectLogin: 1
+  isOpenDebug: 1
+  isDirectLogin: 0

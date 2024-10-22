@@ -1,0 +1,23 @@
+<User>
+  <data3>
+    <id>2</id>
+    <name>张子帅</name>
+    <phone>13133335840</phone>
+    <type>1</type>
+    <pic_name>TZ运动营养-铁汁</pic_name>
+  </data3>
+  <data4>
+    <id>3</id>
+    <name>张三</name>
+    <phone>13133335840</phone>
+    <type>2</type>
+    <pic_name>TZ运动营养-张三</pic_name>
+  </data4>
+  <data5>
+    <id>4</id>
+    <name>彭阳</name>
+    <phone>15283778607</phone>
+    <type>3</type>
+    <pic_name>阿阳健身</pic_name>
+  </data5>
+</User>

@@ -114,4 +114,14 @@
     <brand>魔兽</brand>
     <sort>2</sort>
   </data25>
+  <data26>
+    <id>123</id>
+    <brand>衣服</brand>
+    <sort>3</sort>
+  </data26>
+  <data27>
+    <id>124</id>
+    <brand>鞋子</brand>
+    <sort>3</sort>
+  </data27>
 </Brand>

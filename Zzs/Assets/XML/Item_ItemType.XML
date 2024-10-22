@@ -81,7 +81,7 @@
   </data18>
   <data19>
     <id>217</id>
-    <type>待填充</type>
+    <type>鞋子</type>
     <sort>8</sort>
   </data19>
   <data20>
@@ -99,4 +99,9 @@
     <type>运动恢复相关</type>
     <sort>4</sort>
   </data22>
+  <data23>
+    <id>221</id>
+    <type>衣服和鞋子</type>
+    <sort>6</sort>
+  </data23>
 </ItemType>

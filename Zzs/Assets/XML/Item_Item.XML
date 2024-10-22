@@ -465,6 +465,21 @@
     <tip>实惠</tip>
   </data33>
   <data34>
+    <id>2053</id>
+    <name>km谷氨酰胺500g</name>
+    <brand>117</brand>
+    <type>205</type>
+    <teamPrice>60</teamPrice>
+    <brokerPrice>70</brokerPrice>
+    <retailPrice>99</retailPrice>
+    <taobaoPrice>99</taobaoPrice>
+    <source>阿亮</source>
+    <size>500g</size>
+    <taste>原味</taste>
+    <desc>km高纯谷氨酰胺大容量500g，100份用量，美国🇺🇸原装进口，数量不多，超高品质，25年4月底到期</desc>
+    <tip>实惠</tip>
+  </data34>
+  <data35>
     <id>2061</id>
     <name>康比特锌镁支链</name>
     <brand>101</brand>
@@ -478,8 +493,8 @@
     <taste>冰红茶</taste>
     <desc>促进肌肉合成，防止肌肉分解</desc>
     <tip>0</tip>
-  </data34>
-  <data35>
+  </data35>
+  <data36>
     <id>2062</id>
     <name>Keep支链300g</name>
     <brand>117</brand>
@@ -493,8 +508,8 @@
     <taste>橙子|西瓜|柠檬</taste>
     <desc>口感好，训练过程中当饮料喝很不错</desc>
     <tip>0</tip>
-  </data35>
-  <data36>
+  </data36>
+  <data37>
     <id>2063</id>
     <name>Keep支链500g</name>
     <brand>117</brand>
@@ -508,8 +523,8 @@
     <taste>百香果|橙子|苹果|绿茶|柠檬</taste>
     <desc>口感好，训练过程中当饮料喝很不错，500g大包装，性价比高</desc>
     <tip>实惠</tip>
-  </data36>
-  <data37>
+  </data37>
+  <data38>
     <id>2071</id>
     <name>as十全鹿丸</name>
     <brand>100</brand>
@@ -523,8 +538,8 @@
     <taste>无</taste>
     <desc>最牛的促睾（促睾+补肾）配料都是中药材</desc>
     <tip>0</tip>
-  </data37>
-  <data38>
+  </data38>
+  <data39>
     <id>2072</id>
     <name>诺特锌镁片</name>
     <brand>115</brand>
@@ -538,8 +553,8 @@
     <taste>无</taste>
     <desc>最便宜的促睾，可以顺便补充维生素</desc>
     <tip>实惠</tip>
-  </data38>
-  <data39>
+  </data39>
+  <data40>
     <id>2073</id>
     <name>特拉维尔精氨酸</name>
     <brand>118</brand>
@@ -553,8 +568,8 @@
     <taste>无</taste>
     <desc>45天量，精氨酸+维生素二合一</desc>
     <tip>实惠</tip>
-  </data39>
-  <data40>
+  </data40>
+  <data41>
     <id>2074</id>
     <name>土克甾酮</name>
     <brand>113</brand>
@@ -568,8 +583,8 @@
     <taste>无</taste>
     <desc>自然选手外挂</desc>
     <tip>质量</tip>
-  </data40>
-  <data41>
+  </data41>
+  <data42>
     <id>2151</id>
     <name>sst维生素</name>
     <brand>106</brand>
@@ -583,8 +598,8 @@
     <taste>无</taste>
     <desc>维生素天花板</desc>
     <tip>质量</tip>
-  </data41>
-  <data42>
+  </data42>
+  <data43>
     <id>2141</id>
     <name>gat左旋</name>
     <brand>103</brand>
@@ -598,8 +613,8 @@
     <taste>草莓</taste>
     <desc>性价比最高的左旋，没有之一</desc>
     <tip>实惠</tip>
-  </data42>
-  <data43>
+  </data43>
+  <data44>
     <id>2142</id>
     <name>炽天使燃脂</name>
     <brand>113</brand>
@@ -613,8 +628,8 @@
     <taste>无</taste>
     <desc>效果对标蓝魔，利润高，早上空腹有氧前吃一个或者两个，嘎嘎猛</desc>
     <tip>质量</tip>
-  </data43>
-  <data44>
+  </data44>
+  <data45>
     <id>2161</id>
     <name>特拉维尔鱼油</name>
     <brand>118</brand>
@@ -628,9 +643,9 @@
     <taste>无</taste>
     <desc>性价比比较高的鱼油，线上没有控价，灵活定价</desc>
     <tip>实惠</tip>
-  </data44>
-  <data45>
-    <id>2082</id>
+  </data45>
+  <data46>
+    <id>2201</id>
     <name>诺特电解质</name>
     <brand>115</brand>
     <type>220</type>
@@ -643,8 +658,8 @@
     <taste>草莓|柠檬|橙子|西游|可乐</taste>
     <desc>每单2块钱邮费，一盒6块钱，十盒打包50</desc>
     <tip>0</tip>
-  </data45>
-  <data46>
+  </data46>
+  <data47>
     <id>2081</id>
     <name>公爵牛皮助力带</name>
     <brand>104</brand>
@@ -658,8 +673,8 @@
     <taste>棕|黑|紫</taste>
     <desc>练背辅助握力</desc>
     <tip>质量</tip>
-  </data46>
-  <data47>
+  </data47>
+  <data48>
     <id>2082</id>
     <name>公爵压印腰带</name>
     <brand>104</brand>
@@ -673,8 +688,8 @@
     <taste>看图</taste>
     <desc>硬拉，深蹲保护腰椎，避免受伤</desc>
     <tip>质量</tip>
-  </data47>
-  <data48>
+  </data48>
+  <data49>
     <id>2083</id>
     <name>轮子哥护腕</name>
     <brand>107</brand>
@@ -688,8 +703,8 @@
     <taste>绿|黑|紫</taste>
     <desc>轮子哥赛季护腕，为你的训练保驾护航，远离伤病</desc>
     <tip>质量</tip>
-  </data48>
-  <data49>
+  </data49>
+  <data50>
     <id>2084</id>
     <name>轮子哥绑肘</name>
     <brand>107</brand>
@@ -703,8 +718,8 @@
     <taste>绿|黑|紫</taste>
     <desc>轮子哥赛季护肘，为你的训练保驾护航，远离伤病</desc>
     <tip>质量</tip>
-  </data49>
-  <data50>
+  </data50>
+  <data51>
     <id>2085</id>
     <name>轮子哥套肘</name>
     <brand>107</brand>
@@ -718,8 +733,8 @@
     <taste>蓝|灰|黑</taste>
     <desc>轮子哥赛季护肘，为你的训练保驾护航，远离伤病，价格高于绑肘</desc>
     <tip>0</tip>
-  </data50>
-  <data51>
+  </data51>
+  <data52>
     <id>2086</id>
     <name>轮子哥绑膝</name>
     <brand>107</brand>
@@ -733,8 +748,8 @@
     <taste>绿|黑|紫</taste>
     <desc>轮子哥赛季护膝，为你的训练保驾护航，远离伤病</desc>
     <tip>0</tip>
-  </data51>
-  <data52>
+  </data52>
+  <data53>
     <id>2087</id>
     <name>轮子哥套膝</name>
     <brand>107</brand>
@@ -748,8 +763,8 @@
     <taste>蓝|灰|黑</taste>
     <desc>轮子哥赛季护膝，为你的训练保驾护航，远离伤病，价格高于绑膝</desc>
     <tip>0</tip>
-  </data52>
-  <data53>
+  </data53>
+  <data54>
     <id>2181</id>
     <name>电动摇摇杯</name>
     <brand>115</brand>
@@ -763,8 +778,8 @@
     <taste>无</taste>
     <desc>装电池，解放双手</desc>
     <tip>0</tip>
-  </data53>
-  <data54>
+  </data54>
+  <data55>
     <id>2182</id>
     <name>魔兽健身包</name>
     <brand>122</brand>
@@ -778,8 +793,8 @@
     <taste>无</taste>
     <desc>可以放两桶五磅的粉，日常够用，干湿分离，性价比高，防水耐磨</desc>
     <tip>0</tip>
-  </data54>
-  <data55>
+  </data55>
+  <data56>
     <id>2183</id>
     <name>嗅盐</name>
     <brand>113</brand>
@@ -793,8 +808,8 @@
     <taste>薄荷|玫瑰|原味薰衣草</taste>
     <desc>一口提神醒脑，开车，训练，上课都能用来提神，保存好可以用好几个月</desc>
     <tip>好卖</tip>
-  </data55>
-  <data56>
+  </data56>
+  <data57>
     <id>2111</id>
     <name>cbba初级</name>
     <brand>109</brand>
@@ -806,10 +821,10 @@
     <source>太原/姜太医</source>
     <size>无</size>
     <taste>无</taste>
-    <desc>健身行业敲门砖，含金量偏高，保有量最大，需要线上考试</desc>
+    <desc>健身行业敲门砖，含金量偏高，保有量最大，需要线上考试。报名赠送书籍和衣服，这些考试需要。考试流程：1.下载海健身app，客户实名认证，转账后发我客户信息（名字电话号地址）2.腾讯会议露脸，工作人员截图。3.海健身app线上答题考试。以上具体时间等我通知即可</desc>
     <tip>利润</tip>
-  </data56>
-  <data57>
+  </data57>
+  <data58>
     <id>2112</id>
     <name>cbba中级</name>
     <brand>109</brand>
@@ -821,10 +836,10 @@
     <source>太原/姜太医</source>
     <size>无</size>
     <taste>无</taste>
-    <desc>健身行业敲门砖，含金量偏高，保有量最大，需要线上考试</desc>
+    <desc>健身行业敲门砖，含金量偏高，保有量最大，需要线上考试。报名赠送书籍和衣服，这些考试需要。考试流程：1.下载海健身app，客户实名认证，转账后发我客户信息（名字电话号地址）2.腾讯会议露脸，工作人员截图。3.海健身app线上答题考试。以上具体时间等我通知即可</desc>
     <tip>利润</tip>
-  </data57>
-  <data58>
+  </data58>
+  <data59>
     <id>2113</id>
     <name>cbba高级</name>
     <brand>109</brand>
@@ -836,10 +851,10 @@
     <source>太原/姜太医</source>
     <size>无</size>
     <taste>无</taste>
-    <desc>健身行业敲门砖，含金量偏高，保有量最大，需要线上考试</desc>
+    <desc>健身行业敲门砖，含金量偏高，保有量最大，需要线上考试。报名赠送书籍和衣服，这些考试需要。考试流程：1.下载海健身app，客户实名认证，转账后发我客户信息（名字电话号地址）2.腾讯会议露脸，工作人员截图。3.海健身app线上答题考试。以上具体时间等我通知即可</desc>
     <tip>利润</tip>
-  </data58>
-  <data59>
+  </data59>
+  <data60>
     <id>2114</id>
     <name>cbba国家级</name>
     <brand>109</brand>
@@ -851,10 +866,10 @@
     <source>太原/姜太医</source>
     <size>无</size>
     <taste>无</taste>
-    <desc>健身行业敲门砖，含金量偏高，保有量最大，需要线上考试</desc>
+    <desc>健身行业敲门砖，含金量偏高，保有量最大，需要线上考试。报名赠送书籍和衣服，这些考试需要。考试流程：1.下载海健身app，客户实名认证，转账后发我客户信息（名字电话号地址）2.腾讯会议露脸，工作人员截图。3.海健身app线上答题考试。以上具体时间等我通知即可</desc>
     <tip>利润</tip>
-  </data59>
-  <data60>
+  </data60>
+  <data61>
     <id>2115</id>
     <name>ifbb</name>
     <brand>109</brand>
@@ -866,10 +881,10 @@
     <source>太原</source>
     <size>无</size>
     <taste>无</taste>
-    <desc>含金量不如cbba，不需要考试</desc>
+    <desc>不需要考试，整体周期一个月，交钱等待即可</desc>
     <tip>0</tip>
-  </data60>
-  <data61>
+  </data61>
+  <data62>
     <id>2116</id>
     <name>欧盟</name>
     <brand>109</brand>
@@ -883,8 +898,8 @@
     <taste>无</taste>
     <desc>b格很高，含金量也不错，无需考试</desc>
     <tip>0</tip>
-  </data61>
-  <data62>
+  </data62>
+  <data63>
     <id>2117</id>
     <name>奥赛注册级</name>
     <brand>109</brand>
@@ -898,8 +913,8 @@
     <taste>无</taste>
     <desc>b格最高，陈康同款，含金量高，无需考试。分为注册级和高级，高级含金量更高也更贵</desc>
     <tip>0</tip>
-  </data62>
-  <data63>
+  </data63>
+  <data64>
     <id>2117</id>
     <name>奥赛高级</name>
     <brand>109</brand>
@@ -913,8 +928,8 @@
     <taste>无</taste>
     <desc>b格最高，陈康同款，含金量高，无需考试。分为注册级和高级，高级含金量更高也更贵</desc>
     <tip>0</tip>
-  </data63>
-  <data64>
+  </data64>
+  <data65>
     <id>2118</id>
     <name>ifba</name>
     <brand>109</brand>
@@ -928,8 +943,8 @@
     <taste>无</taste>
     <desc>私教，体适能，体重，康复，营养，体态，格斗，普拉提，产后都可办理</desc>
     <tip>0</tip>
-  </data64>
-  <data65>
+  </data65>
+  <data66>
     <id>2091</id>
     <name>希爱力10粒</name>
     <brand>116</brand>
@@ -943,5 +958,35 @@
     <taste>无</taste>
     <desc>严格按照说明服用，半个起步</desc>
     <tip>利润</tip>
-  </data65>
+  </data66>
+  <data67>
+    <id>2211</id>
+    <name>冲锋衣</name>
+    <brand>123</brand>
+    <type>221</type>
+    <teamPrice>78</teamPrice>
+    <brokerPrice>85</brokerPrice>
+    <retailPrice>99</retailPrice>
+    <taobaoPrice>300</taobaoPrice>
+    <source>潮服|胖虎</source>
+    <size>具体看尺码表</size>
+    <taste>看尺码表</taste>
+    <desc>冲锋衣主要是防风，保暖靠内胆，所有款式都可搭配内胆，客户不满意支持退换货</desc>
+    <tip>好卖</tip>
+  </data67>
+  <data68>
+    <id>2212</id>
+    <name>冲锋衣带内胆</name>
+    <brand>123</brand>
+    <type>221</type>
+    <teamPrice>145</teamPrice>
+    <brokerPrice>155</brokerPrice>
+    <retailPrice>199</retailPrice>
+    <taobaoPrice>500</taobaoPrice>
+    <source>潮服|胖虎</source>
+    <size>具体看尺码表</size>
+    <taste>看尺码表</taste>
+    <desc>冲锋衣主要是防风，保暖靠内胆，所有款式都可搭配内胆，客户不满意支持退换货</desc>
+    <tip>好卖</tip>
+  </data68>
 </Item>

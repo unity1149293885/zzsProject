@@ -7,6 +7,8 @@ public class GameStart : MonoBehaviour
 {
     async void Awake()
     {
+        XMLTools.LoadGameConfig();
+
         if (GameConfig.isConnectNet)
         {
             NetManager.InitNet();

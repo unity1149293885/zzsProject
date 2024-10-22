@@ -18,7 +18,9 @@ public static class MySqlInfo
 
 public static class AssetInfo
 {
-    public static string JPGToolPath = "Assets/Config/png.asset";
+    public static string JPGSettingPath = "Assets/Config/png.asset";
+
+    public static string PackSettingPath = "Assets/Config/PackSetting.asset";
 }
 
 public static class MyData
