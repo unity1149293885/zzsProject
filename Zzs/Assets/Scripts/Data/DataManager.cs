@@ -170,17 +170,26 @@ public static class DataManager
     }
 
     //本地读表登录
-    public static void Native_LoginGame(LoginReq data)
+    public static void Native_LoginGame(LoginReq data,bool isNewUser)
     {
-        //直接登录无需校验
-        if (GameConfig.isDirectLogin)
+        //直接登录无需校验 | 或者是游客登录
+        if (GameConfig.isDirectLogin || isNewUser == true)
         {
             //登录成功 模拟网络返回
             LoginRst currst = new LoginRst();
             currst.StateCode = LoginCode.Login_Success;
 
-            MyData.userInfo.UserType = UserType.Broker;
-            MyData.userInfo.pic_name = "测试";
+            if (isNewUser == true)
+            {
+                //游客登录
+                MyData.userInfo.UserType = UserType.NewUser;
+                MyData.userInfo.pic_name = "专属水映";
+            }
+            else
+            {
+                MyData.userInfo.UserType = UserType.Broker;
+                MyData.userInfo.pic_name = "测试";
+            }
 
             EventCenter.Broadcast<LoginCode>(EventType.UpdateLoginState, currst.StateCode);
             return;

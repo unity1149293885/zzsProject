@@ -11,7 +11,7 @@ namespace EditorTools
 {
     public static class PackGame
     {
-        [MenuItem("Zzs工具/打包/构建整包")]
+        [MenuItem("Zzs工具/打包/构建整包apk + 资源整包")]
         public static void StartPack()
         {
             UpdateGameGonfig();
@@ -21,7 +21,7 @@ namespace EditorTools
             BuildAddressablesAndPlayer();
         }
 
-        [MenuItem("Zzs工具/打包/构建热更包")]
+        [MenuItem("Zzs工具/打包/构建 资源 热更包")]
         public static void StartHotPack()
         {
             UpdateGameGonfig();
@@ -31,18 +31,19 @@ namespace EditorTools
         public static void UpdateGameGonfig()
         {
             //1.更新最新表格数据
-            ExcelTool.ExcelToXML();
+            if (ExcelTool.ExcelToXML() == true)
+            {
+                //2.更新资源数据
+                CheckPicRes.CheckLittleRoot();
 
-            //2.更新资源数据
-            CheckPicRes.CheckLittleRoot();
+                //3.生成图集
+                PackAtlas.GenAtlas();
 
-            //3.生成图集
-            PackAtlas.GenAtlas();
+                //4.将jpg自动放入group中
+                PackAtlas.AutoSetJpgs();
 
-            //4.将jpg自动放入group中
-            PackAtlas.AutoSetJpgs();
-
-            Debug.Log("一键更新完成！");
+                Debug.Log("一键更新完成！");
+            }
         }
 
         public static void BuildAddressablesAndPlayer()

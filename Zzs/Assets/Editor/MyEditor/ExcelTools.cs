@@ -30,7 +30,7 @@ namespace EditorTools
     public class ExcelTool
     {
         [MenuItem("Zzs工具/Excel/Excel表格转成XML数据")]
-        public static void ExcelToXML()
+        public static bool ExcelToXML()
         {
             DirectoryInfo folder = new DirectoryInfo(ExcelConfig.excelsFolderPath);
             foreach (FileInfo excel in folder.GetFiles("*.xlsx"))
@@ -82,6 +82,11 @@ namespace EditorTools
                         //某一行的所有列
                         for (int rowIndex = 1; rowIndex <= sheet.Dimension.Columns; rowIndex++)
                         {
+                            if(sheet.Cells[ColumnIndex, rowIndex].Value == null)
+                            {
+                                Debug.LogError("请检查是否有空格？行数："+ ColumnIndex +"列数："+ rowIndex);
+                                return false;
+                            }
                             string rowData = sheet.Cells[ColumnIndex, rowIndex].Value.ToString();
 
                             //当前格子的数据
@@ -97,6 +102,7 @@ namespace EditorTools
             AssetDatabase.Refresh();
 
             Debug.Log("刷表完成！");
+            return true;
         }
     }
 }

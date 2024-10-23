@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class StartPanel : MonoBehaviour
 {
     public Button Button_login;
+    public Button Button_NewLogin;
     public InputField Input_name;
     public InputField Input_phone;
 
@@ -23,9 +24,6 @@ public class StartPanel : MonoBehaviour
     // 用以接受异步加载的返回值
     AsyncOperation AsyncOp = null;
 
-    public UserType userType;
-    
-
     private void Awake()
     {
         Application.targetFrameRate = 60;
@@ -37,7 +35,9 @@ public class StartPanel : MonoBehaviour
     private void Start()
     {
         //事件监听
-        Button_login.onClick.AddListener(ClickStart);
+        Button_login.onClick.AddListener(delegate { ClickStart(); });
+
+        Button_NewLogin.onClick.AddListener(delegate { ClickStart(true); });
 
         EventCenter.AddListener<LoginCode>(EventType.UpdateLoginState, UpdateState);
     }
@@ -63,8 +63,14 @@ public class StartPanel : MonoBehaviour
     }
 
 
-    public void ClickStart()
+    public void ClickStart(bool isNew = false)
     {
+        if(isNew == true)
+        {
+            //游客登录
+            DataManager.Native_LoginGame(null, true);
+            return;
+        }
         LoginReq data = new LoginReq();
         data.Name = Input_name.text;
         data.Phone = Input_phone.text;
@@ -77,22 +83,22 @@ public class StartPanel : MonoBehaviour
             return;
         }
 
-        AsyncCallback callback = ar =>
-        {
-
-        };
-
+        //走网络通信
         if (GameConfig.isConnectNet)
         {
-            //走网络通信
+            //回调
+            AsyncCallback callback = ar =>
+            {
+
+            };
+
             NetManager.SendtoServer<LoginReq>((int)ProcolCode.Code_Login_req, data, callback);
         }
         else
         {
             //走本地表格数据
-            DataManager.Native_LoginGame(data);
+            DataManager.Native_LoginGame(data, false);
         }
-        
     }
     
 

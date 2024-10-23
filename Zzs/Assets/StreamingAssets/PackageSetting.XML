@@ -1,5 +1,5 @@
 <Setting>
   <isConnectNet>False</isConnectNet>
   <isOpenDebug>False</isOpenDebug>
-  <isDirectLogin>True</isDirectLogin>
+  <isDirectLogin>False</isDirectLogin>
 </Setting>

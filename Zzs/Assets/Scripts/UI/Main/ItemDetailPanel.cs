@@ -107,6 +107,11 @@ public class ItemDetailPanel : MonoBehaviour
             Source_value.text = "铁汁";
             Button_ChangeState.gameObject.SetActive(false);
         }
+        else if (MyData.userInfo.UserType == UserType.NewUser )
+        {
+            Price_value.text = "入代看底价";
+            Source_value.text = "铁汁";
+        }
 
         Size_value.text = iteminfo.size;
         Taste_value.text = iteminfo.taste;

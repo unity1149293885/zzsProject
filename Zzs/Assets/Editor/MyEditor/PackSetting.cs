@@ -18,8 +18,6 @@ public class PackSetting: ScriptableObject
     public bool isDirectLogin = true;//是否直接登录上去 无需走检测
 }
 
-
-
 [CustomEditor(typeof(PackSetting))]
 public class ScoreDataEditor : Editor
 {
@@ -39,7 +37,7 @@ public class ScoreDataEditor : Editor
         {
             PackGame.UpdateGameGonfig();
         }
-        if (GUILayout.Button("构建整包（更新配置）"))
+        if (GUILayout.Button("构建：整包apk + 资源整包"))
         {
             //配置文件更新
             XMLTools.UpdateGameConfigXML(isConnectNet, isOpenDebug, isDirectLogin);
@@ -47,13 +45,23 @@ public class ScoreDataEditor : Editor
             //开始构建
             PackGame.StartPack();
         }
-        if (GUILayout.Button("构建整包（单纯打包）"))
+        if (GUILayout.Button("构建：整包apk"))
         {
+            //配置文件更新
+            XMLTools.UpdateGameConfigXML(isConnectNet, isOpenDebug, isDirectLogin);
             //开始构建
             PackGame.BuildAddressablesAndPlayer();
         }
 
-        if (GUILayout.Button("构建热更包"))
+        if (GUILayout.Button("构建：资源 整包"))
+        {
+            //配置文件更新
+            PackGame.UpdateGameGonfig();
+            //开始构建
+            PackGame.BuildAddressables();
+        }
+
+        if (GUILayout.Button("构建：资源 更新包"))
         {
             //配置文件更新
             PackGame.UpdateGameGonfig();
@@ -65,7 +73,5 @@ public class ScoreDataEditor : Editor
                 ContentUpdateScript.BuildContentUpdate(AddressableAssetSettingsDefaultObject.Settings, path);
             }
         }
-
-        
     }
 }

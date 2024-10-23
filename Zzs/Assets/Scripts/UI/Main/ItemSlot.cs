@@ -56,6 +56,11 @@ public class ItemSlot : MonoBehaviour
             }
             text_price.text = iteminfo.BrokerPrice.ToString();
         }
+        else if (MyData.userInfo.UserType == UserType.NewUser)
+        {
+            //对游客隐藏价格
+            text_price.text = "加入代理看底价";
+        }
     }
 
     public void update_tip(bool state,string content)

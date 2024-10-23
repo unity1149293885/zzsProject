@@ -41,6 +41,9 @@ public enum UserType
     Manager = 1,
     Teamer = 2,
     Broker = 3,
+
+    //游客
+    NewUser = 9,
 }
 
 public class BrandInfo
