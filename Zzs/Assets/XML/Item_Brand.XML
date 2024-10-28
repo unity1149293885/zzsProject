@@ -124,4 +124,24 @@
     <brand>鞋子</brand>
     <sort>3</sort>
   </data27>
+  <data28>
+    <id>125</id>
+    <brand>训练怪兽</brand>
+    <sort>2</sort>
+  </data28>
+  <data29>
+    <id>126</id>
+    <brand>一次性电子烟</brand>
+    <sort>3</sort>
+  </data29>
+  <data30>
+    <id>127</id>
+    <brand>烟杆</brand>
+    <sort>3</sort>
+  </data30>
+  <data31>
+    <id>128</id>
+    <brand>烟弹</brand>
+    <sort>3</sort>
+  </data31>
 </Brand>

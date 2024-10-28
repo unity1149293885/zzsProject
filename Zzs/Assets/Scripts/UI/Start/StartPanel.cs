@@ -79,7 +79,7 @@ public class StartPanel : MonoBehaviour
 
         if (Input_name.text == "" || Input_phone.text == "")
         {
-            EventCenter.Broadcast<string>(EventType.UpdateMessageBox, "名字或电话号不能为空");
+            MessageTip.showTip("名字或电话号不能为空");
             return;
         }
 

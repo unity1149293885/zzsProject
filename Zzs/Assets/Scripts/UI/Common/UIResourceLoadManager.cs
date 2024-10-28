@@ -15,6 +15,18 @@ public class UIResourceLoadManager : UnitySingleton<UIResourceLoadManager>
     private AsyncOperationHandle<SpriteAtlas> handle;
     private void Awake()
     {
+        string path = "as半分离乳清5磅_0.jpg";
+        Addressables.LoadAssetAsync<Sprite>(path).Completed += (obj) =>
+        {
+            if (obj.Result != null)
+            {
+                Debug.Log("加载大图完成");
+            }
+            else
+            {
+                Debug.LogError("加载大图失败 请检查！");
+            }
+        };
         Addressables.LoadAssetAsync<SpriteAtlas>("LittleIcon").Completed += (obj) =>
         {
             handle = obj;
@@ -27,6 +39,8 @@ public class UIResourceLoadManager : UnitySingleton<UIResourceLoadManager>
                 Debug.LogError("加载图集LittleIcon失败 请检查！");
             }
         };
+
+        
     }
 
 

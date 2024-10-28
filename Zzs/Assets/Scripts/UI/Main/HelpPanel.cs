@@ -10,6 +10,10 @@ public class HelpPanel : MonoBehaviour
     public Button btn_itemManage;
     public Button btn_quitLogin;
     public Button btn_close;
+
+    public GameObject BrandContent;
+    public GameObject brand_item;
+    private List<GameObject> itemList = new List<GameObject>();
     void Start()
     {
         btn_userManage.onClick.AddListener(OpenUserManage);
@@ -25,6 +29,14 @@ public class HelpPanel : MonoBehaviour
         else if (MyData.userInfo.UserType == UserType.Teamer)
         {
             btn_itemManage.gameObject.SetActive(true);
+        }
+        if (itemList.Count > 0) return;
+        foreach(var it in DataManager.BrandDic)
+        {
+            BrandInfo info = it.Value;
+            GameObject item = GameObject.Instantiate(brand_item, BrandContent.transform);
+            item.GetComponent<Text>().text = info.brand;
+            item.SetActive(true);
         }
     }
 

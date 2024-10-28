@@ -28,9 +28,85 @@ public class CheckUpdateAndDownload : MonoBehaviour
         });
 
         // 默认自动执行一次更新检测
-        StartCoroutine(DoUpdateAddressadble());
+        //StartCoroutine(DoUpdateAddressadble());
+
+        checkDown();
     }
 
+    public void checkDown()
+    {
+        // 检查是否有新版资源目录可用并进行自动更新
+        Addressables.CheckForCatalogUpdates(true).Completed += handle =>
+        {
+            if (handle.Status == AsyncOperationStatus.Succeeded)
+            {
+                if (handle.Result.Count > 0)
+                {
+                    var updateHandle = Addressables.UpdateCatalogs(handle.Result, true);
+
+
+                    if (updateHandle.Status != AsyncOperationStatus.Succeeded)
+                    {
+                        OnError("UpdateCatalogs Error\n" + updateHandle.OperationException.ToString());
+                        return;
+                    }
+
+                    // 更新列表迭代器
+                    List<IResourceLocator> locators = updateHandle.Result;
+                    foreach (var locator in locators)
+                    {
+                        List<object> keys = new List<object>();
+                        keys.AddRange(locator.Keys);
+                        // 获取待下载的文件总大小
+                        var sizeHandle = Addressables.GetDownloadSizeAsync(keys.GetEnumerator());
+
+                        if (sizeHandle.Status != AsyncOperationStatus.Succeeded)
+                        {
+                            OnError("GetDownloadSizeAsync Error\n" + sizeHandle.OperationException.ToString());
+                            return;
+                        }
+
+                        long totalDownloadSize = sizeHandle.Result;
+                        updateText.text = updateText.text + "\ndownload size : " + totalDownloadSize;
+                        Debug.Log("download size : " + totalDownloadSize);
+                        if (totalDownloadSize > 0)
+                        {
+                            // 下载
+                            var downloadHandle = Addressables.DownloadDependenciesAsync(keys, true);
+                            while (!downloadHandle.IsDone)
+                            {
+                                if (downloadHandle.Status == AsyncOperationStatus.Failed)
+                                {
+                                    OnError("DownloadDependenciesAsync Error\n" + downloadHandle.OperationException.ToString());
+                                    return;
+                                }
+                                // 下载进度
+                                float percentage = downloadHandle.PercentComplete;
+                                Debug.Log($"已下载: {percentage}");
+                                updateText.text = updateText.text + $"\n已下载: {percentage}";
+                                
+                            }
+                            if (downloadHandle.Status == AsyncOperationStatus.Succeeded)
+                            {
+                                Debug.Log("下载完毕!");
+                                updateText.text = updateText.text + "\n下载完毕";
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    updateText.text = updateText.text + "\n没有检测到更新";
+                }
+                // 进入游戏
+                EnterGame();
+            }
+            else if (handle.Status == AsyncOperationStatus.Failed)
+            {
+                Debug.LogError("Catalog update failed: " + handle.OperationException.Message);
+            }
+        };
+    }
     IEnumerator DoUpdateAddressadble()
     {
         AsyncOperationHandle<IResourceLocator> initHandle = Addressables.InitializeAsync();
@@ -45,67 +121,7 @@ public class CheckUpdateAndDownload : MonoBehaviour
             yield break;
         }
 
-        if (checkHandle.Result.Count > 0)
-        {
-            var updateHandle = Addressables.UpdateCatalogs(checkHandle.Result, true);
-            yield return updateHandle;
-
-            if (updateHandle.Status != AsyncOperationStatus.Succeeded)
-            {
-                OnError("UpdateCatalogs Error\n" + updateHandle.OperationException.ToString());
-                yield break;
-            }
-
-            // 更新列表迭代器
-            List<IResourceLocator> locators = updateHandle.Result;
-            foreach (var locator in locators)
-            {
-                List<object> keys = new List<object>();
-                keys.AddRange(locator.Keys);
-                // 获取待下载的文件总大小
-                var sizeHandle = Addressables.GetDownloadSizeAsync(keys.GetEnumerator());
-                yield return sizeHandle;
-                if (sizeHandle.Status != AsyncOperationStatus.Succeeded)
-                {
-                    OnError("GetDownloadSizeAsync Error\n" + sizeHandle.OperationException.ToString());
-                    yield break;
-                }
-
-                long totalDownloadSize = sizeHandle.Result;
-                updateText.text = updateText.text + "\ndownload size : " + totalDownloadSize;
-                Debug.Log("download size : " + totalDownloadSize);
-                if (totalDownloadSize > 0)
-                {
-                    // 下载
-                    var downloadHandle = Addressables.DownloadDependenciesAsync(keys, true);
-                    while (!downloadHandle.IsDone)
-                    {
-                        if (downloadHandle.Status == AsyncOperationStatus.Failed)
-                        {
-                            OnError("DownloadDependenciesAsync Error\n" + downloadHandle.OperationException.ToString());
-                            yield break;
-                        }
-                        // 下载进度
-                        float percentage = downloadHandle.PercentComplete;
-                        Debug.Log($"已下载: {percentage}");
-                        updateText.text = updateText.text + $"\n已下载: {percentage}";
-                        yield return null;
-                    }
-                    if (downloadHandle.Status == AsyncOperationStatus.Succeeded)
-                    {
-                        Debug.Log("下载完毕!");
-                        updateText.text = updateText.text + "\n下载完毕";
-                    }
-                }
-            }
-        }
-        else
-        {
-            updateText.text = updateText.text + "\n没有检测到更新";
-        }
-
-        // 进入游戏
-        EnterGame();
+        
     }
 
     // 异常提示

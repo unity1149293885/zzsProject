@@ -26,6 +26,7 @@ public static class XMLTools
 
         await LoadPic();
     }
+
     public static async Task LoadPic()
     {
         XmlDocument Pic_xmlDoc = new XmlDocument();

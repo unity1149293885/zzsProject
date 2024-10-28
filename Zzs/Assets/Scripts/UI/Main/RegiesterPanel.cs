@@ -30,7 +30,7 @@ public class RegiesterPanel : MonoBehaviour
         string phone = Input_Regiesterphone.text;
         if (name == "" || phone == "")
         {
-            EventCenter.Broadcast<string>(EventType.UpdateMessageBox, "名字或电话号不能为空");
+            MessageTip.showTip("名字或电话号不能为空");
             return;
         }
         int type = int.Parse(Input_Regiestertype.text);

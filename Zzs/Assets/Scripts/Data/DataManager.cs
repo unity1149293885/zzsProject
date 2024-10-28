@@ -52,7 +52,7 @@ public static class DataManager
     /// </summary>
     public static void SortItem()
     {
-        AllItemInfos.Sort(new ItemComparer());
+        //AllItemInfos.Sort(new ItemComparer());
 
         //foreach(var it in AllItemInfos)
         //{
@@ -69,6 +69,7 @@ public static class DataManager
                 Debug.LogError("数据异常！");
                 return 1;
             }
+            Debug.LogError(a.name);
             int brand_a_sort = BrandDic[a.brandId].sortid;
             int type_a_sort = TypeDic[a.typeId].sortid;
 

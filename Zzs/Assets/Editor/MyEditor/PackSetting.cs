@@ -51,6 +51,8 @@ public class ScoreDataEditor : Editor
             XMLTools.UpdateGameConfigXML(isConnectNet, isOpenDebug, isDirectLogin);
             //开始构建
             PackGame.BuildAddressablesAndPlayer();
+
+            Debug.Log("apk构建完成：拿包目录：D:/AAA");
         }
 
         if (GUILayout.Button("构建：资源 整包"))

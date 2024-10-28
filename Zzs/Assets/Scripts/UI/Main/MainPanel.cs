@@ -25,6 +25,8 @@ public class MainPanel : MonoBehaviour
 
     protected List<ItemInfo> ItemInfosList;
 
+    public GameObject NotHaveText;
+
     async void Awake()
     {
         if (GameConfig.isConnectNet)
@@ -134,6 +136,8 @@ public class MainPanel : MonoBehaviour
             ItemInfosList = DataManager.GetBrandRangeItemList(it, curBrand);
         }
         recycleView.ShowList(ItemInfosList.Count);
+
+        NotHaveText.SetActive(ItemInfosList.Count == 0);
     }
     private void OnDestroy()
     {
